@@ -1,19 +1,15 @@
 package spring.example.controller;
 
-import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import spring.example.config.SecurityUser;
-import spring.example.domain.User;
 import spring.example.service.UserService;
 
 @Controller
@@ -45,4 +41,14 @@ public class Mycontroller {
 	}
 	
 	
+
+
+	@GetMapping("chan/subHeader")
+	public String subHeader() {
+		return "chan/subHeader";
+	}
+	@GetMapping("chan/mainHeader")
+	public String mainHeader() {
+		return "chan/mainHeader";
+	}
 }
