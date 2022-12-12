@@ -19,4 +19,8 @@ public class Mycontroller {
 	public String mainHeader() {
 		return "chan/mainHeader";
 	}
+	@GetMapping("chan/main")
+	public String main() {
+		return "chan/main";
+	}
 }
