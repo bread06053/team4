@@ -24,11 +24,9 @@ background-size:225% 225%;
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Dongle&display=swap" rel="stylesheet">
 </head>
 <body>
-<center>
 <div id = good align="center" style="width: 1910px; height: 70px;" onclick = "location.href = '/chan/mainHeader'">
 <p class="a"><span style="font-size: 200%;">요</span><span style="font-size:100%;">리초보들을 위한</span>
 <span style="font-size: 200%;">요</span><span style="font-size:100%;">리비책</span></p>
 </div>
-</center>
 </body>
 </html>
