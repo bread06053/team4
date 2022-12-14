@@ -9,9 +9,6 @@ background-image : url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr
 background-repeat : no-repeat;
 background-size:225% 225%;
 }
-.pt1 {
-	font-size:24pt
-}
 .a{
 	font-size:24pt;
 	font-family: 'Dongle', sans-serif;

@@ -1,11 +1,11 @@
 @charset "UTF-8";
-
+* {box-sizing:border-box}
 .yoyo_top h1 {
     margin: 10px 30px 0 0;
     display: inline-block;
     vertical-align: top;
 }
-.yoyoRight  a img {
+.yoyoRight a img {
     width: 85px;
     border-radius: 100%;
 }
@@ -127,5 +127,6 @@ h1 img{
 .yoyo_search .btn {
     background: peru;
     border: 1px solid peru;
-    height: 54px;
+    border-radius: 3px 3px 3px 3px;
+    height: 40px;
 }
