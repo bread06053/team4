@@ -73,7 +73,7 @@ body{
             <input type="checkbox" class="save_id" name="checkId" id="saveId" >
     		<label for="saveId">아이디 저장</label>
         </form>
-        <a href="tae/find">비밀번호를 잊어버리셨나요?</a>
+        <a href="/tae/find">아이디/비밀번호를 잊어버리셨나요?</a>
     </div>
     
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
