@@ -65,5 +65,16 @@ public class Mycontroller {
 	public String mainHeader() {
 		return "chan/mainHeader";
 	}
+	
+	@GetMapping("/tae/popup")
+	public String findid(String email, Model m) {
+		m.addAttribute("id",  service.findid(email));
+		return "/tae/popup";
+	}
+	@GetMapping("/tae/popup2")
+	public String findpw(User user, Model m) {
+		m.addAttribute("pw",  service.findpw(user));
+		return "/tae/popup2";
+	}
 
 }

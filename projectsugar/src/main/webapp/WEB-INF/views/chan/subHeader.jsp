@@ -13,6 +13,7 @@ background-size:225% 225%;
 	font-size:24pt;
 	font-family: 'Dongle', sans-serif;
 	color:ivory;
+	text-align: center;
 }
 </style>
 <%-- <link rel = "stylesheet" href = "/css/font-awesome.min.css"/>--%>

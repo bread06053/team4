@@ -5,13 +5,67 @@
 <title>회원 가입</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Dongle&display=swap" rel="stylesheet">
 <style>
+ 
+
+
+#addbtn {
+background-color: #1BBC9B;
+margin-top : 10px;
+color: white;
+width: 40%;
+padding: 5px;
+}
+#mail_ck {
+background-color: #1BBC9B;
+margin-bottom: 30px;
+margin-top : 10px;
+color: white;
+width: 25%;
+padding: 5px;
+box-sizing: border-box;
+ border-radius: 5px;
+ border: none;
+}
+#ck_b {
+background-color: #1BBC9B;
+margin-bottom: 30px;
+margin-top : 10px;
+color: white;
+width: 25%;
+padding: 10px;
+}
+#id_check {
+background-color: #1BBC9B;
+
+margin-top : 10px;
+margin-left : 10px;
+color: white;
+width: 25%;
+padding: 5px;
+}
+#join{
+background-color: #1BBC9B;
+
+margin-top : 10px;
+margin-left : 10px;
+color: white;
+width: 25%;
+padding: 5px;
+}
 	#input , #result{ display: none;}
-	#joinForm{
-		position: absolute;
-		left : 50%;
-		top: 50%;
-		transform: translate(-50%, -50%);
+	table{
+	 background-color: #EEEFF1;
+	padding-top : 20px;
+	
 	}
+	
+	    input {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border-radius: 5px;
+            border: none;
+        }
 @import url('https://fonts.googleapis.com/css2?family=Dongle&display=swap');
 #good{
 background-image : url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrZdTGyurUhIzhhDK7J4R6XMGSNLVCpLASLw&usqp=CAU");
@@ -25,7 +79,20 @@ background-size:225% 225%;
 	font-size:24pt;
 	font-family: 'Dongle', sans-serif;
 	color:ivory;
+	text-align: center;
 }
+h3{
+	font-family: 'Dongle', sans-serif;
+	font-size:24pt
+}
+td {
+ padding: 10px;
+}
+
+
+
+
+
 </style>
 </head>
 <body>
@@ -36,8 +103,10 @@ background-size:225% 225%;
 <span style="font-size: 200%;">요</span><span style="font-size:100%;">리비책</span></p>
 </div>
 
+
 <form action="/tae/join" method="post" id="joinForm">
-	<table >
+	<table style="border:1px solid black;margin-left:800px;margin-right:auto; margin-top: 150px;width:25%;"> 
+		<tr><td colspan="2"><h3 style = "text-align: center;">요-요</h3></td></tr>
 		<tr><td>아이디</td><td><input name="userid" id="id"><input type="button" id="id_check" value="중복 확인">
 		<div id="id_msg"></div></td></tr>
 		<tr><td>비밀번호</td><td><input name="passwd" type="password" id="password">
@@ -48,17 +117,18 @@ background-size:225% 225%;
 		<div id="nickname_msg"></div></td></tr>
 		<tr><td>주소</td><td><input name="address" id="address">
 		<input type="button" id="addbtn" value="우편번호 검색" onclick="addPost()">
-		<tr><td>상세주소</td><td><input name = "address"></td>
+		<tr><td>상세주소</td><td><input style = "margin-bottom: 10px;" name = "address" ></td>
 		<tr><td>이메일</td><td><input name="email" id="email">
 		<div id="emailresult"></div>
-		<input type="button" id="mail_ck" value="메일 인증">
+		<button id="mail_ck" value="메일 인증">메일 인증</button>
 		<div id="input"><input id="ck_num"> <input type="button" id="ck_b" value="인증 확인"></div>
 		<div id="result"></div>
 		</td></tr>
-		<tr><td colspan="2"><input type="submit" value="가입" onclick = "location.href='/main'"></td></tr>
+		<tr><td colspan="2"><input type="submit" id= "join" value="가입" onclick = "location.href='/main'"></td></tr>
 	</table>
 	
 </form>
+
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>

@@ -2,6 +2,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+<meta name="google-signin-client_id" content="796949115397-ai1it1djvm2m96661au2tgt3e4ftk6l6.apps.googleusercontent.com">
+
+
 <style type="text/css">
 body{
 	background : url("/img/IMG_8048.PNG");
@@ -13,7 +17,7 @@ body{
         }
 
 
-        div {
+        div good2{
             width: 300px;
             position : absolute;
             left : 50%;
@@ -23,7 +27,24 @@ body{
             border-radius: 5px;
             text-align: center;
             padding: 20px;
+          
         }
+        
+        form{
+        	width: 300px;
+            margin-left : 800px;
+            margin-top : 500px;
+			background-color: #EEEFF1;
+            border-radius: 5px;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        #g-signin2{
+		    margin-left : 50%;
+            margin-top : 50%;
+        }
+     
 
         input {
             width: 100%;
@@ -70,13 +91,28 @@ body{
             <input type="text" name="username" placeholder="아이디" class="in">
             <input type="password" name="password" placeholder="비밀번호" class="in">
             <input type="submit" id="btn" value="로그인"><br>
-            <input type="checkbox" class="save_id" name="checkId" id="saveId" >
-    		<label for="saveId">아이디 저장</label>
-        </form>
+            
+            <div class="g-signin2" data-onsuccess="onSignIn"></div>
+    	
+        
         <a href="/tae/find">아이디/비밀번호를 잊어버리셨나요?</a>
+        
+		
+        </div>
+      <!-- 아래와같이 아이디를 꼭 써준다. -->
+     <!-- <button id="naverIdLogin_loginButton" href="javascript:void(0)">네이버 로그인</button> -->
+
+	
+	<!--   <button onclick="naverLogout(); return false;" href="javascript:void(0)">네이버 로그인</button> -->
+
+<br>
+    <!--     <a href="#" onclick="signOut();">Sign out</a> -->
+        
+        </form>
     </div>
     
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
 <script type="text/javascript">
      $(function() {
          
@@ -146,10 +182,21 @@ body{
              
         }
     }
- 
+    
+    function onSignIn(googleUser) {
+    	  var profile = googleUser.getBasicProfile();
+    	  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+    	  console.log('Name: ' + profile.getName());
+    	  console.log('Image URL: ' + profile.getImageUrl());
+    	  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+    	}
+    
  
     
+   
+
     
 </script>
+
 </body>
 </html>
