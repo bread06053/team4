@@ -30,7 +30,7 @@ String idCheck(String id);
 String findpw(User user);
 
 @Select
-("select userid from where email = #{email}")
+("select userid from user where email = #{email}")
 String findid(String email);
 
 @Select
