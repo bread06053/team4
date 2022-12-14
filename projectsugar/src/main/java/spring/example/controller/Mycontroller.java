@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import spring.example.config.SecurityUser;
+import spring.example.domain.User;
 import spring.example.service.UserService;
 
 @Controller
@@ -40,8 +41,21 @@ public class Mycontroller {
 		return "redirect:/main";
 	}
 	
+	@PostMapping("/tae/join")
+	public String insert(User user) {
+		service.insertuser(user);
+		return "redirect:/main";
+	}
 	
-
+	@GetMapping("tae/find")
+	public String find() {
+		return "tae/find";
+	}
+	
+	@GetMapping("chan/main")
+	public String main() {
+		return "chan/main";
+	}
 
 	@GetMapping("chan/subHeader")
 	public String subHeader() {
