@@ -52,7 +52,8 @@ color: white;
 width: 25%;
 padding: 5px;
 }
-	#input , #result{ display: none;}
+#input , #result{ display: none;}
+	
 	table{
 	 background-color: #EEEFF1;
 	padding-top : 20px;
