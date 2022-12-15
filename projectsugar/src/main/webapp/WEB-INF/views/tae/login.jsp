@@ -5,7 +5,6 @@
 
 <meta name="google-signin-client_id" content="796949115397-ai1it1djvm2m96661au2tgt3e4ftk6l6.apps.googleusercontent.com">
 
-
 <style type="text/css">
 body{
 	background : url("/img/IMG_8048.PNG");
@@ -98,14 +97,13 @@ body{
         <a href="/tae/find">아이디/비밀번호를 잊어버리셨나요?</a>
         
 		
-        </div>
+ 
       <!-- 아래와같이 아이디를 꼭 써준다. -->
      <!-- <button id="naverIdLogin_loginButton" href="javascript:void(0)">네이버 로그인</button> -->
 
 	
 	<!--   <button onclick="naverLogout(); return false;" href="javascript:void(0)">네이버 로그인</button> -->
 
-<br>
     <!--     <a href="#" onclick="signOut();">Sign out</a> -->
         
         </form>
