@@ -96,8 +96,32 @@
 <dd style="margin-top:-10px;">
 <div class="chefList chefview" style="height:180px;width:1100px;display:inline-block;margin-left:1px;vertical-align:middle;overflow:hidden;">
 	<div aria-live="polite" class="chef-list">
-	<div class="chef-track" role="listbox" style="opacity:1; width:5500px;transform:translate3d(100px,10px,0px)">
-	<li class="chefDivs_li" style="text-align:center; width:110px;">
+	<div class="chef-track" role="listbox" style="opacity:1; width:5500px;transform:translate3d(70px,10px,100px)">
+	<li class="chefDivs_li" style="text-align:center; width:120px; padding-left: 35px;">
+	<a style="display:table-cell;padding:10px;">
+	<img src="https://phinf.pstatic.net/contact/20220831_59/16619059501531n3nz_JPEG/KakaoTalk_20220308_191125531_05.jpg?type=s80">
+	</a>
+	<span class="chefDivs_li_name" style="width:auto;">Rwhat</span>
+	</li>
+	<li class="chefDivs_li" style="text-align:center; width:120px;">
+	<a style="display:table-cell;padding:10px;">
+	<img src="https://phinf.pstatic.net/contact/20220831_59/16619059501531n3nz_JPEG/KakaoTalk_20220308_191125531_05.jpg?type=s80">
+	</a>
+	<span class="chefDivs_li_name" style="width:auto;">Rwhat</span>
+	</li>	
+	<li class="chefDivs_li" style="text-align:center; width:120px;">
+	<a style="display:table-cell;padding:10px;">
+	<img src="https://phinf.pstatic.net/contact/20220831_59/16619059501531n3nz_JPEG/KakaoTalk_20220308_191125531_05.jpg?type=s80">
+	</a>
+	<span class="chefDivs_li_name" style="width:auto;">Rwhat</span>
+	</li>
+	<li class="chefDivs_li" style="text-align:center; width:120px;">
+	<a style="display:table-cell;padding:10px;">
+	<img src="https://phinf.pstatic.net/contact/20220831_59/16619059501531n3nz_JPEG/KakaoTalk_20220308_191125531_05.jpg?type=s80">
+	</a>
+	<span class="chefDivs_li_name" style="width:auto;">Rwhat</span>
+	</li>
+	<li class="chefDivs_li" style="text-align:center; width:120px;">
 	<a style="display:table-cell;padding:10px;">
 	<img src="https://phinf.pstatic.net/contact/20220831_59/16619059501531n3nz_JPEG/KakaoTalk_20220308_191125531_05.jpg?type=s80">
 	</a>
@@ -108,6 +132,57 @@
 </div>
 </dd>
 </dl>
+<div class="recent" style="width: 1240px; margin-bottom: 400px;">
+	<h3 style="
+    margin-top: 330px;width: 150px;">최근 올라온 레시피</h3>
+	<div class="fixed_img_col">
+	<ul>
+	<li>
+	<a href="">
+	<span class="thumb">
+	<img src=""alt="">
+<strong>제목</strong>
+	</span>
+	</a>
+	</li>
+	
+	<li>
+	<a href="">
+	<span class="thumb">
+	<img src=""alt="">
+<strong>제목</strong>
+	</span>
+	</a>
+	</li>
+	
+	<li>
+	<a href="">
+	<span class="thumb">
+	<img src=""alt="">
+<strong>제목</strong>
+	</span>
+	</a>
+	</li>
+	
+	<li>
+	<a href="">
+	<span class="thumb">
+	<img src=""alt="">
+<strong>제목</strong>
+	</span>
+	</a>
+	</li>
+	</ul>
+	</div>	
+</div>
+<div class="container">
+<div class="comment"style="margin-left: 1080px;">
+<h4>건의 사항</h4>
+<textarea id="customerSend" name="board_txt" class="form-control" placeholder="불편한 사항 혹은 제안 사항을 적어주세요!">
+</textarea>
+<button class="btn btn_default" onclick="ask();">의견 제출</button>
+</div>
+</div>
 </div>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <script>
