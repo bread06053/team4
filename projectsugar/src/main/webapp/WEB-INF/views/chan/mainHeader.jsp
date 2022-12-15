@@ -52,7 +52,7 @@ function doRTKeyword()
 <div class="yoyo_top_wrap">
 	<div class="yoyo_top">
 	<h1>
-	<a href="http://localhost:8084/">
+	<a href="http://localhost:8084/chan/main">
 	<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYeFHo_i34CbGLC4ZmZyjA3V8XSK_sUHWE7A&usqp=CAU" alt="로고">
 	</a>
 	</h1>
@@ -91,9 +91,5 @@ function doRTKeyword()
                 </li>
             </ul>
         </div>
-        <style>
-        @media (max-width:1400px){.partners_banner {display: none;}}
-    </style>
-</div>
 </body>
 </html>

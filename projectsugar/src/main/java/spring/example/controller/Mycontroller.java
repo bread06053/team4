@@ -1,6 +1,8 @@
 package spring.example.controller;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -76,4 +78,5 @@ public class Mycontroller {
 		m.addAttribute("pw",  service.findpw(user));
 		return "/tae/popup2";
 	}
+
 }
