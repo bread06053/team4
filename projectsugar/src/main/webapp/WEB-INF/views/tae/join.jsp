@@ -109,7 +109,7 @@ td {
 		<tr><td colspan="2"><h3 style = "text-align: center;">요-요</h3></td></tr>
 		<tr><td>아이디</td><td><input name="userid" id="id"><input type="button" id="id_check" value="중복 확인">
 		<div id="id_msg"></div></td></tr>
-		<tr><td>비밀번호</td><td><input name="passwd" type="password" id="password">
+		<tr><td>비밀번호</td><td><input name="passwd" type="password" placeholder="4글자 이상 입력해주세요" id="password">
 		<div id="pw_msg"></div></td></tr>
 		<tr><td>이름</td><td><input name="name" id="name">
 		<div id="name_msg"></div></td></tr>
@@ -124,7 +124,7 @@ td {
 		<div id="input"><input id="ck_num"> <input type="button" id="ck_b" value="인증 확인"></div>
 		<div id="result"></div>
 		</td></tr>
-		<tr><td colspan="2"><input type="submit" id= "join" value="가입" onclick = "location.href='/main'"></td></tr>
+		<tr><td colspan="2"><input type="submit" id= "join" value="가입" onclick = "location.href='chan/main'"></td></tr>
 	</table>
 	
 </form>
@@ -205,6 +205,14 @@ $(function(){
 	});
 	
 })//ready
+	$("#joinform").click(function(){
+	 let pd = $("#password").val() 
+		if (pd.length < 4){
+			$("#pw_msg").text("4글자 이상 입력해주세요.")
+			return false;
+		}
+		
+	})
 
 
 </script>
