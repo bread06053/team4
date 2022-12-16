@@ -1,5 +1,8 @@
 package spring.example.dao;
 
+import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -36,5 +39,11 @@ String findid(String email);
 @Select
 ("select profile from user where userid=#{userid} and passwd=#{passwd}")
 String getProfile(User user);
+
+
+@Select
+("select REPLACE(REPLACE(rthumimg,'[',''),']','')as rthumimg,rtitle from recipe ORDER BY rno DESC limit 4")
+List<Map<String,String>> recentRcp();
 }
+
 

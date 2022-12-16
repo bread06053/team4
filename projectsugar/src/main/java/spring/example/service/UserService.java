@@ -1,5 +1,8 @@
 package spring.example.service;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,4 +36,9 @@ public class UserService {
 	public String findid(String email) {
 		return dao.findid(email);
 	}
+	public List<Map<String,String>> recentRcp(){
+		return dao.recentRcp();
+	}
 }
+
+	

@@ -1,4 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
 <style>
@@ -26,11 +28,11 @@
 	</a>
 	</h1>
 	<div class="yoyo_search">
-	<form id="yoyoSearch" method="get" action="">
+	<form id="yoyoSearch" method="get" action="/tae/searchpage">
 		<div class="input-group">
 		<input id="yoyoText" name="q" type="text" class="form-control ui-autocmplete-input" placeholder values="" style="ime-mode:active;" autocomplete="off">	
 		<span class="input-group-btn">
-		<button class="btn btn-default" type="button" onclick="$('#yoyoSearch').submit();">
+		<button class="btn btn-default" type="sumbmit">
 			<span class="glyphicon glyphicon-search">
 			::검색
 			</span>
@@ -45,7 +47,9 @@
          <span style="border-radius: 2px; background: #ffd200; color: #000; display: block; font-size: 11px; padding:2px 5px; text-align: center;">회원가입</span>
     </div>
     <a href="http://localhost:8084/tae/login">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKqph2wqtX84lDFu9tH5kMGjUQwoL14qT45w&usqp=CAU" alt="로그인">
+    <sec:authentication property = "principal.user.userid"></sec:authentication>님 안녕하세요!<br>
+    <sec:authorize access = "!isAuthenticated()"/>
+    <img src="/profile/<sec:authentication property = "principal.user.profile"/>">
     </a>
 </dl>
 </div>
@@ -136,43 +140,12 @@
 	<h3 style="
     margin-top: 330px;width: 150px;">최근 올라온 레시피</h3>
 	<div class="fixed_img_col">
-	<ul>
-	<li>
-	<a href="">
-	<span class="thumb">
-	<img src=""alt="">
-<strong>제목</strong>
-	</span>
-	</a>
-	</li>
-	
-	<li>
-	<a href="">
-	<span class="thumb">
-	<img src=""alt="">
-<strong>제목</strong>
-	</span>
-	</a>
-	</li>
-	
-	<li>
-	<a href="">
-	<span class="thumb">
-	<img src=""alt="">
-<strong>제목</strong>
-	</span>
-	</a>
-	</li>
-	
-	<li>
-	<a href="">
-	<span class="thumb">
-	<img src=""alt="">
-<strong>제목</strong>
-	</span>
-	</a>
-	</li>
-	</ul>
+	<c:forEach var="i" items="${recent}">
+	<div class="thumimg">
+	${i.rthumimg}
+<strong>${i.rtitle}</strong>
+	</div>
+	</c:forEach>
 	</div>	
 </div>
 <div class="container">
