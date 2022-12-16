@@ -65,8 +65,11 @@ public class Mycontroller {
 	public String main(@AuthenticationPrincipal SecurityUser user,Model m) {
 		List<Map<String,String>> recent=service.recentRcp();
 		List<Map<String,Object>> bestChef= service.bestChef();
+		List<String> bestView=service.bestView();
+
 		m.addAttribute("recent",recent);
 		m.addAttribute("bestChef",bestChef);
+		m.addAttribute("bestView",bestView);
 		return "chan/main";
 	}
 
