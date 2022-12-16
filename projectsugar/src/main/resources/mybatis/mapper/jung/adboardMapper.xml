@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="spring.example.dao.AdBoardMapper">
+    <select id="count" resultType="int">
+        SELECT count(*) FROM board
+    </select>
+
+    <delete id="deleteAll">
+        DELETE FROM board
+    </delete>
+
+    <delete id="delete" parameterType="map">
+        DELETE FROM ban WHERE bno = #{bno}
+    </delete>
+
+    <insert id="insert" parameterType="spring.example.domain.AdBoard">
+        INSERT INTO ban
+            (btitle, btext, btime, userid, pno)
+        VALUES
+            (#{btitle}, #{btext}, now(), #{userid}, #{pno})
+    </insert>
+
+    <select id="selectAll" resultType="spring.example.domain.AdBoard">
+        SELECT bno, btitle, btime, userid
+        FROM ban
+    </select>
+
+    <sql id="selectFromBoard">
+        SELECT bno, btitle,btext, btime, userid,pno
+        FROM ban
+    </sql>
+
+    <select id="select" parameterType="int" resultType="spring.example.domain.AdBoard">
+        <include refid="selectFromBoard"/>
+        WHERE bno = #{bno}
+    </select>
+
+    <select id="selectPage" parameterType="map" resultType="spring.example.domain.AdBoard">
+        <include refid="selectFromBoard"/>
+        ORDER BY reg_date DESC, bno DESC
+        LIMIT #{offset}, #{pageSize}
+    </select>
+
+    <update id="update" parameterType="spring.example.domain.AdBoard">
+        UPDATE board
+        SET   title = #{title}
+          , content = #{content}
+          , up_date = now()
+        WHERE bno = #{bno}
+    </update>
+
+    <update id="updateCommentCnt" parameterType="map">
+        UPDATE board
+        SET   comment_cnt = comment_cnt + #{cnt}
+        WHERE bno = #{bno}
+    </update>
+
+    <update id="increaseViewCnt" parameterType="int">
+        UPDATE board
+        SET   view_cnt = view_cnt + 1
+        WHERE bno = #{bno}
+    </update>
+
+</mapper>
