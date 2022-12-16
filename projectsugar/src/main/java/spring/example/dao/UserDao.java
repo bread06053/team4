@@ -1,9 +1,11 @@
 package spring.example.dao;
 
+import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
-
 import spring.example.domain.User;
 
 
@@ -36,5 +38,17 @@ String findid(String email);
 @Select
 ("select profile from user where userid=#{userid} and passwd=#{passwd}")
 String getProfile(User user);
+
+
+
+@Select
+("select REPLACE(REPLACE(rthumimg,'[',''),']','')as rthumimg,rtitle from recipe ORDER BY rno DESC limit 4")
+List<Map<String,String>> recentRcp();
+@Select
+("select rank() over(order by a.likes desc) as ranking,nickname,profile from (select sum(rlikes) as likes,userid from recipe group by userid)a inner join user on a.userid=user.userid limit 5")
+List<Map<String,Object>> bestChef();
+@Select
+("select REPLACE(REPLACE(rthumimg,'[',''),']','')as rthumimg from recipe ORDER BY rlikes desc limit 3")
+List<String> bestView();
 }
 
