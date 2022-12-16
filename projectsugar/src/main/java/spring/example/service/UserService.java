@@ -39,6 +39,9 @@ public class UserService {
 	public List<Map<String,String>> recentRcp(){
 		return dao.recentRcp();
 	}
+	public List<Map<String,Object>> bestChef(){
+		return dao.bestChef();
+	}
 }
 
 	
