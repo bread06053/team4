@@ -114,18 +114,18 @@ td {
 		<div id="pw_msg"></div></td></tr>
 		<tr><td>이름</td><td><input name="name" id="name">
 		<div id="name_msg"></div></td></tr>
-		<tr><td>닉네임</td><td><input name="nickname" type="nickname" id="nickname">
+		<tr><td>닉네임</td><td><input name="nickname" type="text" id="nickname">
 		<div id="nickname_msg"></div></td></tr>
 		<tr><td>주소</td><td><input name="address" id="address">
 		<input type="button" id="addbtn" value="우편번호 검색" onclick="addPost()">
 		<tr><td>상세주소</td><td><input style = "margin-bottom: 10px;" name = "address" ></td>
 		<tr><td>이메일</td><td><input name="email" id="email">
 		<div id="emailresult"></div>
-		<button id="mail_ck" value="메일 인증">메일 인증</button>
+		<button type="button" id="mail_ck" value="메일 인증">메일 인증</button>
 		<div id="input"><input id="ck_num"> <input type="button" id="ck_b" value="인증 확인"></div>
 		<div id="result"></div>
 		</td></tr>
-		<tr><td colspan="2"><input type="submit" id= "join" value="가입" onclick = "location.href='chan/main'"></td></tr>
+		<tr><td colspan="2"><input type="submit" id= "join" value="가입"></td></tr>
 	</table>
 	
 </form>
@@ -194,7 +194,7 @@ $(function(){
 	});//아이디 중복 확인 click
 
 	
-	$("#joinform").submit(function(){
+	$("#joinForm").submit(function(){
 		if($("#id_ck").val() != 1){
 			$("#id_msg").html("아이디 중복 체크 하셔야 합니다.")
 			return false;
@@ -202,18 +202,22 @@ $(function(){
 		if(!$("#password").val()){
 			alert("비밀번호를 입력해야 합니다.");
 			return false;
-		}
+		} 
+		 let pd = $("#password").val();
+			if (pd.length < 4){
+				$("#pw_msg").text("4글자 이상 입력해주세요.")
+				return false;
+			}
+		//let id = $("#id").val();
+		//	if (id = null){
+		//		alert("아이디를 입력해야 합니다.");
+		//		return false;
+		//	}
+		
 	});
 	
 })//ready
-	$("#joinform").click(function(){
-	 let pd = $("#password").val() 
-		if (pd.length < 4){
-			$("#pw_msg").text("4글자 이상 입력해주세요.")
-			return false;
-		}
-		
-	})
+	
 
 
 </script>
