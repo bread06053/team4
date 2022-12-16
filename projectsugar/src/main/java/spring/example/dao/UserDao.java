@@ -44,10 +44,12 @@ String getProfile(User user);
 @Select
 ("select REPLACE(REPLACE(rthumimg,'[',''),']','')as rthumimg,rtitle from recipe ORDER BY rno DESC limit 4")
 List<Map<String,String>> recentRcp();
-
 @Select
-("select rank() over(order by a.likes) as ranking,nickname,profile from (select sum(rlikes)as likes,userid from recipe group by userid)a inner join user on a.userid=user.userid limit5")
-List<Map<String,Object>> bestChef();  
+("select rank() over(order by a.likes desc) as ranking,nickname,profile from (select sum(rlikes) as likes,userid from recipe group by userid)a inner join user on a.userid=user.userid limit 5")
+List<Map<String,Object>> bestChef();
+@Select
+("select REPLACE(REPLACE(rthumimg,'[',''),']','')as rthumimg from recipe ORDER BY rlikes desc limit 3")
+List<String> bestView();
 }
 
 

@@ -143,7 +143,7 @@ body{font-family: 'Dongle', sans-serif;}
 
 /* Fading animation */
 
-.fade2 {
+.fade {
 
   -webkit-animation-name: fade;
   -webkit-animation-duration: 0.5s;
