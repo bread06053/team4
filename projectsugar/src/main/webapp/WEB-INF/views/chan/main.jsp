@@ -32,7 +32,7 @@
 		<div class="input-group">
 		<input id="yoyoText" name="q" type="text" class="form-control ui-autocmplete-input" placeholder values="" style="ime-mode:active;" autocomplete="off">	
 		<span class="input-group-btn">
-		<button class="btn btn-default" type="sumbmit">
+		<button class="btn btn-default" type="submit">
 			<span class="glyphicon glyphicon-search">
 			::검색
 			</span>
@@ -101,36 +101,11 @@
 <div class="chefList chefview" style="height:180px;width:1100px;display:inline-block;margin-left:1px;vertical-align:middle;overflow:hidden;">
 	<div aria-live="polite" class="chef-list">
 	<div class="chef-track" role="listbox" style="opacity:1; width:5500px;transform:translate3d(70px,10px,100px)">
-	<li class="chefDivs_li" style="text-align:center; width:120px; padding-left: 35px;">
-	<a style="display:table-cell;padding:10px;">
-	<img src="https://phinf.pstatic.net/contact/20220831_59/16619059501531n3nz_JPEG/KakaoTalk_20220308_191125531_05.jpg?type=s80">
-	</a>
-	<span class="chefDivs_li_name" style="width:auto;">Rwhat</span>
-	</li>
-	<li class="chefDivs_li" style="text-align:center; width:120px;">
-	<a style="display:table-cell;padding:10px;">
-	<img src="https://phinf.pstatic.net/contact/20220831_59/16619059501531n3nz_JPEG/KakaoTalk_20220308_191125531_05.jpg?type=s80">
-	</a>
-	<span class="chefDivs_li_name" style="width:auto;">Rwhat</span>
-	</li>	
-	<li class="chefDivs_li" style="text-align:center; width:120px;">
-	<a style="display:table-cell;padding:10px;">
-	<img src="https://phinf.pstatic.net/contact/20220831_59/16619059501531n3nz_JPEG/KakaoTalk_20220308_191125531_05.jpg?type=s80">
-	</a>
-	<span class="chefDivs_li_name" style="width:auto;">Rwhat</span>
-	</li>
-	<li class="chefDivs_li" style="text-align:center; width:120px;">
-	<a style="display:table-cell;padding:10px;">
-	<img src="https://phinf.pstatic.net/contact/20220831_59/16619059501531n3nz_JPEG/KakaoTalk_20220308_191125531_05.jpg?type=s80">
-	</a>
-	<span class="chefDivs_li_name" style="width:auto;">Rwhat</span>
-	</li>
-	<li class="chefDivs_li" style="text-align:center; width:120px;">
-	<a style="display:table-cell;padding:10px;">
-	<img src="https://phinf.pstatic.net/contact/20220831_59/16619059501531n3nz_JPEG/KakaoTalk_20220308_191125531_05.jpg?type=s80">
-	</a>
-	<span class="chefDivs_li_name" style="width:auto;">Rwhat</span>
-	</li>
+	<c:forEach var="i" items="${bestChef}">
+	<div class="chefimg">
+	<img src="${i.profile}">
+	</div>
+	</c:forEach>
 	</div>
 	</div>
 </div>
