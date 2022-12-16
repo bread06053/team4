@@ -62,9 +62,11 @@ public class Mycontroller {
 	}
 	
 	@GetMapping("chan/main")
-	public String main(@AuthenticationPrincipal SecurityUser user, Model m) {
-		List<Map<String,String>> recent= service.recentRcp();
+	public String main(@AuthenticationPrincipal SecurityUser user,Model m) {
+		List<Map<String,String>> recent=service.recentRcp();
+		List<Map<String,Object>> bestChef=service.bestChef();
 		m.addAttribute("recent",recent);
+		m.addAttribute("bestChef",bestChef);
 		return "chan/main";
 	}
 

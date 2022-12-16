@@ -1,6 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
@@ -103,6 +102,11 @@
 <div class="chefList chefview" style="height:180px;width:1100px;display:inline-block;margin-left:1px;vertical-align:middle;overflow:hidden;">
 	<div aria-live="polite" class="chef-list">
 	<div class="chef-track" role="listbox" style="opacity:1; width:5500px;transform:translate3d(70px,10px,100px)">
+	<c:forEach var="i" items="${bestChef}">
+	<div class="chefimg">
+	<img src="${i.profile}">
+	</div>
+	</c:forEach>
 	</div>
 	</div>
 </div>
