@@ -67,20 +67,11 @@
         </div>
 <div class="main">       
 <div class="slideshow-container">
-		<div class="mySlides fade2">
-			<img class="main_slideImg" src="https://postfiles.pstatic.net/MjAyMjEwMjlfMjYg/MDAxNjY3MDUxOTEwMjcw.05iuUKtmij0yua8AgqWB0wnEuOzpIFiUPvhljSJpG5Qg.0E63J0F-jNqA964DmawDv9FqB10na29CH2CLPl-L9n0g.JPEG.bread06053/1665315654468.jpg?type=w966">
-			<div class="text">Caption Text</div>
+		<c:forEach var="i" items="${bestView}">
+		<div class="mySlides fade">
+		${i}
 		</div>
-
-		<div class="mySlides fade2">
-			<img class="main_slideImg" src="https://postfiles.pstatic.net/MjAyMjEwMjlfMTMy/MDAxNjY3MDUxOTA5NDQz.FElQPNa4W7JZMmNgDdfFK8hpermG7Tu2c_UuF9csPncg.7YpD8jSekjAp7CwdNDhcXMCuv-WQXtUPSUwkolTrhVUg.JPEG.bread06053/1665315654428.jpg?type=w966">
-			<div class="text">Caption Two</div>
-		</div>
-
-		<div class="mySlides fade2">
-			<img class="main_slideImg" src="https://postfiles.pstatic.net/MjAyMjExMTNfOSAg/MDAxNjY4MzM2MjI4OTgx.XhCacZs4tk80nPYWEzzZdBdiGE0u4riZQkLLCQJVXwIg.6VGgWtJ89B3xiaYSZ2YrbU2okrn1ih9MU-HWZdqzFA8g.JPEG.bread06053/20221113%EF%BC%BF182758.jpg?type=w966">
-			<div class="text">Caption Three</div>
-		</div>
+		</c:forEach>
 		<a class="prev" onclick="plusSlides(-1)">❮</a>
 		<a class="next" onclick="plusSlides(1)" style="right: 390px;width: 76px;">❯</a>
 	</div>
@@ -104,7 +95,7 @@
 	<div class="chef-track" role="listbox" style="opacity:1; width:5500px;transform:translate3d(70px,10px,100px)">
 	<c:forEach var="i" items="${bestChef}">
 	<div class="chefimg">
-	<img src="${i.profile}">
+	<img src="/profile/${i.profile}">
 	</div>
 	</c:forEach>
 	</div>
