@@ -46,7 +46,9 @@ String getProfile(User user);
 List<Map<String,String>> recentRcp();
 
 @Select
-("select rank() over(order by a.likes) as ranking,nickname,profile from (select sum(rlikes)as likes,userid from recipe group by userid)a inner join user on a.userid=user.userid limit5")
-List<Map<String,Object>> bestChef();  
+("select rank() over(order by a.likes desc) as ranking,nickname,profile from (select sum(rlikes)as likes,userid from recipe group by userid)a inner join user on a.userid=user.userid limit 5")
+List<Map<String,Object>> bestChef();
+
 }
+
 

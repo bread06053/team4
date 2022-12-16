@@ -104,7 +104,7 @@
 	<div class="chef-track" role="listbox" style="opacity:1; width:5500px;transform:translate3d(70px,10px,100px)">
 	<c:forEach var="i" items="${bestChef}">
 	<div class="chefimg">
-	<img src="${i.profile}">
+	<img src="/profile/${i.profile}"/>
 	</div>
 	</c:forEach>
 	</div>
