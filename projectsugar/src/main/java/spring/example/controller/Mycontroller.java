@@ -2,6 +2,7 @@ package spring.example.controller;
 
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -46,6 +47,7 @@ public class Mycontroller {
 	public String Profile(@AuthenticationPrincipal SecurityUser user, Model m) {
 		m.addAttribute("profile", user.getUser().getProfile());
 		return "redirect:/chan/main";
+	
 	}
 	
 	@PostMapping("/tae/join")
@@ -60,7 +62,9 @@ public class Mycontroller {
 	}
 	
 	@GetMapping("chan/main")
-	public String main(@AuthenticationPrincipal SecurityUser user) {
+	public String main(@AuthenticationPrincipal SecurityUser user, Model m) {
+		List<Map<String,String>> recent= service.recentRcp();
+		m.addAttribute("recent",recent);
 		return "chan/main";
 	}
 
@@ -87,6 +91,7 @@ public class Mycontroller {
 		m.addAttribute("pw",  pw);
 		return "/tae/popup2";
 	}
+	
 	@PostMapping("tae/searchpage")
 	public String searchpage(String q, Model m) {
 		List<Recipe> recipe = service2.searchti1(q);
@@ -94,6 +99,6 @@ public class Mycontroller {
 		m.addAttribute("q", q);
 		return "tae/searchpage";
 	}
-	
-	
 }
+
+

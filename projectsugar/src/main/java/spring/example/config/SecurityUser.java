@@ -6,25 +6,25 @@ import org.springframework.security.core.userdetails.User;
 
 
 public class SecurityUser extends User {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	private spring.example.domain.User user;
-	
-	public SecurityUser(spring.example.domain.User user) {
-		super(user.getUserid(), "{noop}"+user.getPasswd(),
-				AuthorityUtils.createAuthorityList(user.getRole().toString()));
-		this.user = user;
-	}
+    private spring.example.domain.User user;
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
+    public SecurityUser(spring.example.domain.User user) {
+        super(user.getUserid(), "{noop}"+user.getPasswd(),
+                AuthorityUtils.createAuthorityList(user.getRole().toString()));
+        this.user = user;
+    }
 
-	public spring.example.domain.User getUser() {
-		return user;
-	}
-	public spring.example.domain.User setUser(){
-		return user;
-	}
-	
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }
+
+    public spring.example.domain.User getUser() {
+        return user;
+    }
+    public spring.example.domain.User setUser(){
+        return user;
+    }
+
 }
