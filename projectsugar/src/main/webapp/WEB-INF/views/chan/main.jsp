@@ -20,7 +20,7 @@
 </style>
 </head>
 <body>
-<div class="yoyo_top_wrap">
+<div class="yoyo_top_wra p">
 	<div class="yoyo_top">
 	<h1>
 	<a href="http://localhost:8084/chan/main">
