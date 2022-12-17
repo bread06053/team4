@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import spring.example.config.SecurityUser;
+import spring.example.domain.Post;
 import spring.example.domain.Recipe;
 import spring.example.domain.User;
+import spring.example.service.PostService;
 import spring.example.service.RecipeService;
 import spring.example.service.UserService;
 
@@ -26,6 +28,9 @@ public class Mycontroller {
 	
 	@Autowired
 	RecipeService service2;
+	
+	@Autowired
+	PostService service3;
 	
 	@GetMapping("/tae/login")
 	public String login() {
@@ -64,11 +69,14 @@ public class Mycontroller {
 	@GetMapping("chan/main")
 	public String main(@AuthenticationPrincipal SecurityUser user,Model m) {
 		List<Map<String,String>> recent=service.recentRcp();
-		List<Map<String,Object>> bestChef=service.bestChef();
+		List<Map<String,Object>> bestChef= service.bestChef();
 		List<String> bestView=service.bestView();
+
 		m.addAttribute("recent",recent);
 		m.addAttribute("bestChef",bestChef);
 		m.addAttribute("bestView",bestView);
+		m.addAttribute("cntUser",service.cntUser());
+		m.addAttribute("cntRecipe",service.cntRecipe());
 		return "chan/main";
 	}
 
@@ -99,7 +107,9 @@ public class Mycontroller {
 	@PostMapping("tae/searchpage")
 	public String searchpage(String q, Model m) {
 		List<Recipe> recipe = service2.searchti1(q);
+		List<Post> post = service3.searchti2(q);
 		m.addAttribute("recipe",recipe);
+		m.addAttribute("post",post);
 		m.addAttribute("q", q);
 		return "tae/searchpage";
 	}

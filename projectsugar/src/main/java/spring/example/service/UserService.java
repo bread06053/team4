@@ -45,5 +45,11 @@ public class UserService {
 	public List<String> bestView() {
 		return dao.bestView();
 	}
+	public int cntUser() {
+		return dao.cntUser();
+	}
+	public int cntRecipe() {
+		return dao.cntRecipe();
+	}
 }
 	
