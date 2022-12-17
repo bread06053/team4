@@ -92,12 +92,12 @@
 			let form = document.getElementById("form");
 			if(form.btitle.value=="") {
 				alert("제목을 입력해 주세요.");
-				form.title.focus();
+				form.btitle.focus();
 				return false;
 			}
 			if(form.btext.value=="") {
 				alert("내용을 입력해 주세요.");
-				form.content.focus();
+				form.btext.focus();
 				return false;
 			}
 			return true;
@@ -114,12 +114,12 @@
         $("#removeBtn").on("click", function(){
             if(!confirm("정말로 삭제하시겠습니까?")) return;
             let form = $("#form");
-            form.attr("action", "<c:url value='/admin/remove'/>");
+            form.attr("action", "<c:url value='/admin/remove?page=${page}&pageSize=${pageSize}'/>");
             form.attr("method", "post");
             form.submit();
         });
         $("#banListBtn").on("click", function(){
-            location.href="<c:url value='/admin/list'/>";
+            location.href="<c:url value='/admin/list?page=${page}&pageSize=${pageSize}'/>";
         });
     });
 </script>

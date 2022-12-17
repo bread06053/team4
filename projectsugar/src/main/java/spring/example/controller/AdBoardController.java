@@ -83,7 +83,7 @@ public class AdBoardController {
 	}
 
 	@PostMapping("/admin/remove")
-	public String remove(Integer bno, RedirectAttributes rattr) {
+	public String remove(Integer bno, Integer page, Integer pageSize, RedirectAttributes rattr) {
 		String msg = "DEL_OK";
 
 		try {
@@ -94,10 +94,12 @@ public class AdBoardController {
 			msg = "DEL_ERR";
 		}
 
+        rattr.addAttribute("page", page);
+        rattr.addAttribute("pageSize", pageSize);
 		rattr.addFlashAttribute("msg", msg);
 		return "redirect:/admin/list";
 	}
-
+	
 	@GetMapping("/member/ban")
 	public String write(Integer pno, Model m) {
 		m.addAttribute("mode", "new");
