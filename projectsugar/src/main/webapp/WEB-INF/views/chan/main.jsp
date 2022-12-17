@@ -32,7 +32,7 @@
 		<div class="input-group">
 		<input id="yoyoText" name="q" type="text" class="form-control ui-autocmplete-input" placeholder values="" style="ime-mode:active;" autocomplete="off">	
 		<span class="input-group-btn">
-		<button class="btn btn-default" type="submit">
+		<button class="btn btn-default" type="submit" style="padding-bottom: 8px;">
 			<span class="glyphicon glyphicon-search">
 			::검색
 			</span>
@@ -72,37 +72,33 @@
 		</div>
 		</c:forEach>
 		<a class="prev" onclick="plusSlides(-1)">❮</a>
-		<a class="next" onclick="plusSlides(1)" style="right: 390px;width: 76px;">❯</a>
+		<a class="next" onclick="plusSlides(1)" style="width: 76px;">❯</a>
 	</div>
-
 	<br>
-
-
-
+	
 	<div style="text-align: center">
 		<span class="dot" onclick="currentSlide(1)"></span> 
 		<span class="dot" onclick="currentSlide(2)"></span>
 		<span class="dot" onclick="currentSlide(3)"></span>
 	</div>
-<dl class="mainview" id="chefList" style="left:330px;">
+	
+<dl class="mainview" id="chefList" style="left:18%; right:30%;">
 <dt>
 <h3>이번주 <span>짜파게티 요리사</span></h3>
 </dt>
 <dd style="margin-top:-10px;">
-<div class="chefList chefview" style="height:180px;width:1100px;display:inline-block;margin-left:1px;vertical-align:middle;overflow:hidden;">
-	<div aria-live="polite" class="chef-list">
-	<div class="chef-track" role="listbox" style="opacity:1; width:5500px;transform:translate3d(70px,10px,100px)">
+<ul class="chefList chefview" style="height:200px;width:100%;">
 	<c:forEach var="i" items="${bestChef}">
-	<div class="chefimg">
-	<img src="/profile/${i.profile}">
-	</div>
+	<li class="chefimg" style="text-align: center;">
+	<img src="/profile/${i.profile}"><br>
+	<strong style="font-size:20pt;">${i.ranking}. </strong>
+	<strong style="font-size:20pt;">${i.nickname}</strong>
+	</li>
 	</c:forEach>
-	</div>
-	</div>
-</div>
+	</ul>
 </dd>
 </dl>
-<div class="recent" style="width: 1240px; margin-bottom: 400px;">
+<div class="recent" style="margin-bottom: 400px;">
 	<h3 style="
     margin-top: 330px;width: 150px;">최근 올라온 레시피</h3>
 	<div class="fixed_img_col">
@@ -115,11 +111,17 @@
 	</div>	
 </div>
 <div class="container">
-<div class="comment"style="margin-left: 1080px;">
+<div class="total">
+<ul class="btm_stats">
+            <li><span class="btm_stats_1"></span>총 요리사수: <b>${cntUser}</b></li>
+            <li><span class="btm_stats_2"></span>총 레시피수: <b>${cntRecipe}</b></li>
+        </ul>
+</div>
+<div class="comment">
 <h4>건의 사항</h4>
 <textarea id="customerSend" name="board_txt" class="form-control" placeholder="불편한 사항 혹은 제안 사항을 적어주세요!">
 </textarea>
-<button class="btn btn_default" onclick="ask();">의견 제출</button>
+<button class="btn btn_default" onclick="ask();"><strong>의견 제출</strong></button>
 </div>
 </div>
 </div>
