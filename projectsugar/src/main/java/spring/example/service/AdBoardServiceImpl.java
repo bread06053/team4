@@ -16,8 +16,7 @@ public class AdBoardServiceImpl implements AdBoardService {
 	
 	@Override
 	public int getCount() throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		return adBoardDao.count();
 	}
 
 	@Override
@@ -42,9 +41,8 @@ public class AdBoardServiceImpl implements AdBoardService {
 	}
 
 	@Override
-	public List<AdBoard> getPage(Map map) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+	public List<AdBoard> selectPage(Map map) throws Exception {
+        return adBoardDao.selectPage(map);
 	}
 
 	@Override

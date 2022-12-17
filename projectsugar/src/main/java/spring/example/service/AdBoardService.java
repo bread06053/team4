@@ -13,6 +13,6 @@ public interface AdBoardService {
     int write(AdBoard boardDto) throws Exception;
     List<AdBoard> getList() throws Exception;
     AdBoard read(Integer bno) throws Exception;
-    List<AdBoard> getPage(Map map) throws Exception;
+    List<AdBoard> selectPage(Map map) throws Exception;
     int modify(AdBoard boardDto) throws Exception;
 }

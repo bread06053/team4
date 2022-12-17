@@ -1,6 +1,7 @@
 package spring.example.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,5 +33,15 @@ public class AdBoardDaoImpl implements AdBoardDao {
 	@Override
 	public int insert(AdBoard adBoard) {
 		return session.insert(namespace+"insert", adBoard);
+	}
+	
+    @Override
+    public List<AdBoard> selectPage(Map map) throws Exception {
+        return session.selectList(namespace+"selectPage", map);
+    } // List<E> selectList(String statement, Object parameter)
+
+	@Override
+	public int count() {
+        return session.selectOne(namespace+"count");
 	}
 }

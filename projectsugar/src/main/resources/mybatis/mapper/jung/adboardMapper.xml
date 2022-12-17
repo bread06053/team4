@@ -4,7 +4,7 @@
 
 <mapper namespace="spring.example.dao.AdBoardMapper">
     <select id="count" resultType="int">
-        SELECT count(*) FROM board
+        SELECT count(*) FROM ban
     </select>
 
     <delete id="deleteAll">
@@ -39,7 +39,7 @@
 
     <select id="selectPage" parameterType="map" resultType="spring.example.domain.AdBoard">
         <include refid="selectFromBoard"/>
-        ORDER BY reg_date DESC, bno DESC
+        ORDER BY btime DESC, bno DESC
         LIMIT #{offset}, #{pageSize}
     </select>
 </mapper>

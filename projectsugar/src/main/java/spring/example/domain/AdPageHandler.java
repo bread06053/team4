@@ -1,5 +1,8 @@
 package spring.example.domain;
 
+import lombok.Data;
+
+@Data
 public class AdPageHandler {
 	private int totalCnt; // 총 신고글 갯수
 	private int pageSize; // 한 페이지 크기
@@ -27,78 +30,6 @@ public class AdPageHandler {
 		showNext = endPage!=totalPage;
 	}
 	
-	public int getTotalCnt() {
-		return totalCnt;
-	}
-
-	public void setTotalCnt(int totalCnt) {
-		this.totalCnt = totalCnt;
-	}
-
-	public int getPageSize() {
-		return pageSize;
-	}
-
-	public void setPageSize(int pageSize) {
-		this.pageSize = pageSize;
-	}
-
-	public int getNaviSize() {
-		return naviSize;
-	}
-
-	public void setNaviSize(int naviSize) {
-		this.naviSize = naviSize;
-	}
-
-	public int getTotalPage() {
-		return totalPage;
-	}
-
-	public void setTotalPage(int totalPage) {
-		this.totalPage = totalPage;
-	}
-
-	public int getPage() {
-		return page;
-	}
-
-	public void setPage(int page) {
-		this.page = page;
-	}
-
-	public int getBeginPage() {
-		return beginPage;
-	}
-
-	public void setBeginPage(int beginPage) {
-		this.beginPage = beginPage;
-	}
-
-	public int getEndPage() {
-		return endPage;
-	}
-
-	public void setEndPage(int endPage) {
-		this.endPage = endPage;
-	}
-
-	public boolean isShowPrev() {
-		return showPrev;
-	}
-
-	public void setShowPrev(boolean showPrev) {
-		this.showPrev = showPrev;
-	}
-
-	public boolean isShowNext() {
-		return showNext;
-	}
-
-	public void setShowNext(boolean showNext) {
-		this.showNext = showNext;
-	}
-
 	void print() {
 		System.out.println("page = "+page);
 		System.out.println(showPrev ? "[PREV]" : "");
@@ -107,15 +38,4 @@ public class AdPageHandler {
 		}
 		System.out.println(showNext ? " [NEXT]" :"");
 	}
-
-	@Override
-	public String toString() {
-		return "AdPageHandler [totalCnt=" + totalCnt + ", pageSize=" + pageSize + ", naviSize=" + naviSize
-				+ ", totalPage=" + totalPage + ", page=" + page + ", beginPage=" + beginPage + ", endPage=" + endPage
-				+ ", showPrev=" + showPrev + ", showNext=" + showNext + "]";
-	}
-	
-
-	
-
 }
