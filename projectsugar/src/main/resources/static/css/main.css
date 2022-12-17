@@ -2,119 +2,49 @@ html,body{width:100%;height:100%}
 body, h3{margin:0; padding:0}
 body{font-family: 'Dongle', sans-serif;}
 .slideshow-container {
-
 	width: 60%;
 	height: 450px;
 	position: static;
     margin:auto;
 	margin-top: 50px;
-	
-	
-
 }
-
-.main_slideImg{
-	width: 100%; 
-	height: 500px;
-	top : 100px;	
-}
-
-
-
-/* Next & previous buttons */
-
 .prev, .next {
-
   cursor: pointer;
-
   position: absolute;
-
   text-align : center;
-
   top: 0;
-
   top: 20%;
-
   width: 4%;
-
   padding: 20px;
-
-  margin-top: 240px;
-
+  margin-top: 280px;
   color: peru;
-
   font-weight: bold;
-
   font-size: 32px;
-
   transition: 0.6s ease;
-
   border-radius: 0 3px 3px 0;
-
   z-index: 100;
-
 }
-
-
-
-/* Position the "next button" to the right */
-
 .next {
   border-radius: 3px 0 0 3px;
-  width: 44px;
-  right: 255px;
+  width: 4%;
+  right: 20%;
 
 }
-
-
-
-/* On hover, add a black background color with a little bit see-through */
 
 .prev:hover, .next:hover {
-
   background-color: rgba(0,0,0,0.8);
-
 }
 
-
-
-/* Caption text */
-
 .text {
-
   color: #f2f2f2;
-
   font-size: 15px;
-
   padding: 8px 12px;
-
   position: absolute;
-
   bottom: 8px;
-
   width: 100%;
-
   text-align: center;
 
 }
-
-
-
-/* Number text (1/3 etc) */
-
-.numbertext {
-
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-
-}
-
-
-
-/* The dots/bullets/indicators */
 
 .dot {
 
@@ -124,27 +54,17 @@ body{font-family: 'Dongle', sans-serif;}
   margin: 0 2px;
   background-color: #bbb;
   border-radius: 50%;
-
   display: inline-block;
-
   transition: background-color 0.6s ease;
 
 }
 
-
-
 .active, .dot:hover {
-
   background-color: peru;
-
 }
 
-
-
-/* Fading animation */
-
 .fade {
-
+  height:500px;
   -webkit-animation-name: fade;
   -webkit-animation-duration: 0.5s;
   animation-name: fade;
@@ -153,8 +73,8 @@ body{font-family: 'Dongle', sans-serif;}
 }
 
 .mainview {
-    padding: 28px 25px 32px;
-    width: 1240px;
+    padding: 1% 1% 1%;
+    width: 65%;
     background: #fff;
     border: 1px solid #e9e9e9;
     margin-bottom: 8px;
@@ -168,7 +88,6 @@ body{font-family: 'Dongle', sans-serif;}
 }
 dl {
     margin-top: 0;
-    display: block;
     margin-block-start: 1em;
     margin-block-end: 1em;
     margin-inline-start: 0px;
@@ -183,7 +102,7 @@ dt {
     display: inline-block;
     margin: 0;
 }
- h3 {
+h3 {
     font-size: 32px;
 }
 .mainview dt h3 span {
@@ -196,85 +115,36 @@ dd {
     margin-left: 0;
     line-height: 1.42857143;
 }
-.chefDivs_li {
-	width: 190px;height: 200px;
-	padding-right: 70px;
-    display: table-cell;
-}
 a {
     color: #333;
     text-decoration: none;
     background-color: transparent;
 }
-.chefDivs_li img {
-    width: 120px;
-    height: 120px;
-    border-radius: 100%;
-}
 img {
     vertical-align: middle;
-        border: 0;
-}
-.chefDivs_li_name {
-    display: block;
-    height: 30px;
-    overflow: hidden;
-    text-align: center;
-    padding-top: 8px;
-    font-size: 18pt;
+    border: 0;
 }
 .recent{
-	width:1000px;
+	width: 65%;
 	margin:auto;
 	font-family: 'Dongle', sans-serif;
+	margin-left: 18%;
 }
 .recent h3{
 	padding:10px 0 4px;
 	border-bottom:1px solid brown;
 	color:peru;
 }
-.fixed_img_col ul{
-	*zoom:1;
-	list-style:none;
-}
-.fixed_img_col li{
-	float:left;
-	width:300px;
-	height:360px;
-	padding:20px 15px;
-	margin-bottom:-1px;
-
-}
-.fixed_img_col li a{
-	position:relative;
-	display:block;
-	background-color:#ccc;
-	height:200px;
-	color:#666;
-	text-align:center;
-	line-height:120px;
-}
-.fixed_img_col li a strong{
-	display:block;
-	padding:8px 0 4px;
-	color:#333;
-	font-weight:bold;
-	line-height:1.4;
-	margin-top: 100px;
-	font-size:14pt;
-}
-.fixed_img_col li a:hover{
-	text-decoration:none;
-}
 .comment {
-    width: 480px;
+    width: 30%;
     padding: 28px 0 0 0;
     padding-top: 10px;
+    margin-left: 53%;
 }
 .comment textarea {
-    width: 480px;
+    width: 100%;
     height: 200px;
-    font-size: 14px;
+    font-size: 20px;
     background: ivory;
     border: 1px solid #e6e7e8;
 }
@@ -283,13 +153,15 @@ img {
     background: ivory;
     border-radius: 0;
     color: #444;
-    width: 480px;
+    width: 100%;
     height: 32px;
     margin: 8px 0 0 -1px
 }
 .container{
 	background-color:peru;
 	height: 300px;
+	width: 100%;
+	float:left;
 }
 h4{
 	font-size:28px;
@@ -298,19 +170,67 @@ h4{
     color:ivory;
 }
 #main_thumbs{
-	width:310px;
-	height:240px;
+	width:100%;
+	height:100%;
 	padding-right: 20px;
     padding-left: 25px;
 }
 .thumimg{
 	float: left;
-    width: 310px;
-    height: 120px;
+    width: 25%;
+    height: 200px;
     font-size: 20px;
     line-height: 100px;
     text-align: center;
 }
 .fixed_img_col{
 	padding-top:20px;
+}
+.chefimg{
+	float:left;
+	padding-right:10%;
+	padding-left:10%;
+	list-style-type:none;
+}
+.chefimg img{
+	width: 150px;
+    height: 150px;
+    border-radius: 100%;
+}
+.btn_default{
+	font-size:14pt;
+}
+.chefview{
+	overflow: auto;
+  	white-space:nowrap;
+  	display:inline-block;
+}
+.btm_stats {
+    height:300px;
+        padding-left: 25%;
+}
+.btm_stats_2 {
+    background: url(//recipe1.ezmember.co.kr/img/btm_icon5.png) center no-repeat;
+}
+.btm_stats_1 {
+    background: url(//recipe1.ezmember.co.kr/img/btm_icon2.png) center no-repeat;
+}
+.btm_stats li {
+    text-align: center;
+    display: inline-block;
+    color: #fff;
+    font-size: 24px;
+    width: 40%;
+    height: 300px;
+}
+.btm_stats li span {
+    width: 100%;
+    height: 200px;
+    display: block;
+    margin-bottom: 6px;
+}
+.total{
+	width: 50%;
+	    height: 300px;
+	float:left;
 }
