@@ -6,7 +6,6 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
-
 import spring.example.domain.User;
 
 
@@ -39,6 +38,7 @@ String findid(String email);
 @Select
 ("select profile from user where userid=#{userid} and passwd=#{passwd}")
 String getProfile(User user);
+
 
 
 @Select

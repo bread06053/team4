@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import spring.example.config.SecurityUser;
+import spring.example.domain.Recipe;
 import spring.example.domain.User;
+import spring.example.service.RecipeService;
 import spring.example.service.UserService;
 
 @Controller
@@ -21,6 +23,9 @@ public class Mycontroller {
 
 	@Autowired
 	UserService service;
+	
+	@Autowired
+	RecipeService service2;
 	
 	@GetMapping("/tae/login")
 	public String login() {
@@ -41,13 +46,14 @@ public class Mycontroller {
 	@PostMapping("/login")
 	public String Profile(@AuthenticationPrincipal SecurityUser user, Model m) {
 		m.addAttribute("profile", user.getUser().getProfile());
-		return "redirect:/main";
+		return "redirect:/chan/main";
+	
 	}
 	
 	@PostMapping("/tae/join")
 	public String insert(User user) {
 		service.insertuser(user);
-		return "redirect:/main";
+		return "redirect:/chan/main";
 	}
 	
 	@GetMapping("tae/find")
@@ -84,7 +90,21 @@ public class Mycontroller {
 	}
 	@GetMapping("/tae/popup2")
 	public String findpw(User user, Model m) {
-		m.addAttribute("pw",  service.findpw(user));
+		String pw = service.findpw(user);
+		if(pw != null) {
+			pw = pw.substring(0, 2)+ "**";
+		}
+		m.addAttribute("pw",  pw);
 		return "/tae/popup2";
 	}
+	
+	@PostMapping("tae/searchpage")
+	public String searchpage(String q, Model m) {
+		List<Recipe> recipe = service2.searchti1(q);
+		m.addAttribute("recipe",recipe);
+		m.addAttribute("q", q);
+		return "tae/searchpage";
+	}
 }
+
+

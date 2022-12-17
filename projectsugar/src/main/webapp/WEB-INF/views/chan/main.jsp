@@ -28,8 +28,9 @@
 	</a>
 	</h1>
 	<div class="yoyo_search">
-	<form id="yoyoSearch" method="get" action="/tae/searchpage">
+	<form id="yoyoSearch" method="post" action="/tae/searchpage">
 		<div class="input-group">
+
 		<input id="yoyoText" name="q" type="text" class="form-control ui-autocmplete-input" placeholder values="" style="ime-mode:active;" autocomplete="off">	
 		<span class="input-group-btn">
 		<button class="btn btn-default" type="submit" style="padding-bottom: 8px;">
@@ -41,6 +42,7 @@
 		</div>
 	</form>	
 </div> 
+<div id = goodtaehun></div>
 <dl class="yoyoRight" style="position:relative">
 	<div style="position: absolute; width:100px; top: 47px; left: 0; margin-left: -25px;display:none; margin:10;">
          <span style="margin: 10; padding: 10; font-size: 0; display: block; text-align: center;"><img src="" width="8"></span>
@@ -87,6 +89,7 @@
 <h3>이번주 <span>짜파게티 요리사</span></h3>
 </dt>
 <dd style="margin-top:-10px;">
+
 <ul class="chefList chefview" style="height:200px;width:100%;">
 	<c:forEach var="i" items="${bestChef}">
 	<li class="chefimg" style="text-align: center;">
