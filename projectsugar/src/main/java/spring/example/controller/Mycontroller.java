@@ -75,6 +75,8 @@ public class Mycontroller {
 		m.addAttribute("recent",recent);
 		m.addAttribute("bestChef",bestChef);
 		m.addAttribute("bestView",bestView);
+		m.addAttribute("cntUser",service.cntUser());
+		m.addAttribute("cntRecipe",service.cntRecipe());
 		return "chan/main";
 	}
 
