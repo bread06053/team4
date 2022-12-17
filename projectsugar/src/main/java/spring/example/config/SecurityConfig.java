@@ -20,8 +20,10 @@ public class SecurityConfig{
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity security) throws Exception {
 	
-		
-		
+		// Naver SmartEditor 사용을 위해 필요 (보안 이슈)
+		security.headers().frameOptions().sameOrigin();
+		security.authorizeRequests().antMatchers("/post/**").authenticated();
+
 		security.authorizeRequests().antMatchers("/tae/login","/tae/join","/tae/find").permitAll();
 		security.authorizeRequests().antMatchers("/member/**").authenticated();
 		security.authorizeRequests().antMatchers("/admin/**").hasAnyRole("ADMIN");

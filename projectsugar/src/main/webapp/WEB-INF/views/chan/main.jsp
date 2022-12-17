@@ -13,7 +13,7 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Dongle&display=swap');
 .mySlides {display:none}
-.prev, .next, .dot {cursor:pointer}
+.prev, .nex t, .dot {cursor:pointer}
 .dot {height:13px;width:13px;padding:0}
 </style>
 </head>
