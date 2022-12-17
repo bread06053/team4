@@ -20,7 +20,7 @@
 </style>
 </head>
 <body>
-<div class="yoyo_top_wrap">
+<div class="yoyo_top_wra p">
 	<div class="yoyo_top">
 	<h1>
 	<a href="http://localhost:8084/chan/main">
@@ -125,13 +125,15 @@
             <li><span class="btm_stats_2"></span>총 레시피수: <b>${cntRecipe}</b></li>
         </ul>
 </div>
+<form action="/tae/asklist" method="post" id="asklist">
 <div class="comment">
 <h4>건의 사항</h4>
-<textarea id="customerSend" name="board_txt" class="form-control" placeholder="불편한 사항 혹은 제안 사항을 적어주세요!">
+<input name = atitle id = atitle placeholder="제목 입력.."> <input name = userid id = userid placeholder="아이디 입력..">
+<textarea id="customerSend" name="atext" class="form-control" placeholder="불편한 사항 혹은 제안 사항을 적어주세요!">
 </textarea>
-<button class="btn btn_default" onclick="ask();"><strong>의견 제출</strong></button>
+<input type="submit" id= "join" value="전달">
 </div>
-</div>
+</form>
 </div>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <script>
