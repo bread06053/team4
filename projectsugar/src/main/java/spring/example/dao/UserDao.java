@@ -6,6 +6,8 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+
+import spring.example.domain.Ask;
 import spring.example.domain.User;
 
 
@@ -40,7 +42,6 @@ String findid(String email);
 String getProfile(User user);
 
 
-
 @Select
 ("select REPLACE(REPLACE(rthumimg,'[',''),']','')as rthumimg,rtitle from recipe ORDER BY rno DESC limit 4")
 List<Map<String,String>> recentRcp();
@@ -60,6 +61,10 @@ int cntUser();
 @Select
 ("select count(rno) from recipe")
 int cntRecipe();
+
+@Insert
+("insert into ask(atitle,userid,atext) values(#{atitle},#{userid},#{atext})")
+int asksome(Ask ask);
+
+
 }
-
-

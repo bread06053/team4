@@ -13,9 +13,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import spring.example.config.SecurityUser;
+import spring.example.domain.Ask;
 import spring.example.domain.Post;
 import spring.example.domain.Recipe;
 import spring.example.domain.User;
+import spring.example.service.AskService;
 import spring.example.service.PostService;
 import spring.example.service.RecipeService;
 import spring.example.service.UserService;
@@ -31,6 +33,9 @@ public class Mycontroller {
 	
 	@Autowired
 	PostService service3;
+	
+	@Autowired
+	AskService service4;
 	
 	@GetMapping("/tae/login")
 	public String login() {
@@ -112,6 +117,12 @@ public class Mycontroller {
 		m.addAttribute("post",post);
 		m.addAttribute("q", q);
 		return "tae/searchpage";
+	}
+	
+	@PostMapping("tae/asklist")
+	public String asksome(Ask ask) {
+		service4.asksome(ask);
+		return "chan/main";
 	}
 }
 
