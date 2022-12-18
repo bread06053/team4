@@ -20,7 +20,7 @@
 </style>
 </head>
 <body>
-<div class="yoyo_top_wrap">
+<div class="yoyo_top_wra p">
 	<div class="yoyo_top">
 	<h1>
 	<a href="http://localhost:8084/chan/main">
@@ -92,24 +92,19 @@
 
 <ul class="chefList chefview" style="height:200px;width:100%;">
 	<c:forEach var="i" items="${bestChef}">
-<<<<<<< HEAD
-	<div class="chefimg">
-	<img src="/profile/${i.profile}"/>
-	</div>
-	</c:forEach>
-	</div>
-	</div>
-</div>
-=======
 	<li class="chefimg" style="text-align: center;">
 	<img src="/profile/${i.profile}"><br>
 	<strong style="font-size:20pt;">${i.ranking}. </strong>
 	<strong style="font-size:20pt;">${i.nickname}</strong>
 	</li>
+</c:forEach>
+</ul>
+</dl>
 <div class="recent" style="margin-bottom: 400px;">
 	<h3 style="
     margin-top: 330px;width: 150px;">최근 올라온 레시피</h3>
 	<div class="fixed_img_col">
+	
 	<c:forEach var="i" items="${recent}">
 	<div class="thumimg">
 	${i.rthumimg}
@@ -125,14 +120,17 @@
             <li><span class="btm_stats_2"></span>총 레시피수: <b>${cntRecipe}</b></li>
         </ul>
 </div>
+<form action="/tae/asklist" method="post" id="asklist">
 <div class="comment">
 <h4>건의 사항</h4>
-<textarea id="customerSend" name="board_txt" class="form-control" placeholder="불편한 사항 혹은 제안 사항을 적어주세요!">
+<input name = atitle id = atitle placeholder="제목 입력.."> <input name = userid id = userid placeholder="아이디 입력..">
+<textarea id="customerSend" name="atext" class="form-control" placeholder="불편한 사항 혹은 제안 사항을 적어주세요!">
 </textarea>
-<button class="btn btn_default" onclick="ask();"><strong>의견 제출</strong></button>
+<input type="submit" id= "join" value="전달">
 </div>
+</form>
 </div>
-</div>
+
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <script>
 var slideIndex = 1;
