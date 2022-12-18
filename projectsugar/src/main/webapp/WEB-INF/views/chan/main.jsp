@@ -92,24 +92,19 @@
 
 <ul class="chefList chefview" style="height:200px;width:100%;">
 	<c:forEach var="i" items="${bestChef}">
-<<<<<<< HEAD
-	<div class="chefimg">
-	<img src="/profile/${i.profile}"/>
-	</div>
-	</c:forEach>
-	</div>
-	</div>
-</div>
-=======
 	<li class="chefimg" style="text-align: center;">
 	<img src="/profile/${i.profile}"><br>
 	<strong style="font-size:20pt;">${i.ranking}. </strong>
 	<strong style="font-size:20pt;">${i.nickname}</strong>
 	</li>
+</c:forEach>
+</ul>
+</dl>
 <div class="recent" style="margin-bottom: 400px;">
 	<h3 style="
     margin-top: 330px;width: 150px;">최근 올라온 레시피</h3>
 	<div class="fixed_img_col">
+	
 	<c:forEach var="i" items="${recent}">
 	<div class="thumimg">
 	${i.rthumimg}
@@ -135,6 +130,7 @@
 </div>
 </form>
 </div>
+
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <script>
 var slideIndex = 1;
