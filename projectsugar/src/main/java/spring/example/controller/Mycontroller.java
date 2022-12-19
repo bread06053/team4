@@ -1,5 +1,8 @@
 package spring.example.controller;
 
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -14,6 +17,7 @@ import spring.example.service.UserService;
 
 @Controller
 public class Mycontroller {
+
 	@Autowired
 	UserService service;
 	
@@ -26,7 +30,6 @@ public class Mycontroller {
 	public String join() {
 		return "tae/join";
 	}
-
 	@GetMapping("/idCheck")
 	@ResponseBody
 	public String idCheck(String id) {
@@ -60,7 +63,6 @@ public class Mycontroller {
 	public String subHeader() {
 		return "chan/subHeader";
 	}
-
 	@GetMapping("chan/mainHeader")
 	public String mainHeader() {
 		return "chan/mainHeader";
@@ -71,10 +73,10 @@ public class Mycontroller {
 		m.addAttribute("id",  service.findid(email));
 		return "/tae/popup";
 	}
-
 	@GetMapping("/tae/popup2")
 	public String findpw(User user, Model m) {
 		m.addAttribute("pw",  service.findpw(user));
 		return "/tae/popup2";
 	}
+
 }

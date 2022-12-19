@@ -1,4 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
 <style>
@@ -18,7 +20,7 @@
 </style>
 </head>
 <body>
-<div class="yoyo_top_wrap">
+<div class="yoyo_top_wra p">
 	<div class="yoyo_top">
 	<h1>
 	<a href="http://localhost:8084/chan/main">
@@ -26,11 +28,12 @@
 	</a>
 	</h1>
 	<div class="yoyo_search">
-	<form id="yoyoSearch" method="get" action="">
+	<form id="yoyoSearch" method="post" action="/tae/searchpage">
 		<div class="input-group">
+
 		<input id="yoyoText" name="q" type="text" class="form-control ui-autocmplete-input" placeholder values="" style="ime-mode:active;" autocomplete="off">	
 		<span class="input-group-btn">
-		<button class="btn btn-default" type="button" onclick="$('#yoyoSearch').submit();">
+		<button class="btn btn-default" type="submit" style="padding-bottom: 8px;">
 			<span class="glyphicon glyphicon-search">
 			::검색
 			</span>
@@ -39,13 +42,16 @@
 		</div>
 	</form>	
 </div> 
+<div id = goodtaehun></div>
 <dl class="yoyoRight" style="position:relative">
 	<div style="position: absolute; width:100px; top: 47px; left: 0; margin-left: -25px;display:none; margin:10;">
          <span style="margin: 10; padding: 10; font-size: 0; display: block; text-align: center;"><img src="" width="8"></span>
          <span style="border-radius: 2px; background: #ffd200; color: #000; display: block; font-size: 11px; padding:2px 5px; text-align: center;">회원가입</span>
     </div>
     <a href="http://localhost:8084/tae/login">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKqph2wqtX84lDFu9tH5kMGjUQwoL14qT45w&usqp=CAU" alt="로그인">
+    <sec:authentication property = "principal.user.userid"></sec:authentication>님 안녕하세요!<br>
+    <sec:authorize access = "!isAuthenticated()"/>
+    <img src="/profile/<sec:authentication property = "principal.user.profile"/>">
     </a>
 </dl>
 </div>
@@ -62,128 +68,69 @@
         </div>
 <div class="main">       
 <div class="slideshow-container">
-		<div class="mySlides fade2">
-			<img class="main_slideImg" src="https://postfiles.pstatic.net/MjAyMjEwMjlfMjYg/MDAxNjY3MDUxOTEwMjcw.05iuUKtmij0yua8AgqWB0wnEuOzpIFiUPvhljSJpG5Qg.0E63J0F-jNqA964DmawDv9FqB10na29CH2CLPl-L9n0g.JPEG.bread06053/1665315654468.jpg?type=w966">
-			<div class="text">Caption Text</div>
+		<c:forEach var="i" items="${bestView}">
+		<div class="mySlides fade">
+		${i}
 		</div>
-
-		<div class="mySlides fade2">
-			<img class="main_slideImg" src="https://postfiles.pstatic.net/MjAyMjEwMjlfMTMy/MDAxNjY3MDUxOTA5NDQz.FElQPNa4W7JZMmNgDdfFK8hpermG7Tu2c_UuF9csPncg.7YpD8jSekjAp7CwdNDhcXMCuv-WQXtUPSUwkolTrhVUg.JPEG.bread06053/1665315654428.jpg?type=w966">
-			<div class="text">Caption Two</div>
-		</div>
-
-		<div class="mySlides fade2">
-			<img class="main_slideImg" src="https://postfiles.pstatic.net/MjAyMjExMTNfOSAg/MDAxNjY4MzM2MjI4OTgx.XhCacZs4tk80nPYWEzzZdBdiGE0u4riZQkLLCQJVXwIg.6VGgWtJ89B3xiaYSZ2YrbU2okrn1ih9MU-HWZdqzFA8g.JPEG.bread06053/20221113%EF%BC%BF182758.jpg?type=w966">
-			<div class="text">Caption Three</div>
-		</div>
+		</c:forEach>
 		<a class="prev" onclick="plusSlides(-1)">❮</a>
-		<a class="next" onclick="plusSlides(1)" style="right: 390px;width: 76px;">❯</a>
+		<a class="next" onclick="plusSlides(1)" style="width: 76px;">❯</a>
 	</div>
-
 	<br>
-
-
-
+	
 	<div style="text-align: center">
 		<span class="dot" onclick="currentSlide(1)"></span> 
 		<span class="dot" onclick="currentSlide(2)"></span>
 		<span class="dot" onclick="currentSlide(3)"></span>
 	</div>
-<dl class="mainview" id="chefList" style="left:330px;">
+	
+<dl class="mainview" id="chefList" style="left:18%; right:30%;">
 <dt>
 <h3>이번주 <span>짜파게티 요리사</span></h3>
 </dt>
 <dd style="margin-top:-10px;">
-<div class="chefList chefview" style="height:180px;width:1100px;display:inline-block;margin-left:1px;vertical-align:middle;overflow:hidden;">
-	<div aria-live="polite" class="chef-list">
-	<div class="chef-track" role="listbox" style="opacity:1; width:5500px;transform:translate3d(70px,10px,100px)">
-	<li class="chefDivs_li" style="text-align:center; width:120px; padding-left: 35px;">
-	<a style="display:table-cell;padding:10px;">
-	<img src="https://phinf.pstatic.net/contact/20220831_59/16619059501531n3nz_JPEG/KakaoTalk_20220308_191125531_05.jpg?type=s80">
-	</a>
-	<span class="chefDivs_li_name" style="width:auto;">Rwhat</span>
+
+<ul class="chefList chefview" style="height:200px;width:100%;">
+	<c:forEach var="i" items="${bestChef}">
+	<li class="chefimg" style="text-align: center;">
+	<img src="/profile/${i.profile}"><br>
+	<strong style="font-size:20pt;">${i.ranking}. </strong>
+	<strong style="font-size:20pt;">${i.nickname}</strong>
 	</li>
-	<li class="chefDivs_li" style="text-align:center; width:120px;">
-	<a style="display:table-cell;padding:10px;">
-	<img src="https://phinf.pstatic.net/contact/20220831_59/16619059501531n3nz_JPEG/KakaoTalk_20220308_191125531_05.jpg?type=s80">
-	</a>
-	<span class="chefDivs_li_name" style="width:auto;">Rwhat</span>
-	</li>	
-	<li class="chefDivs_li" style="text-align:center; width:120px;">
-	<a style="display:table-cell;padding:10px;">
-	<img src="https://phinf.pstatic.net/contact/20220831_59/16619059501531n3nz_JPEG/KakaoTalk_20220308_191125531_05.jpg?type=s80">
-	</a>
-	<span class="chefDivs_li_name" style="width:auto;">Rwhat</span>
-	</li>
-	<li class="chefDivs_li" style="text-align:center; width:120px;">
-	<a style="display:table-cell;padding:10px;">
-	<img src="https://phinf.pstatic.net/contact/20220831_59/16619059501531n3nz_JPEG/KakaoTalk_20220308_191125531_05.jpg?type=s80">
-	</a>
-	<span class="chefDivs_li_name" style="width:auto;">Rwhat</span>
-	</li>
-	<li class="chefDivs_li" style="text-align:center; width:120px;">
-	<a style="display:table-cell;padding:10px;">
-	<img src="https://phinf.pstatic.net/contact/20220831_59/16619059501531n3nz_JPEG/KakaoTalk_20220308_191125531_05.jpg?type=s80">
-	</a>
-	<span class="chefDivs_li_name" style="width:auto;">Rwhat</span>
-	</li>
-	</div>
-	</div>
-</div>
-</dd>
+</c:forEach>
+</ul>
 </dl>
-<div class="recent" style="width: 1240px; margin-bottom: 400px;">
+<div class="recent" style="margin-bottom: 400px;">
 	<h3 style="
     margin-top: 330px;width: 150px;">최근 올라온 레시피</h3>
 	<div class="fixed_img_col">
-	<ul>
-	<li>
-	<a href="">
-	<span class="thumb">
-	<img src=""alt="">
-<strong>제목</strong>
-	</span>
-	</a>
-	</li>
 	
-	<li>
-	<a href="">
-	<span class="thumb">
-	<img src=""alt="">
-<strong>제목</strong>
-	</span>
-	</a>
-	</li>
-	
-	<li>
-	<a href="">
-	<span class="thumb">
-	<img src=""alt="">
-<strong>제목</strong>
-	</span>
-	</a>
-	</li>
-	
-	<li>
-	<a href="">
-	<span class="thumb">
-	<img src=""alt="">
-<strong>제목</strong>
-	</span>
-	</a>
-	</li>
-	</ul>
+	<c:forEach var="i" items="${recent}">
+	<div class="thumimg">
+	${i.rthumimg}
+<strong>${i.rtitle}</strong>
+	</div>
+	</c:forEach>
 	</div>	
 </div>
 <div class="container">
-<div class="comment"style="margin-left: 1080px;">
+<div class="total">
+<ul class="btm_stats">
+            <li><span class="btm_stats_1"></span>총 요리사수: <b>${cntUser}</b></li>
+            <li><span class="btm_stats_2"></span>총 레시피수: <b>${cntRecipe}</b></li>
+        </ul>
+</div>
+<form action="/tae/asklist" method="post" id="asklist">
+<div class="comment">
 <h4>건의 사항</h4>
-<textarea id="customerSend" name="board_txt" class="form-control" placeholder="불편한 사항 혹은 제안 사항을 적어주세요!">
+<input name = atitle id = atitle placeholder="제목 입력.."> <input name = userid id = userid placeholder="아이디 입력..">
+<textarea id="customerSend" name="atext" class="form-control" placeholder="불편한 사항 혹은 제안 사항을 적어주세요!">
 </textarea>
-<button class="btn btn_default" onclick="ask();">의견 제출</button>
+<input type="submit" id= "join" value="전달">
 </div>
+</form>
 </div>
-</div>
+
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <script>
 var slideIndex = 1;
