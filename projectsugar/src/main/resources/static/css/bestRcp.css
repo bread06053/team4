@@ -1,0 +1,43 @@
+@charset "UTF-8";
+.chefinfo img {
+    width: 25px;
+    border-radius: 100%;
+}
+.chefinfo{
+	padding-right: 65%;
+}
+.thumimg{
+	margin-bottom: 200px;
+}
+.thumimg strong{
+	font-size:18pt;
+}
+.catelist{
+	height:200px;
+}
+.bestcontainer h3{
+	margin-left:2%;
+	font-size:28pt;
+}
+.bestcontainer h4{
+	margin-left:2%;
+	font-size:20pt;
+	color:brown;
+}
+.title{
+	height: 50px;
+}
+input[type=checkbox]+label{
+	display:inline-block;
+	margin-left:10px;
+	width:20px;
+	height:20px;
+	border:2px solid brown;
+	cursor:pointer;
+}
+input[type=checkbox]:checked+label{
+	background-color:peru;
+}
+input[type=checkbox]{
+	display:none;
+}

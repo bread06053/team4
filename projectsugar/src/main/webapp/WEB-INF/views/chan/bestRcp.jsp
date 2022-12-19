@@ -9,6 +9,7 @@
 <head>
 <link rel="stylesheet" href="/css/mainHeader.css"/>
 <link rel="stylesheet" href="/css/main.css"/>
+<link rel="stylesheet" href="/css/bestRcp.css"/>
 <title>Insert title here</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Dongle&display=swap" rel="stylesheet">
@@ -58,7 +59,7 @@
 </div>
 <div class="yoyo_navi">
             <ul class="yoyoNavi">
-                <li><a href="/chan/bestRcp">Best 레시피</a>
+                <li><a href="https://www.10000recipe.com/index.html">Best 레시피</a>
                 </li>
                 <li><a href="https://www.10000recipe.com/recipe/list.html" class="active">나만의 레시피</a>
                 </li>
@@ -66,99 +67,38 @@
                 </li>
             </ul>
         </div>
-<div class="main">       
-<div class="slideshow-container">
-		<c:forEach var="i" items="${bestView}">
-		<div class="mySlides fade">
-		${i}
-		</div>
-		</c:forEach>
-		<a class="prev" onclick="plusSlides(-1)">❮</a>
-		<a class="next" onclick="plusSlides(1)" style="width: 76px;">❯</a>
-	</div>
-	<br>
-	
-	<div style="text-align: center">
-		<span class="dot" onclick="currentSlide(1)"></span> 
-		<span class="dot" onclick="currentSlide(2)"></span>
-		<span class="dot" onclick="currentSlide(3)"></span>
-	</div>
-	
+<div class="catelist">
 <dl class="mainview" id="chefList" style="left:18%; right:30%;">
 <dt>
-<h3>이번주 <span>짜파게티 요리사</span></h3>
+<h3>주재료 <span>카테고리</span></h3>
 </dt>
 <dd style="margin-top:-10px;">
-
-<ul class="chefList chefview" style="height:200px;width:100%;">
-	<c:forEach var="i" items="${bestChef}">
-	<li class="chefimg" style="text-align: center;">
-	<img src="/profile/${i.profile}"><br>
-	<strong style="font-size:20pt;">${i.ranking}. </strong>
-	<strong style="font-size:20pt;">${i.nickname}</strong>
-	</li>
+<form method="get" action="">
+<c:forEach var="i" items="${cateName}">
+<input type='checkbox' id=i name="cate" value='${i.cateno}'/>
+<label for=i>
+</label>${i.catename}
 </c:forEach>
-</ul>
+<input type='submit' value='검색'>
+</form>
 </dl>
-<div class="recent" style="margin-bottom: 400px;">
-	<h3 style="
-    margin-top: 330px;width: 150px;">최근 올라온 레시피</h3>
-	<div class="fixed_img_col">
-	
-	<c:forEach var="i" items="${recent}">
+</div><br>
+<div class="bestcontainer">
+<h3>추천 레시피</h3>
+<h4>${cnt}개의 검색 결과가 있습니다.</h4>
+<c:forEach var="i" items="${best}">
 	<div class="thumimg">
 	${i.rthumimg}
-<strong>${i.rtitle}</strong>
+	<div class="title">
+<strong style="">${i.rtitle}</strong>
+</div>
+<div class="chefinfo">
+작성자: 
+<img src="/profile/${i.profile}">
+${i.nickname}
+	</div>
 	</div>
 	</c:forEach>
-	</div>	
 </div>
-<div class="container">
-<div class="total">
-<ul class="btm_stats">
-            <li><span class="btm_stats_1"></span>총 요리사수: <b>${cntUser}</b></li>
-            <li><span class="btm_stats_2"></span>총 레시피수: <b>${cntRecipe}</b></li>
-        </ul>
-</div>
-<form action="/tae/asklist" method="post" id="asklist">
-<div class="comment">
-<h4>건의 사항</h4>
-<input name = atitle id = atitle placeholder="제목 입력.."> <input name = userid id = userid placeholder="아이디 입력..">
-<textarea id="customerSend" name="atext" class="form-control" placeholder="불편한 사항 혹은 제안 사항을 적어주세요!">
-</textarea>
-<input type="submit" id= "join" value="전달">
-</div>
-</form>
-</div>
-
-<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-<script>
-var slideIndex = 1;
-showSlides(slideIndex);
-
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-function currentSlides(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  var i;
-  var x = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("dot");
-  if (n > x.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = x.length}
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";  
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  x[slideIndex-1].style.display = "block";  
-  dots[slideIndex-1].className += " active";
-}
-</script>
 </body>
 </html>
