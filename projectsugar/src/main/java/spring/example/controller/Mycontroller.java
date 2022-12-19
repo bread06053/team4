@@ -124,6 +124,16 @@ public class Mycontroller {
 		service4.asksome(ask);
 		return "chan/main";
 	}
+	@GetMapping("chan/bestRcp")
+	public String bestRcp(Model m) {
+		List<Map<String,String>> best=service2.bestRcp();
+		List<Map<String,Object>> cateName=service2.cateName();
+		int cnt=service2.bestcnt();
+		m.addAttribute("best",best);
+		m.addAttribute("cnt",cnt);
+		m.addAttribute("cateName",cateName);
+		return "chan/bestRcp";
+	}
 }
 
 
