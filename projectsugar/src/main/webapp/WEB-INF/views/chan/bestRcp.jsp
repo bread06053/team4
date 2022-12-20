@@ -59,7 +59,7 @@
 </div>
 <div class="yoyo_navi">
             <ul class="yoyoNavi">
-                <li><a href="https://www.10000recipe.com/index.html">Best 레시피</a>
+                <li><a href="/chan/bestRcp">Best 레시피</a>
                 </li>
                 <li><a href="https://www.10000recipe.com/recipe/list.html" class="active">나만의 레시피</a>
                 </li>
@@ -73,12 +73,25 @@
 <h3>주재료 <span>카테고리</span></h3>
 </dt>
 <dd style="margin-top:-10px;">
-<form method="get" action="">
+<form method="get" class="cate" action="">
+<h4>재료별</h4>
 <c:forEach var="i" items="${cateName}">
-<input type='checkbox' id=i name="cate" value='${i.cateno}'/>
-<label for=i>
+<input type='checkbox' id='${i.cateno }' name="cate1" value='${i.cateno}'/>
+<label for='${i.cateno}'>
 </label>${i.catename}
-</c:forEach>
+</c:forEach><br><br>
+<h4>난이도별</h4>
+<c:forEach var="i" items="${rcpLevel}">
+<input type='checkbox' id='${i}' name="cate2" value='${i}'/>
+<label for='${i}'>
+</label>${i}
+</c:forEach><br><br>
+<h4>시간별</h4>
+<c:forEach var="i" items="${rcpTime}">
+<input type='checkbox' id='${i.num}' name="cate3" value='${i.num}'/>
+<label for='${i.num}'>
+</label>${i.rtime}
+</c:forEach><br>
 <input type='submit' value='검색'>
 </form>
 </dl>

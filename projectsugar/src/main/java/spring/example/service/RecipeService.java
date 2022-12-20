@@ -27,4 +27,13 @@ public class RecipeService {
 	public List<Map<String,Object>> cateName(){
 		return dao.cateName();
 	}
+	public List<String> rcpLevel(){
+		return dao.rcpLevel();
+	}
+	public List<Map<String,Object>>rcpTime(){
+		return dao.rcpTime();
+	}
+	public List<Map<String,Object>> bestRcpInfo(){
+		return dao.bestRcpInfo();
+	}
 	}

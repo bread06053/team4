@@ -122,7 +122,7 @@
 </div>
 <form action="/tae/asklist" method="post" id="asklist">
 <div class="comment">
-<h4>건의 사항</h4>
+<h4 style="margin-bottom:0px;">건의 사항</h4>
 <input name = atitle id = atitle placeholder="제목 입력.."> <input name = userid id = userid placeholder="아이디 입력..">
 <textarea id="customerSend" name="atext" class="form-control" placeholder="불편한 사항 혹은 제안 사항을 적어주세요!">
 </textarea>

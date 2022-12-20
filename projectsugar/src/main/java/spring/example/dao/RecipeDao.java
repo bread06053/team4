@@ -25,5 +25,14 @@ int bestcnt();
 @Select
 ("select * from cate")
 List<Map<String,Object>> cateName();
+@Select
+("Select rlevel from recipe where rlevel !='???' group by rlevel")
+List<String> rcpLevel();
+@Select
+("select rtime,Rank() over (order by rtime)as num from recipe where rtime != '???'group by rtime")
+List<Map<String,Object>> rcpTime();
+@Select
+("Select * from recipe")
+List<Map<String,Object>> bestRcpInfo();
 }
 
