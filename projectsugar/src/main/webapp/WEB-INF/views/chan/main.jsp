@@ -92,15 +92,11 @@
 
 <ul class="chefList chefview" style="height:200px;width:100%;">
 	<c:forEach var="i" items="${bestChef}">
-<<<<<<< HEAD
 	<div class="chefimg">
 	<img src="/profile/${i.profile}"/>
 	</div>
 	</c:forEach>
 	</div>
-	</div>
-</div>
-=======
 	<li class="chefimg" style="text-align: center;">
 	<img src="/profile/${i.profile}"><br>
 	<strong style="font-size:20pt;">${i.ranking}. </strong>

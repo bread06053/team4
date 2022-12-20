@@ -122,7 +122,7 @@ public class Mycontroller {
 	@PostMapping("tae/asklist")
 	public String asksome(Ask ask) {
 		service4.asksome(ask);
-		return "chan/main";
+		return "redirect:/chan/main";
 	}
 }
 
