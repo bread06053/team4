@@ -1,0 +1,73 @@
+@charset "UTF-8";
+.chefinfo img {
+    width: 25px;
+    border-radius: 100%;
+}
+.chefinfo{
+	padding-right: 65%;
+}
+.thumimg{
+	height:400px;
+}
+#main_thumbs{
+	height:200px;
+}
+.thumimg strong{
+	font-size:18pt;
+}
+.catelist{
+	height:200px;
+}
+.bestcontainer{
+	margin-top: 14%;
+}
+.bestcontainer h3{
+	margin-left:2%;
+	font-size:28pt;
+}
+.bestcontainer h4{
+	margin-left:2%;
+	font-size:20pt;
+	color:brown;
+}
+.title{
+	height: 50px;
+}
+input[type=checkbox]+label{
+	display:inline-block;
+	margin-left:10px;
+	width:20px;
+	height:20px;
+	border:2px solid orange;
+	cursor:pointer;
+	border-radius: 2px;
+}
+input[type=checkbox]:checked+label::after{
+	content:'✔';
+	color:orangered;
+}
+input[type=checkbox]{
+	display:none;
+}
+.cate{
+	font-size:20px;
+}
+dd{
+	padding-left:6%;
+}
+input[type=submit]{
+	margin-left: 93%;
+    margin-top: 1%;
+    width: 46px;
+    height:28px;
+    background-color:orange;
+    border: none;
+    color:ivory;
+    border-radius: 4px;
+}
+input[type=submit]:hover {
+background-color: OrangeRed;
+}
+.cate h4{
+	color:orange;
+}

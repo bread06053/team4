@@ -9,6 +9,7 @@
 <head>
 <link rel="stylesheet" href="/css/mainHeader.css"/>
 <link rel="stylesheet" href="/css/main.css"/>
+<link rel="stylesheet" href="/css/bestRcp.css"/>
 <title>Insert title here</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Dongle&display=swap" rel="stylesheet">
@@ -66,5 +67,51 @@
                 </li>
             </ul>
         </div>
-        </body>
-        </html>
+<div class="catelist">
+<dl class="mainview" id="chefList" style="left:18%; right:30%;">
+<dt>
+<h3>주재료 <span>카테고리</span></h3>
+</dt>
+<dd style="margin-top:-10px;">
+<form method="get" class="cate" action="">
+<h4>재료별</h4>
+<c:forEach var="i" items="${cateName}">
+<input type='checkbox' id='${i.cateno }' name="cate1" value='${i.cateno}'/>
+<label for='${i.cateno}'>
+</label>${i.catename}
+</c:forEach><br><br>
+<h4>난이도별</h4>
+<c:forEach var="i" items="${rcpLevel}">
+<input type='checkbox' id='${i}' name="cate2" value='${i}'/>
+<label for='${i}'>
+</label>${i}
+</c:forEach><br><br>
+<h4>시간별</h4>
+<c:forEach var="i" items="${rcpTime}">
+<input type='checkbox' id='${i.num}' name="cate3" value='${i.num}'/>
+<label for='${i.num}'>
+</label>${i.rtime}
+</c:forEach><br>
+<input type='submit' value='검색'>
+</form>
+</dl>
+</div><br>
+<div class="bestcontainer">
+<h3>추천 레시피</h3>
+<h4>${cnt}개의 검색 결과가 있습니다.</h4>
+<c:forEach var="i" items="${best}">
+	<div class="thumimg">
+	${i.rthumimg}
+	<div class="title">
+<strong style="">${i.rtitle}</strong>
+</div>
+<div class="chefinfo">
+작성자: 
+<img src="/profile/${i.profile}">
+${i.nickname}
+	</div>
+	</div>
+	</c:forEach>
+</div>
+</body>
+</html>

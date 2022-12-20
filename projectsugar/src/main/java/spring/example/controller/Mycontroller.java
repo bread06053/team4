@@ -123,6 +123,27 @@ public class Mycontroller {
 	public String asksome(Ask ask) {
 		service4.asksome(ask);
 		return "redirect:/chan/main";
+
+	}
+	@GetMapping("chan/bestRcp")
+	public String bestRcp(Model m) {
+		List<Map<String,String>> best=service2.bestRcp();
+		List<Map<String,Object>> cateName=service2.cateName();
+		List<String> rcpLevel=service2.rcpLevel();
+		List<Map<String,Object>> rcpTime=service2.rcpTime();
+		int cnt=service2.bestcnt();
+		m.addAttribute("best",best);
+		m.addAttribute("cnt",cnt);
+		m.addAttribute("cateName",cateName);
+		m.addAttribute("rcpLevel",rcpLevel);
+		m.addAttribute("rcpTime",rcpTime);
+		return "chan/bestRcp";
+	}
+	@GetMapping("chan/bestRcpInfo")
+	public String bestRcpInfo(Model m){
+		List<Map<String,Object>> bestRcpInfo=service2.bestRcpInfo();
+		m.addAttribute("bestRcpInfo",bestRcpInfo);
+		return "chan/bestRcpInfo";
 	}
 }
 

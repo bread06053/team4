@@ -58,7 +58,7 @@
 </div>
 <div class="yoyo_navi">
             <ul class="yoyoNavi">
-                <li><a href="https://www.10000recipe.com/index.html">Best 레시피</a>
+                <li><a href="/chan/bestRcp">Best 레시피</a>
                 </li>
                 <li><a href="https://www.10000recipe.com/recipe/list.html" class="active">나만의 레시피</a>
                 </li>
@@ -92,20 +92,19 @@
 
 <ul class="chefList chefview" style="height:200px;width:100%;">
 	<c:forEach var="i" items="${bestChef}">
-	<div class="chefimg">
-	<img src="/profile/${i.profile}"/>
-	</div>
-	</c:forEach>
-	</div>
 	<li class="chefimg" style="text-align: center;">
 	<img src="/profile/${i.profile}"><br>
 	<strong style="font-size:20pt;">${i.ranking}. </strong>
 	<strong style="font-size:20pt;">${i.nickname}</strong>
 	</li>
+</c:forEach>
+</ul>
+</dl>
 <div class="recent" style="margin-bottom: 400px;">
 	<h3 style="
     margin-top: 330px;width: 150px;">최근 올라온 레시피</h3>
 	<div class="fixed_img_col">
+	
 	<c:forEach var="i" items="${recent}">
 	<div class="thumimg">
 	${i.rthumimg}
@@ -123,7 +122,7 @@
 </div>
 <form action="/tae/asklist" method="post" id="asklist">
 <div class="comment">
-<h4>건의 사항</h4>
+<h4 style="margin-bottom:0px;">건의 사항</h4>
 <input name = atitle id = atitle placeholder="제목 입력.."> <input name = userid id = userid placeholder="아이디 입력..">
 <textarea id="customerSend" name="atext" class="form-control" placeholder="불편한 사항 혹은 제안 사항을 적어주세요!">
 </textarea>
@@ -131,6 +130,7 @@
 </div>
 </form>
 </div>
+
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <script>
 var slideIndex = 1;
