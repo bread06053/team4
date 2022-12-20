@@ -66,5 +66,12 @@
                 </li>
             </ul>
         </div>
-        </body>
-        </html>
+<div class="infoView">
+<c:forEach var="i" items="${bestRcpInfo}">
+<div class="info_thum">
+${i.rthumimg}
+</div>
+</c:forEach>
+</div>
+</body>
+</html>

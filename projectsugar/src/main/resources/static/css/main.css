@@ -148,7 +148,7 @@ img {
     background: ivory;
     border: 1px solid #e6e7e8;
 }
-.comment button {
+#join{
     border: 1px solid #dcdcdc;
     background: ivory;
     border-radius: 0;
@@ -159,7 +159,7 @@ img {
 }
 .container{
 	background-color:peru;
-	height: 300px;
+	height: 330px;
 	width: 100%;
 	float:left;
 }
@@ -204,6 +204,7 @@ h4{
 	overflow: auto;
   	white-space:nowrap;
   	display:inline-block;
+  	padding-left:0px;
 }
 .btm_stats {
     height:300px;

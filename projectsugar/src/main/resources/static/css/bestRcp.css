@@ -7,13 +7,19 @@
 	padding-right: 65%;
 }
 .thumimg{
-	margin-bottom: 200px;
+	height:400px;
+}
+#main_thumbs{
+	height:200px;
 }
 .thumimg strong{
 	font-size:18pt;
 }
 .catelist{
 	height:200px;
+}
+.bestcontainer{
+	margin-top: 14%;
 }
 .bestcontainer h3{
 	margin-left:2%;
@@ -32,12 +38,36 @@ input[type=checkbox]+label{
 	margin-left:10px;
 	width:20px;
 	height:20px;
-	border:2px solid brown;
+	border:2px solid orange;
 	cursor:pointer;
+	border-radius: 2px;
 }
-input[type=checkbox]:checked+label{
-	background-color:peru;
+input[type=checkbox]:checked+label::after{
+	content:'✔';
+	color:orangered;
 }
 input[type=checkbox]{
 	display:none;
+}
+.cate{
+	font-size:20px;
+}
+dd{
+	padding-left:6%;
+}
+input[type=submit]{
+	margin-left: 93%;
+    margin-top: 1%;
+    width: 46px;
+    height:28px;
+    background-color:orange;
+    border: none;
+    color:ivory;
+    border-radius: 4px;
+}
+input[type=submit]:hover {
+background-color: OrangeRed;
+}
+.cate h4{
+	color:orange;
 }
