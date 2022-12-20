@@ -15,7 +15,7 @@
 <%-- 상단 Header --%>
 <jsp:include page="/WEB-INF/views/chan/mainHeader.jsp"/>
 <div style="margin-top: 40px" class="container">
-    <h2 class="text-danger">글 작성</h2>
+    <h2 class="text-secondary">글 작성</h2>
     <form action="/post/upload" onsubmit="return submitPost()" method="post">
         <sec:csrfInput/>
         <div class="mb-3">
