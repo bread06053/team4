@@ -12,7 +12,7 @@ font-size : 10px;
 <title>Insert title here</title>
 </head>
 <body>
-<form action="/tae/Rcpinfowrite" method="post">
+<form action="/tae/Rcpinfowrite1" method="post">
 <table border="1" style = "text-align : center;" >
 	<tr><td>제목</td><td><input name = "rtitle"></td>
 	<tr><td>작성자</td><td><input name = "userid"></td> 
@@ -24,6 +24,7 @@ font-size : 10px;
 	<tr><td>재료</td><td><input name = "rprep"></td></tr>
 	<tr><td>완성 요리사진</td><td><input name = "rthumimg"></td></tr>
 	<tr><td>요리 방법</td><td><input name = "rlogic"></td></tr>
+	<!--  <tr><td><input type = "hidden" name = "rstate"> -->
  	<tr><td colspan = "2" align = "right"></td>
 	</table>
 	<a href="/chan/bestRcp">커뮤니티로 이동</a>  <button type ="submit">글 쓰기</button>

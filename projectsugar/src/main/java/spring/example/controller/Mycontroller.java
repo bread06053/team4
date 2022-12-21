@@ -192,8 +192,13 @@ public class Mycontroller {
 		service.userdelete(user);
 		return "tae/userupdate";
 	}
+	
+	@GetMapping("/tae/Rcpinfowrite")
+	public String Rcpinfowrite() {
+		return "/tae/Rcpinfowrite";
+	}
 
-	@PostMapping("tae/Rcpinfowrite")
+	@PostMapping("tae/Rcpinfowrite1")
 	public String Rcpinfowrite(Recipe recipe) {
 		service2.Recipewrite(recipe);
 		return "tae/Rcpinfowrite";

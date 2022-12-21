@@ -41,7 +41,7 @@ List<Map<String,Object>> bestRcpInfo();
 Recipe recipeinfo(int rno);
 
 @Insert
-("insert into recipe(rno, rtitle, rinfo, rtime, rprep, rlogic, rthumimg, rtip, rlikes) values(#{rno}, #{rtitle}, #{rinfo}, #{rtime}, #{rprep}, #{rlogic}, #{rthumimg}, #{rtip}, #{rlikes})")
+("insert into recipe(rno, rtitle, rinfo, rtime, rprep, rlogic, rthumimg, rtip, rlikes, rstate) values(#{rno}, #{rtitle}, #{rinfo}, #{rtime}, #{rprep}, #{rlogic}, #{rthumimg}, #{rtip}, #{rlikes}, 1)")
 int recipewrite(Recipe recipe);
 }
 
