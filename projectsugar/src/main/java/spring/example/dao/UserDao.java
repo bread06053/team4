@@ -3,9 +3,11 @@ package spring.example.dao;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import spring.example.domain.Ask;
 import spring.example.domain.User;
@@ -66,5 +68,17 @@ int cntRecipe();
 ("insert into ask(atitle,userid,atext) values(#{atitle},#{userid},#{atext})")
 int asksome(Ask ask);
 
+@Select
+("select * from user where userid = #{userid} and passwd = #{passwd}")
+User Userinfo(User user);
+
+@Update
+("update user set nickname = #{nickname}, email = #{email} ,passwd = #{passwd}, address = #{passwd}, name = #{name}, pr = #{pr} where userid = #{userid}")
+int UserUpdate(User user);
+
+@Delete
+("delete from user where userid = #{userid} and passwd = #{passwd}")
+int UserDelete(User user);
 
 }
+

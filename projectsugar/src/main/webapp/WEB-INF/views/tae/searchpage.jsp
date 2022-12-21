@@ -67,20 +67,23 @@ ${q }으로/로 검색 결과를 보여줍니다.<br>
 레시피 검색 결과 입니다..
 <hr>
 <ul>
-<c:forEach items="${recipe}" var="dto">
-	<c:if test = "${recipe  == null}">
+<c:if test = "${recipe.size() == 0}">
 		<div>검색결과가 없습니다..</div>
-	</c:if>
-	<li><a href="주소?rno=${dto.rno}"> ${dto.rtitle}</a> <br>
+
+</c:if>
+<c:if test = "${recipe.size() != 0}">
+<c:forEach items="${recipe}" var="dto">	
+	<li><a href="/chan/bestRcpInfo/${dto.rno}"> ${dto.rtitle}</a> <br>
 	
 </c:forEach>
+</c:if>
 </ul>
 <hr> 
 ${q }으로/로 검색 결과를 보여줍니다.<br>
 커뮤니티 검색 결과 입니다..
 <ul>
 <c:forEach items="${post}" var="dto">
-	<li><a href="주소?rno=${dto.pno}"> ${dto.ptitle}</a> <br>
+	<li><a href="=${dto.pno}"> ${dto.ptitle}</a> <br>
 
 </c:forEach>
 </ul>

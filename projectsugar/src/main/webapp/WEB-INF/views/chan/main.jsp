@@ -43,17 +43,17 @@
 	</form>	
 </div> 
 <div id = goodtaehun></div>
-<dl class="yoyoRight" style="position:relative">
+<div class="yoyoRight" style="position:relative">
 	<div style="position: absolute; width:100px; top: 47px; left: 0; margin-left: -25px;display:none; margin:10;">
          <span style="margin: 10; padding: 10; font-size: 0; display: block; text-align: center;"><img src="" width="8"></span>
          <span style="border-radius: 2px; background: #ffd200; color: #000; display: block; font-size: 11px; padding:2px 5px; text-align: center;">회원가입</span>
     </div>
-    <a href="http://localhost:8084/tae/login">
+    <a href="http://localhost:8084/tae/userinfo">
     <sec:authentication property = "principal.user.userid"></sec:authentication>님 안녕하세요!<br>
     <sec:authorize access = "!isAuthenticated()"/>
     <img src="/profile/<sec:authentication property = "principal.user.profile"/>">
     </a>
-</dl>
+    <button onclick = 'location.href = "/logout"'>로그아웃</button>
 </div>
 </div>
 <div class="yoyo_navi">
