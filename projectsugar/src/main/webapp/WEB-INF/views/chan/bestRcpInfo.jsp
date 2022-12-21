@@ -68,9 +68,7 @@
         </div>
 <div class="infoView">
 <c:forEach var="i" items="${bestRcpInfo}">
-<div class="info_thum">
-${i.rthumimg}
-</div>
+${i.rno}
 </c:forEach>
 </div>
 </body>

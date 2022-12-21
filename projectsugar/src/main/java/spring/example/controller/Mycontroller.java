@@ -144,6 +144,10 @@ public class Mycontroller {
 		m.addAttribute("bestRcpInfo",bestRcpInfo);
 		return "chan/bestRcpInfo";
 	}
+	@GetMapping("chan/getOut")
+	public String getOut(Model m) {
+		return "chan/getOut";
+	}
 }
 
 

@@ -10,11 +10,6 @@ import org.apache.ibatis.annotations.Select;
 import spring.example.domain.Ask;
 import spring.example.domain.User;
 
-
-
-
-
-
 @Mapper
 public interface UserDao {
 	
@@ -22,7 +17,8 @@ public interface UserDao {
 ("select * from user where userid = #{userid}")
 User findById(String id);
 
-@Insert("insert into user(userid,name,nickname,email,passwd,address,role) values(#{userid}, #{name},#{nickname},#{email},#{passwd},#{address} ,'ROLE_MEMBER' ) ")
+@Insert
+("insert into user(userid,name,nickname,email,passwd,address,role) values(#{userid}, #{name},#{nickname},#{email},#{passwd},#{address} ,'ROLE_MEMBER' ) ")
 int insertUser(User user);
 
 @Select
@@ -58,6 +54,7 @@ List<String> bestView();
 @Select
 ("select count(userid) from user")
 int cntUser();
+
 @Select
 ("select count(rno) from recipe")
 int cntRecipe();
@@ -65,6 +62,5 @@ int cntRecipe();
 @Insert
 ("insert into ask(atitle,userid,atext) values(#{atitle},#{userid},#{atext})")
 int asksome(Ask ask);
-
 
 }
