@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="spring.example.dao.PostDao">
+
+   
+   <select id="communityList" parameterType="map" resultType="spring.example.domain.Post">
+      select * from post 
+      <choose>
+         <when test="sort == null"> order by ptime desc</when>
+         <when test="sort == 0"> order by ptime desc</when>
+         <when test="sort == 1"> order by pview desc</when>
+      </choose>
+          limit #{start} , #{count}
+   </select> 
+
+   
+    <select id="communityListSearch" parameterType="map" resultType="spring.example.domain.Post">
+      
+      select * from post where ptitle like concat('%',#{search},'%') 
+      <choose>
+         <when test="sort == null"> order by ptime desc</when>
+         <when test="sort == 0"> order by ptime desc</when>
+         <when test="sort == 1"> order by pview desc</when>
+      </choose>
+         limit #{start} , #{count}
+      
+   </select>
+ 
+   <select id="communitySort" parameterType="map" resultType="spring.example.domain.Post">
+   
+      select * from post
+      
+      <choose>
+      
+      <when test="sort == recent"> order by ptime desc limit #{start}, #{count} </when>
+      
+      <when test="sort == viewcount"> order by pview desc limit #{start} , #{count} </when>
+      
+      </choose>
+
+   </select> 
+</mapper>
