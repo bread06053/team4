@@ -36,4 +36,11 @@ public class RecipeService {
 	public List<Map<String,Object>> bestRcpInfo(){
 		return dao.bestRcpInfo();
 	}
+	public Recipe Recipeinfo(int rno){
+		return dao.recipeinfo(rno);
 	}
+	
+	public int Recipewrite(Recipe recipe) {
+		return dao.recipewrite(recipe);
+	}
+}

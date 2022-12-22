@@ -7,7 +7,7 @@ font-family: 'Dongle', sans-serif;
     display: inline-block;
     vertical-align: top;
     margin-top: 4px;
-	padding-left: 20%;
+   padding-left: 20%;
     margin-top: 2%;
 }
 .yoyoRight a img {
@@ -21,7 +21,7 @@ font-family: 'Dongle', sans-serif;
     vertical-align: top;
     position: relative;
     margin-top: -1%;
-   	margin-left: 4%;
+      margin-left: 4%;
     width: 355.5px;
 }
 button{
@@ -44,7 +44,7 @@ div {
     display: block;
 }
 .yoyo_top {
-	height: 119.0156px;
+   height: 119.0156px;
     width: 100%;
     margin: 0 auto;
     padding-top: 1%;
@@ -52,23 +52,23 @@ div {
     display:flex;
 }
 .yoyoNavi{
-	background-color:peru;
-	list-style-type:none;
-	text-align:center;
-	padding:0;
-	width:100%;
-	margin-top: 2%;
+   background-color:peru;
+   list-style-type:none;
+   text-align:center;
+   padding:0;
+   width:100%;
+   margin-top: 2%;
 }
 .yoyoNavi li{
-	width:25%; 
-	color:ivory;
-	display:inline-block;
-	font-size:32px;
-	font-family: 'Dongle', sans-serif;
-	padding:8px;
+   width:25%; 
+   color:ivory;
+   display:inline-block;
+   font-size:32px;
+   font-family: 'Dongle', sans-serif;
+   padding:8px;
 }
 .yoyoNavi a{
-	color:ivory;
+   color:ivory;
 }
 .yoyo_search {
     width: 450px;
@@ -119,10 +119,10 @@ dl {
 }
 
 h1 img{
-	width:186px;
-	height:55px;
-	object-fit:cover;
-	
+   width:186px;
+   height:55px;
+   object-fit:cover;
+   
 }
 .glyphicon {
     position: relative;
@@ -134,8 +134,8 @@ h1 img{
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color:ivory;
-	font-size:32px;
-	font-family: 'Dongle', sans-serif;
+   font-size:32px;
+   font-family: 'Dongle', sans-serif;
 }
 .yoyo_search .btn {
     background: peru;

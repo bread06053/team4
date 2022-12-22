@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <style>
@@ -66,10 +67,29 @@
                 </li>
             </ul>
         </div>
+
+<table border="1" style = "text-align : center;" >
+	<tr><td>제목</td><td>${Recipeinfo.rtitle}</td>
+	<tr><td>작성자</td><td>${Recipeinfo.nickname}</td> 
+	<tr><td colspan = "2"><img src = "/profile/${Recipeinfo.profile}"/></td>
+	<tr><td>내용</td><td>${Recipeinfo.rinfo}</td>
+	<tr><td>요리 시간</td><td>${Recipeinfo.rtime}</td>
+	<tr><td>요리 팁</td><td>${Recipeinfo.rtip}</td>
+	<tr><td>재료</td><td>${Recipeinfo.rprep}</td>
+	<tr><td>완성 요리사진</td><td>${Recipeinfo.rthumimg}</td>
+	<tr><td>요리 방법</td><td>${Recipeinfo.rlogic}</td>
+	<tr><td>추천 수</td><td>${Recipeinfo.rlikes}</td>
+	<tr><td colspan = "2" align = "right">
+	
+	<a href="../main">커뮤니티로 이동</a> 
+	</td></tr>
+</table>
+
 <div class="infoView">
 <c:forEach var="i" items="${bestRcpInfo}">
 ${i.rno}
 </c:forEach>
 </div>
+
 </body>
 </html>
