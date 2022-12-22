@@ -1,8 +1,14 @@
+
 package spring.example.controller;
 
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -14,6 +20,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.multipart.MultipartFile;
 
 import spring.example.config.SecurityUser;
 import spring.example.domain.Ask;
@@ -103,6 +110,7 @@ public class Mycontroller {
 		m.addAttribute("cntRecipe",service.cntRecipe());
 		return "chan/main";
 	}
+
 
 	@GetMapping("chan/subHeader")
 	public String subHeader() {
@@ -198,12 +206,45 @@ public class Mycontroller {
 	}
 
 	@PostMapping("tae/Rcpinfowrite1")
-	public String Rcpinfowrite(Recipe recipe) {
+	public String Rcpinfowrite(Recipe recipe, MultipartFile img,HttpServletRequest request) {
+		
+		String path = upload(img, request);
+		recipe.setRthumimg(path);
+		
 		service2.Recipewrite(recipe);
 		return "tae/Rcpinfowrite";
 	}
+	private String upload(MultipartFile rthumimg ,HttpServletRequest request) {
+		long currentTime = System.currentTimeMillis();
+		Random r = new Random();
+		int no = r.nextInt(50);//0~40개 랜덤 값 발생
+		int index = rthumimg.getOriginalFilename().indexOf(".");
+		String ext = rthumimg.getOriginalFilename().substring(index +1);//확장자
+		
+		
+		String newName = currentTime+ "_"+no+"."+ext; //중복 되지 않는 새로운 이름
+		  try {
+		         String path = request.getServletContext().getRealPath("/rthumimg");
+		        File f = new File(path, newName);
+		         rthumimg.transferTo(f);
+		      } catch (IllegalStateException | IOException e) {
+		         e.printStackTrace();
+		      }
+		      return newName;
+	}
 	
-
+	@GetMapping("chan/userhome")
+	public String adminbt() {
+		return "chan/userhome";
+	}
+	
+	@GetMapping("admin/admain")
+	public String admain(User user, Model m) {
+		List<User> infotable = service.alluser();
+		m.addAttribute("infotable",infotable);
+		return "admin/admain";
+	}
+	
 
 	@GetMapping("chan/getOut")
 	public String getOut(Model m) {

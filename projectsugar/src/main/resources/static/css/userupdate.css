@@ -1,0 +1,52 @@
+@charset "UTF-8";
+#updateform input{
+	color: #555;
+    background: #fbfbfb;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+	height: 38px;
+    font-size: 24pt;
+}
+#deleteuser{
+	height: 36px;
+    font-size: 20pt;
+    background: peru;
+    border: 1px solid peru;
+    border-radius: 3px 3px 3px 3px;
+    color:ivory;
+    vertical-align: middle;
+}
+#change {
+    background: peru;
+    border: 1px solid peru;
+    border-radius: 3px 3px 3px 3px;
+    height: 36px;
+    color:ivory;
+    vertical-align: middle;
+	}
+#addbtn{
+	background: peru;
+    border: 1px solid peru;
+    border-radius: 3px 3px 3px 3px;
+    height: 36px;
+    color:ivory;
+    vertical-align: middle;
+}
+.pr{
+	overflow: hidden;
+	width: 450px;
+    margin-left: 40%;
+    }
+.pr span{float: left;}
+textarea{
+	color: #555;
+    background: #fbfbfb;
+    background-image: none;
+    border: 1px solid #ccc;
+   	border-radius: 4px;
+    font-size: 14pt;
+    width:330px; 
+	height:100px; 
+    resize:none;
+}

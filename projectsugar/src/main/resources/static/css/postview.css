@@ -1,0 +1,180 @@
+@charset "UTF-8";
+.layout_content {
+    width: 860px;
+    margin: 0 auto;
+    font-size: 13px;
+}
+.article_wrap {
+    position: relative;
+    width: 860px;
+    margin: 0 auto;
+    font-size: 12px;
+}
+.ArticleTopBtns {
+    padding: 0 0 14px;
+}
+.ArticleContentBox {
+    padding: 29px 29px 0;
+    border: 1px solid burlywood;
+    border-radius: 6px;
+}
+.article_header {
+    position: relative;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid burlywood;
+}
+.ArticleTitle {
+    margin-bottom: 12px;
+    font-size: 13px;
+}
+.title_area {
+    margin-top: 7px;
+}
+.WriterInfo img {
+    border-radius: 50%;
+    vertical-align: top;
+    position: relative;
+    float: left;
+    margin-right: 10px;
+	width: 53px;
+    height: 53px;
+}
+.ArticleTitle .title_area .title_text {
+    font-weight: 400;
+   	font-size: xxx-large;
+}
+.profile_area {
+    float: left;
+}
+.profile_info {
+    margin-bottom: 6px;
+}
+.nick_box {
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+    margin-right: 6px;
+  	font-size: x-large;
+    font-weight: 700;
+}
+.WriterInfo{
+	height: 36px;
+}
+.WriterInfo .article_info {
+    font-size: large;
+    line-height: 13px;
+    color: var(--skinText979797);
+}
+.WriterInfo .article_info .date {
+    margin-right: 8px;
+}
+.article_container{
+	overflow-y: hidden;
+    position: relative;
+    min-height: 150px;
+    font-size: 24px;
+    line-height: 1.6;
+    word-wrap: break-word;
+}
+.ReplyBox {
+	margin-top: 5%;
+    position: relative;
+    margin-bottom: 27px;
+    line-height: 19px;
+}
+.ReplyBox .box_right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 13px;
+}
+.ReplyBox .report_article {
+    display: inline-block;
+    vertical-align: top;
+}
+.CommentBox {
+    margin-top: -17px;
+    border-top: 1px solid burlywood;
+}
+.CommentBox .comment_option {
+    position: relative;
+    padding-top: 16px;
+    margin-bottom: 11px;
+}
+.CommentBox .comment_option .comment_title {
+    float: left;
+    margin-top: 3px;
+    margin-right: 12px;
+    font-size: 17px;
+}
+.CommentBox .comment_option .comment_tab .comment_tab_list {
+    display: inline-block;
+    margin-top: 4px;
+    font-size: 13px;
+    vertical-align: top;
+}
+.CommentBox .comment_list .comment_area {
+    position: relative;
+    padding: 12px 23px 10px 0;
+}
+.CommentBox .comment_list .comment_area img {
+    border-radius: 50%;
+    position: absolute;
+    top: 12px;
+    left: 0;
+    width: 36px;
+    height: 36px;
+}
+.comment_list .comment_box {
+    padding-left: 46px;
+}
+.CommentBox .comment_list .comment_nick_box {
+    margin-bottom: 4px;
+}
+.CommentBox .comment_list .comment_nick_box{
+    display: inline-block;
+    position: relative;
+    font-size: 13px;
+    vertical-align: top;
+}
+.comment_text_view {
+    overflow: hidden;
+}
+.text_comment {
+    line-height: 17px;
+    word-break: break-all;
+    word-wrap: break-word;
+    vertical-align: top;
+}
+.CommentBox .comment_list .comment_info_box {
+    margin-top: 7px;
+    font-size: 12px;
+}
+.comment_info_date {
+    margin-right: 8px;
+}
+.CommentWriter {
+	margin-top: 10px;
+    margin: 12px 0 29px;
+    padding: 16px 10px 10px 18px;
+    border: 2px solid var(--skinCommentWriterBorder);
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+.layer_button{
+	font-size:12px;
+	position: absolute;
+    top: 12px;
+    right: 0;
+}
+body {
+    position: relative;
+    -webkit-text-size-adjust: none;
+    font-weight: 400;
+    font-family: Apple SD Gothic Neo,맑은 고딕,Malgun Gothic,돋움,dotum,sans-serif;
+    color: var(--skinTextColor);
+}
+ul {
+    list-style: none;
+}
