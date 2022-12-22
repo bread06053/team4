@@ -63,8 +63,7 @@
       <tr>
 			<tr><td><div id="smarteditor"></div></td></tr>
         	<tr><td><textarea name="ptext" id="editorTxt" 
-                  rows="20" cols="10"                                   
-                  placeholder="내용을 입력해주세요"
+                  rows="20" cols="10" placeholder="내용을 입력해주세요"
                   style="width: 700px">"내용을 입력해주세요"</textarea></td></tr>
                  
     </table>
