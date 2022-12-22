@@ -7,7 +7,7 @@
 </head>
 <body>
 <table border="1">
-<tr><td>아이디, 프로필, 닉네임 , 이메일, 주소, 레벨</td></tr>
+<tr><td>아이디 , 프로필, 닉네임 , 이메일, 주소, 레벨</td></tr>
 <c:forEach items="${infotable}" var="dto">	
 	<tr><td>${dto.userid},${dto.profile},${dto.nickname},${dto.email},${dto.address},${dto.level}</td></tr>
 	
