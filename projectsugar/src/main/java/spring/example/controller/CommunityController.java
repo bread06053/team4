@@ -27,48 +27,50 @@ public class CommunityController {
    @Autowired
  //  CommentService c_service;
    
-   @GetMapping("/community/community_write")
+   @GetMapping("/post/postwrite")
    public String wirteForm() {
-      return "community/community_write";
+      return "post/postwrite";
    }
    
-   @PostMapping("/community/community_write")
+   @PostMapping("/post/postwrite")
    public String community_write(Post post) {
       service.insert(post);
       
-      return "redirect:community_list";
+      return "redirect:postlist";
    }
    
-   @GetMapping("/community/community_view/{pno}")
+   @GetMapping("/post/postview/{pno}")
    public String content(@PathVariable int pno, Model m) {
-	   Post post = service.communityOne(pno);
+      Post post = service.communityOne(pno);
+     // int i=service.commentCnt(pno);
       m.addAttribute("dto", post);
+    //  m.addAttribute("i",i);
    //   List<CommentDto> commentList = c_service.selectComment(comm_no);
     //  m.addAttribute("commentList", commentList);
-      return "community/community_view";
+      return "post/postview";
    }
    
-   @GetMapping("/community/community_update/{pno}")
+   @GetMapping("/post/postupdate/{pno}")
    public String community_update(@PathVariable int pno, Model m) {
       Post post = service.communityOne(pno);
       m.addAttribute("dto", post);
-      return "community/community_update";
+      return "post/postupdate";
    }
    
-   @PutMapping("/community/community_update")
+   @PutMapping("/post/postupdate")
    public String update(Post post) {
       service.updatePost(post);
-      return "redirect:community_list";
+      return "redirect:postlist";
    }
    
-   @DeleteMapping("/community/delete")
+   @DeleteMapping("/post/delete")
    @ResponseBody
    public String delete(int pno) {
       int i = service.deletePost(pno);
       return ""+i;
    }
    
-   @GetMapping("/community/community_list")
+   @GetMapping("/post/postlist")
    public String community_list(String sort, @RequestParam(name="p", defaultValue="1") int page, Model m) {   
       
       
@@ -97,10 +99,10 @@ public class CommunityController {
       
       m.addAttribute("sort", sort);
       m.addAttribute("count", count);
-      return "community/community_list";
+      return "post/postlist";
    }
    
-   @GetMapping("/community/community_search")
+   @GetMapping("/post/postsearch")
    public String search(String sort, String search,@RequestParam(name="p", defaultValue = "1") int page, Model m) {
       int count = service.countSearch(search);
       if(count > 0) {
@@ -130,7 +132,7 @@ public class CommunityController {
       m.addAttribute("sort", sort);
       m.addAttribute("search", search);
       
-      return "community/community_search";
+      return "post/postsearch";
    }
    
 }

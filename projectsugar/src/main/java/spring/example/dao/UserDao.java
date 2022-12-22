@@ -9,6 +9,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+
 import spring.example.domain.Ask;
 import spring.example.domain.User;
 
@@ -78,6 +79,12 @@ int UserUpdate(User user);
 ("delete from user where userid = #{userid} and passwd = #{passwd}")
 int UserDelete(User user);
 
+@Select("select userid,name,nickname, address,level ,pr from user")
+List<User> memsInfo();
+
+@Select
+("select * from user")
+List<User> alluser();
 
 }
 

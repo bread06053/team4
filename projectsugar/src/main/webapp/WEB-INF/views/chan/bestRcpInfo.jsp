@@ -63,7 +63,7 @@
                 </li>
                 <li><a href="https://www.10000recipe.com/recipe/list.html" class="active">나만의 레시피</a>
                 </li>
-                <li><a href="https://www.10000recipe.com/ranking/home_new.html">커뮤니티</a>
+                <li><a href="/post/postlist">커뮤니티</a>
                 </li>
             </ul>
         </div>
