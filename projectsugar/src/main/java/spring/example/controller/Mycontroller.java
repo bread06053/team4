@@ -8,9 +8,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 
 import spring.example.config.SecurityUser;
 import spring.example.domain.Ask;
@@ -23,6 +28,7 @@ import spring.example.service.RecipeService;
 import spring.example.service.UserService;
 
 @Controller
+@SessionAttributes("user")
 public class Mycontroller {
 
 	@Autowired
@@ -37,10 +43,25 @@ public class Mycontroller {
 	@Autowired
 	AskService service4;
 	
+	
+	@GetMapping("/")
+	public String first() {
+		return "/tae/login";
+	}
+	@GetMapping("/logout")
+	public String autologout(SessionStatus status) {
+		status.setComplete();
+		return "tae/login";
+	}
+	@GetMapping("/gg")
+	public String gg() {
+		return "tae/gg";
+	}
 	@GetMapping("/tae/login")
 	public String login() {
 		return "tae/login";
 	}
+
 	
 	@GetMapping("/tae/join")
 	public String join() {
@@ -123,6 +144,7 @@ public class Mycontroller {
 	public String asksome(Ask ask) {
 		service4.asksome(ask);
 		return "redirect:/chan/main";
+
 	}
 	@GetMapping("chan/bestRcp")
 	public String bestRcp(Model m) {
@@ -136,18 +158,60 @@ public class Mycontroller {
 		m.addAttribute("cateName",cateName);
 		m.addAttribute("rcpLevel",rcpLevel);
 		m.addAttribute("rcpTime",rcpTime);
+		System.out.println(best.get(0));
 		return "chan/bestRcp";
 	}
-	@GetMapping("chan/bestRcpInfo")
-	public String bestRcpInfo(Model m){
-		List<Map<String,Object>> bestRcpInfo=service2.bestRcpInfo();
-		m.addAttribute("bestRcpInfo",bestRcpInfo);
+	@GetMapping("chan/bestRcpInfo/{rno}")
+	public String bestRcpInfo(@PathVariable int rno, Model m){
+		Recipe Recipeinfo = service2.Recipeinfo(rno);
+		m.addAttribute("Recipeinfo",Recipeinfo);
 		return "chan/bestRcpInfo";
 	}
+
+	@GetMapping("tae/userinfo")
+	public String userinfo(User user, Model m) {
+		User info = service.Userinfo(user);
+		
+		if(info == null) {
+			return "tae/userinfo";
+		}else{
+			m.addAttribute("info",info);
+			return "tae/userupdate";
+
+		}
+	}
+	
+	@PostMapping("tae/userupdate")
+	public String userupdateForm(User user) {
+		service.userupdate(user);
+		return "redirect:/chan/main";
+		}
+	@PostMapping("tae/delete")
+	@ResponseBody
+	public String delete(User user) {
+		System.out.println(user);
+		service.userdelete(user);
+		return "tae/userupdate";
+	}
+	
+	@GetMapping("/tae/Rcpinfowrite")
+	public String Rcpinfowrite() {
+		return "/tae/Rcpinfowrite";
+	}
+
+	@PostMapping("tae/Rcpinfowrite1")
+	public String Rcpinfowrite(Recipe recipe) {
+		service2.Recipewrite(recipe);
+		return "tae/Rcpinfowrite";
+	}
+	
+
+
 	@GetMapping("chan/getOut")
 	public String getOut(Model m) {
 		return "chan/getOut";
 	}
+
 }
 
 

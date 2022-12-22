@@ -51,5 +51,15 @@ public class UserService {
 	public int cntRecipe() {
 		return dao.cntRecipe();
 	}
+	public User Userinfo(User user) {
+		return dao.Userinfo(user);
+	}
+	
+	public int userupdate(User user) {
+		return dao.UserUpdate(user);
+	}
+	public int userdelete(User user) {
+		return dao.UserDelete(user);
+	}
 }
 	

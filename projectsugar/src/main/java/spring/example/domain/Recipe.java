@@ -18,4 +18,6 @@ public class Recipe {
 	private int rlikes;
 	private int cateno;
 	private int rstate;
+	private String nickname;
+	private String profile;
 }

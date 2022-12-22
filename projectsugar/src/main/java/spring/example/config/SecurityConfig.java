@@ -24,13 +24,13 @@ public class SecurityConfig{
 	
 		
 		
-		security.authorizeRequests().antMatchers("/tae/login","/tae/join","/tae/find").permitAll();
+		security.authorizeRequests().antMatchers("/tae/login","/tae/join","/tae/find","/").permitAll();
 		security.authorizeRequests().antMatchers("/member/**").authenticated();
 		security.authorizeRequests().antMatchers("/admin/**").hasAnyRole("ADMIN");
 
 		security.csrf().disable();
 		security.formLogin().loginPage("/tae/login").defaultSuccessUrl("/chan/main", true);
-		security.exceptionHandling().accessDeniedPage("/accessDenied"); //403 오류 처리
+		security.exceptionHandling().accessDeniedPage("/gg"); //403 오류 처리
 		security.logout().invalidateHttpSession(true).logoutSuccessUrl("/tae/login"); //로그아웃 성공 시 로그인 페이지로 이동
 		security.userDetailsService(UserDetailsService);
 		security.headers().frameOptions().sameOrigin();
