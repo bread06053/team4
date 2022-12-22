@@ -67,6 +67,7 @@
                 </li>
             </ul>
         </div>
+
 <table border="1" style = "text-align : center;" >
 	<tr><td>제목</td><td>${Recipeinfo.rtitle}</td>
 	<tr><td>작성자</td><td>${Recipeinfo.nickname}</td> 
@@ -83,5 +84,12 @@
 	<a href="../main">커뮤니티로 이동</a> 
 	</td></tr>
 </table>
+
+<div class="infoView">
+<c:forEach var="i" items="${bestRcpInfo}">
+${i.rno}
+</c:forEach>
+</div>
+
 </body>
 </html>

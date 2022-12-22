@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -14,7 +16,7 @@ public class SecurityConfig{
 	@Autowired
 	private SugarUserDetailsService UserDetailsService;
 		
-
+	
 
 	
 	@Bean
@@ -31,8 +33,10 @@ public class SecurityConfig{
 		security.exceptionHandling().accessDeniedPage("/gg"); //403 오류 처리
 		security.logout().invalidateHttpSession(true).logoutSuccessUrl("/tae/login"); //로그아웃 성공 시 로그인 페이지로 이동
 		security.userDetailsService(UserDetailsService);
+		security.headers().frameOptions().sameOrigin();
+		
 		return security.build();
-
+		
 		
 	
 	}

@@ -1,3 +1,4 @@
+
 package spring.example.controller;
 
 
@@ -8,11 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
@@ -106,6 +107,7 @@ public class Mycontroller {
 		return "chan/main";
 	}
 
+
 	@GetMapping("chan/subHeader")
 	public String subHeader() {
 		return "chan/subHeader";
@@ -167,6 +169,7 @@ public class Mycontroller {
 		m.addAttribute("Recipeinfo",Recipeinfo);
 		return "chan/bestRcpInfo";
 	}
+
 	@GetMapping("tae/userinfo")
 	public String userinfo(User user, Model m) {
 		User info = service.Userinfo(user);
@@ -204,6 +207,12 @@ public class Mycontroller {
 		return "tae/Rcpinfowrite";
 	}
 	
+
+
+	@GetMapping("chan/getOut")
+	public String getOut(Model m) {
+		return "chan/getOut";
+	}
 
 }
 
