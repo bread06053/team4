@@ -82,6 +82,7 @@ int UserDelete(User user);
 @Select("select userid,name,nickname, address,level ,pr from user")
 List<User> memsInfo();
 
+
 @Select
 ("select * from user")
 List<User> alluser();
