@@ -167,6 +167,7 @@ public class Mycontroller {
 		m.addAttribute("Recipeinfo",Recipeinfo);
 		return "chan/bestRcpInfo";
 	}
+
 	@GetMapping("tae/userinfo")
 	public String userinfo(User user, Model m) {
 		User info = service.Userinfo(user);
@@ -204,6 +205,12 @@ public class Mycontroller {
 		return "tae/Rcpinfowrite";
 	}
 	
+
+
+	@GetMapping("chan/getOut")
+	public String getOut(Model m) {
+		return "chan/getOut";
+	}
 
 }
 
