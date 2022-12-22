@@ -1,6 +1,7 @@
 @charset "UTF-8";
-#search1{
-	padding-left: 70%;
+form.search1 {
+    text-align: center;
+    font-size: 24pt;
 }
 .board{
 	margin-left: 15%;
@@ -11,11 +12,20 @@
     text-align: center;
 
 }
-.notice{
-	padding-right: 21%;	
+.search2{
+	color: #555;
+    background: #fbfbfb;
+    background-image: none;
+    border: 1px solid #ccc;
+   	border-radius: 4px;
+    font-size: 14pt;
+}
+.search3{
+	height:24px;
+	vertical-align: middle;
 }
 .sort{
-	padding-right: 21%;
+	padding-right: 20%;
 }
 .list1{
 	    border: groove;
@@ -24,20 +34,20 @@
 	padding-right: 2%;
 }
 .title1{
-	border-bottom-color: orange;
+	border-bottom-color: peru;
 }
 button{
-	background-color:orange;
-	border:2px solid orange;
+	background-color:peru;
+	border:2px solid peru;
 	border-radius: 2px;
 	color:ivory;
 }
 tr{
 	height: 30px;
 }
-.btn input{
-	background-color:orange;
-	border:2px solid orange;
+.btn1 input{
+	background-color:peru;
+	border:2px solid peru;
 	border-radius: 2px;
 	color:ivory;
 }
@@ -47,7 +57,6 @@ tr{
 button a{
 	color:ivory;
 }
-.btn{
-	float:left;
-	align:right;
+.btn1{
+	float:right;
 }

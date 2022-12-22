@@ -106,7 +106,7 @@ h3 {
     font-size: 32px;
 }
 .mainview dt h3 span {
-    color: brown;
+    color: peru;
 }
 .mainview dd {
     position: relative;
@@ -132,8 +132,8 @@ img {
 }
 .recent h3{
 	padding:10px 0 4px;
-	border-bottom:1px solid brown;
-	color:peru;
+	border-bottom:1px solid peru;
+	color:burlywood;
 }
 .comment {
     width: 30%;
@@ -158,7 +158,7 @@ img {
     margin: 8px 0 0 -1px
 }
 .container{
-	background-color:peru;
+	background-color:burlywood;
 	height: 330px;
 	width: 100%;
 	float:left;

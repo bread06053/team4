@@ -25,8 +25,8 @@ public interface PostDao {
 	("select count(*) from post")
    int count();
 	@Select
-	("select * from post where pno=#{pno}")
-   Post communityOne(int pno);
+	("select * from post inner join user on post.userid=user.userid where pno=#{pno}")
+   Map<String,Object> communityOne(int pno);
 	@Update
 	("update post set ptitle=#{ptitle},ptext=#{ptext} where pno=#{pno}")
    int updatePost(Post post); 
@@ -40,7 +40,7 @@ public interface PostDao {
    List<Post> communityListSearch(Map<String, Object> m);
 
    @Select
-   ("select count(*) from post where ptitle like concat('%',#{search},'%'")
+   ("select count(*) from post where ptitle like concat('%',#{search},'%')")
    int countSearch(Map<String, Object> m); 
    @Update
    ("update post set pview=pview+1 where pno=#{pno}")
@@ -49,7 +49,9 @@ public interface PostDao {
    List<Post> communitySort(Map<String, Object> m);
 
    @Select
-   ("selete userid,ptitle,ptext,pdate,pview from post where pno=${pno}")
+   ("select userid,ptitle,ptext,ptime,pview from post where pno=${pno}")
    Post viewPost(int pno);
-   
+   @Select
+   ("select Count(*)from Comment where pno=#{pno}")
+   int commentCnt(int pno);
 }

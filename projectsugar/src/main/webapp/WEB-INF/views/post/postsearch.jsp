@@ -8,8 +8,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Dongle&display=swap');
 </style>
 <head>
-<link rel="stylesheet" href="/css/mainHeader.css"/>
-<link rel="stylesheet" href="/css/community_list.css"/>
+
 <title>Insert title here</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Dongle&display=swap" rel="stylesheet">
@@ -18,11 +17,15 @@
 .mySlides {display:none}
 .prev, .next, .dot {cursor:pointer}
 .dot {height:13px;width:13px;padding:0}
-th{border-bottom:2px solid orange;}
+th{border-bottom:2px solid peru;}
 </style>
+<link rel="stylesheet" href="/css/community_list.css"/>
+<link rel="stylesheet" href="/css/mainHeader.css"/>
 </head>
 <body>
-<div class="yoyo_top_wra p">
+<header>
+</header>
+<div class="yoyo_top_wrap">
 	<div class="yoyo_top">
 	<h1>
 	<a href="http://localhost:8084/chan/main">
@@ -45,7 +48,7 @@ th{border-bottom:2px solid orange;}
 	</form>	
 </div> 
 <div id = goodtaehun></div>
-<dl class="yoyoRight" style="position:relative">
+<div class="yoyoRight" style="position:relative">
 	<div style="position: absolute; width:100px; top: 47px; left: 0; margin-left: -25px;display:none; margin:10;">
          <span style="margin: 10; padding: 10; font-size: 0; display: block; text-align: center;"><img src="" width="8"></span>
          <span style="border-radius: 2px; background: #ffd200; color: #000; display: block; font-size: 11px; padding:2px 5px; text-align: center;">회원가입</span>
@@ -55,63 +58,40 @@ th{border-bottom:2px solid orange;}
     <sec:authorize access = "!isAuthenticated()"/>
     <img src="/profile/<sec:authentication property = "principal.user.profile"/>">
     </a>
-</dl>
+</div>
 </div>
 </div>
 <div class="yoyo_navi">
             <ul class="yoyoNavi">
                 <li><a href="/chan/bestRcp">Best 레시피</a>
                 </li>
-                <li><a href="https://www.10000recipe.com/recipe/list.html" class="active">나만의 레시피</a>
+                <li><a href="https://www.10000recipe.com/recipe/list.html">나만의 레시피</a>
                 </li>
-                <li><a href="/community/community_list">커뮤니티</a>
+                <li><a href="/post/postlist">커뮤니티</a>
                 </li>
             </ul>
         </div>
-<header>
-</header>
-<div class="center">
+<div id="center">
 <!-- 게시글 리스트 테이블 -->
 <div id = "title">
-   <a href="community_list" class="community_list">커뮤니티</a>    
+   <a href="postlist" class="postlist">커뮤니티</a>    
 </div>
-   <!-- 검색창 -->
-   <div id = "search1" align="left">
-      <form action="community_search">
-      <!-- <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> -->
-         <input type="text" name="search" size="20" maxlength="225" placeholder = "검색어를 입력하세요">
-         <button type='submit' value="검색" class="search">::검색</button>
-      </form>
-   </div>
-   <!-- 공지 숨김 여부 -->
-   <div class = "notice" align="right">
-      <label>
-      <input type = "checkbox" name="notice" value="hide" onclick="getCheckboxValue()">
-      공지숨기기</label>
-   </div>
    <!-- 조회수/최신순 정렬 -->
-   <div class= "sort" align="right">
-   
-      <form action="community_list" class="btn">
+   <div class = "sort" align="right">
+
+      <form action="postsearch"class="btn1">
+      <input type="hidden" name="search" value="${search}"/>
       <input type="hidden" name="sort" value="0">
       <input type="submit" value="최신순" />
       </form>
-      <form action="community_list" class="btn">
+      <form action="postsearch"class="btn1">
+      <input type="hidden" name="search" value="${search}" />
       <input type="hidden" name="sort" value="1">
-      <input type="submit" value="조회수 순" />
-      </form> <br>
-      
-      <!-- <form action="community_list">
-         <select name="sort">
-            <option value="0">최신순</option>
-            <option value="1">조회수순</option>
-         </select>
-         <input type="submit" value="검색" />
-      </form> -->
+      <input type="submit" value="조회수 순" style="margin-right: 2px;"/>
+      </form>  <br>
    </div>
    <div class = "board">
       <table id="board">
-      
          <colgroup>
                   <col style="width:5%;" />
                   <col style="width:70%"/>
@@ -137,10 +117,10 @@ th{border-bottom:2px solid orange;}
                   <c:if test="${count != 0}">
                      <c:forEach items="${cList}" var="comm">
                      <tr>
-                        <td><a href="community_view/${comm.pno}">${comm.pno}</a></td>
-                        <td><a href="community_view/${comm.pno}">${comm.ptitle}</a></td>
+                        <td><a href="postview/${comm.pno}">${comm.pno}</a></td>
+                        <td><a href="postview/${comm.pno}">${comm.ptitle}</a></td>
                         <td>${comm.userid}</td>
-                        <td><fmt:formatDate value="${comm.ptime}" dateStyle="long"/></td>
+                        <td><fmt:formatDate value="${comm.ptime}" dateStyle="long" /></td>
                         <td>${comm.pview}</td>
                      </tr>
                      </c:forEach>
@@ -148,24 +128,31 @@ th{border-bottom:2px solid orange;}
                   
                </tbody>
       </table>
-      <div class="write" align="right">
+<div class="write" align="right">
          <button type = "button" class="community_write">
-            <a href="community_write" class="community_write">글 쓰기</a>
+            <a href="postwrite" class="community_write">글 쓰기</a>
          </button>
       </div>
       <div id="paging" align="center">
          <c:if test="${begin > pageNum}">
-            <a href="community_list?p=${begin-1}&sort=${sort}">[이전]</a>
+            <a href="postsearch?p=${begin-1}&search=${search}&sort=${sort}">[이전]</a>
          </c:if>
          <c:forEach begin="${begin}" end = "${end}" var='i'>
-            <a href="community_list?p=${i}&sort=${sort}" class="page">${i}</a>
+            <a href="postsearch?p=${i}&search=${search}&sort=${sort}" class="page">${i}</a>
          </c:forEach>
          <c:if test="${end < totalPages}">
-            <a href="community_list?p=${end+1}&sort=${sort}">[다음]</a>
+            <a href="postsearch?p=${end+1}&search=${search}&sort=${sort}">[다음]</a>
          </c:if>
       </div>
-   </div>   
-   
+         <!-- 검색창 -->
+   <div id = "search1" align="left">
+      <form action="postsearch" class="search1">
+      <!-- <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> -->
+         <input class="search2" type="text" name="search" size="24" maxlength="225" placeholder = "검색어를 입력하세요">
+         <button type='submit' value="검색" class="search3"style="height: 30px; font-size: large;">::검색</button>
+      </form>
+   </div>
+   </div>
 </div>
 
 <div>
@@ -175,8 +162,6 @@ th{border-bottom:2px solid orange;}
 <footer>
 </footer>
 
-<script>
 
-</script>
 </body>
 </html>

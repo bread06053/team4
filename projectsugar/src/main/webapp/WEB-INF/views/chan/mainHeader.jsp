@@ -8,19 +8,15 @@
 </style>
 <head>
 <link rel="stylesheet" href="/css/mainHeader.css"/>
-<link rel="stylesheet" href="/css/main.css"/>
 <title>Insert title here</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Dongle&display=swap" rel="stylesheet">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Dongle&display=swap');
-.mySlides {display:none}
-.prev, .next, .dot {cursor:pointer}
-.dot {height:13px;width:13px;padding:0}
 </style>
 </head>
 <body>
-<div class="yoyo_top_wra p">
+<div class="yoyo_top_wrap">
 	<div class="yoyo_top">
 	<h1>
 	<a href="http://localhost:8084/chan/main">
@@ -60,9 +56,9 @@
             <ul class="yoyoNavi">
                 <li><a href="/chan/bestRcp">Best 레시피</a>
                 </li>
-                <li><a href="https://www.10000recipe.com/recipe/list.html" class="active">나만의 레시피</a>
+                <li><a href="https://www.10000recipe.com/recipe/list.html">나만의 레시피</a>
                 </li>
-                <li><a href="https://www.10000recipe.com/ranking/home_new.html">커뮤니티</a>
+                <li><a href="/community/community_list">커뮤니티</a>
                 </li>
             </ul>
         </div>

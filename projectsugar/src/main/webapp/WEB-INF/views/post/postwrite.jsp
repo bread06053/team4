@@ -47,9 +47,9 @@
  <div id="center">
 게시글 리스트 테이블
 <div id = "title">
-   <a href="community_list" class="community_list">커뮤니티</a>    
+   <a href="postlist" class="community_list">커뮤니티</a>    
 </div>
-<form method="post" id="writeform" action="community_write">
+<form method="post" id="writeform" action="postwrite">
  <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> 
    <table border="1">
       <tr>
@@ -69,8 +69,8 @@
     </table>
    <div id="button" align="center">
       <button type="submit" id="save" value="완료">완료</button>
-      <button type="button" id="cancel" value="취소" onclick="location.href='community_list'">취소</button>
-      <button type="button" id="list" value="목록으로" onclick="location.href='community_list'">목록으로</button>
+      <button type="button" id="cancel" value="취소" onclick="location.href='postlist'">취소</button>
+      <button type="button" id="list" value="목록으로" onclick="location.href='postlist'">목록으로</button>
    </div>
 </form>
 </div>                 
