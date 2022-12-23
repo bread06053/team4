@@ -20,7 +20,7 @@
 </style>
 </head>
 <body>
-<div class="yoyo_top_wra p">
+<div class="yoyo_top_wrap">
 	<div class="yoyo_top">
 	<h1>
 	<a href="http://localhost:8084/chan/main">
@@ -53,8 +53,9 @@
     <sec:authorize access = "!isAuthenticated()"/>
     <img src="/profile/<sec:authentication property = "principal.user.profile"/>">
     </a>
-    <button onclick = 'location.href = "/logout"'>로그아웃</button>
+    <button class ="logout" onclick = 'location.href = "/logout"'>로그아웃</button>
 </div>
+
 </div>
 <div class="yoyo_navi">
             <ul class="yoyoNavi">

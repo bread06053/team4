@@ -1,0 +1,75 @@
+@charset "UTF-8";
+.WritingWrap{
+	width: 863px;
+    margin-left: 27%;
+}
+.WritingHeader {
+    position: relative;
+    margin-top: 20px;
+    border-bottom: 1px solid burlywood;
+}
+.WritingHeader .title {
+    margin-bottom: 16px;
+    font-size: 22px;
+}
+.WritingHeader .tool_area {
+    position: absolute;
+    bottom: 12px;
+    right: 0;
+}
+#cancel{
+	display: inline-block;
+    height: 36px;
+    margin-right: 4px;
+    border: 1px solid var(--skinTempSaveBorder);
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 13px;
+}
+#save{
+	min-width: 46px;
+    height: 36px;
+    margin-left: 10px;
+    padding: 0 12px;
+    font-size: 13px;
+    line-height: 36px;
+    border-radius: 6px;
+    border: 1px solid var(--skinTempSaveBorder);
+    background: burlywood;
+    color:beige;
+    
+}
+.WritingContent {
+    position: relative;
+    padding-top: 12px;
+    padding-bottom: 50px;
+}
+.WritingEditor {
+    float: center;
+    width: 862px;
+}
+.row{
+	
+	margin-top:0;
+}
+.FlexableTextArea .textarea_input {
+    display: block;
+    width: 100%;
+    min-height: 40px;
+    padding: 11px 12px 10px;
+    border: 1px solid #ebecef;
+    box-sizing: border-box;
+    overflow: hidden;
+    resize: none;
+    word-break: break-all;
+    font-size: 15px;
+    letter-spacing: -.23px;
+    line-height: 17px;
+    outline: none;
+}
+.CafeEditor {
+    margin-top: 12px;
+    border: 1px solid #ebecef;
+    border-bottom: 0;
+    background: #fff;
+}

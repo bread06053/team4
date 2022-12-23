@@ -44,7 +44,7 @@ public class Mycontroller {
 	
 	@Autowired
 	PostService service3;
-	
+	   
 	@Autowired
 	AskService service4;
 	

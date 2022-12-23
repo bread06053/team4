@@ -78,6 +78,12 @@ int UserUpdate(User user);
 ("delete from user where userid = #{userid} and passwd = #{passwd}")
 int UserDelete(User user);
 
+@Select("select userid,name,nickname, address,level ,pr from user")
+List<User> memsInfo();
 
+
+@Select
+("select * from user")
+List<User> alluser();
 }
 

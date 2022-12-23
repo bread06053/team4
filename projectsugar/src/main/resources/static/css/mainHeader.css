@@ -2,6 +2,18 @@
 * {box-sizing:border-box;
 font-family: 'Dongle', sans-serif;
 }
+.logout{
+	background-color: burlywood;
+    border: 1px solid burlywood;
+    color:ivory;
+    border-radius: 100%;
+    width: 70px;
+    height: 70px;
+    right:15px;
+    position: absolute;
+    vertical-align: middle;
+    margin-top: 5px;
+}
 .yoyo_top h1 {
     margin: 1% 3% 1% 0;
     display: inline-block;
@@ -16,12 +28,11 @@ font-family: 'Dongle', sans-serif;
     margin-left: 20%;
 }
 .yoyoRight {
-    display: inline-block;
+	display: inline-block;
     padding: 1% 6% 6%;
     vertical-align: top;
-    position: relative;
     margin-top: -1%;
-      margin-left: 4%;
+    margin-left: 4%;
     width: 355.5px;
 }
 button{

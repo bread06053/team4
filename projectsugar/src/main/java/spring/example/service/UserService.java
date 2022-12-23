@@ -61,5 +61,12 @@ public class UserService {
 	public int userdelete(User user) {
 		return dao.UserDelete(user);
 	}
+	public List<User> memsInfo(){
+		return dao.memsInfo();
+	}
+	public List<User> alluser() {
+		return dao.alluser();
+	}
+	
 }
 	
