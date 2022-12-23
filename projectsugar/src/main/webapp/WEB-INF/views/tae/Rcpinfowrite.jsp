@@ -59,17 +59,15 @@ font-size : 10px;
 	</select>
 	</td></tr>
 	<tr><td>완성 요리사진</td><td><input type = "file" name = "img"></td></tr>
-	<tr><td>요리 방법</td><td><textarea name="rlogic" id="editorTxt" 
-                  rows="20" cols="10"                                   
-                  placeholder="내용을 입력해주세요"
-                  style="width: 700px">"내용을 입력해주세요"</textarea></td></tr>
+	<tr><td>요리 방법</td><td><textarea name="rlogic" id="editorTxt" rows="20" cols="10" style="width: 700px"></textarea></td></tr>
 
 	</table>
-	<a href="/chan/bestRcp">커뮤니티로 이동</a>  <button type ="submit">글 쓰기</button>
+	<a href="/chan/bestRcp">커뮤니티로 이동</a>  <button type ="submit" id = "save">글 쓰기</button>
 </form>
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="/smarteditor/js/HuskyEZCreator.js" charset="utf-8"></script>
 <script>
+
      let oEditors = []
 
     smartEditor = function() {

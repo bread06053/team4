@@ -68,5 +68,6 @@ public class UserService {
 	public List<User>  alluser() {
 		return dao.alluser();
 	}
+	
 }
 	
