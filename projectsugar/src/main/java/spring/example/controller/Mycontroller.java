@@ -1,4 +1,3 @@
-
 package spring.example.controller;
 
 
@@ -14,9 +13,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
@@ -28,6 +30,7 @@ import spring.example.domain.Post;
 import spring.example.domain.Recipe;
 import spring.example.domain.User;
 import spring.example.service.AskService;
+import spring.example.service.CommunityService;
 import spring.example.service.PostService;
 import spring.example.service.RecipeService;
 import spring.example.service.UserService;
@@ -44,9 +47,12 @@ public class Mycontroller {
 	
 	@Autowired
 	PostService service3;
-	   
+	
 	@Autowired
 	AskService service4;
+	
+	@Autowired
+	CommunityService service5;
 	
 	
 	@GetMapping("/")
@@ -239,18 +245,47 @@ public class Mycontroller {
 	}
 	
 	@GetMapping("admin/admain")
-	public String admain(User user, Model m) {
+	public String admain(User user, @RequestParam(name="p", defaultValue="1")int page,String sort, Model m) {
+		 int count = service5.count();
+	      if(count > 0) {
+	         
+	         int perPage = 10; 
+	         int startRow = (page - 1) * perPage; 
+	         
+	         List<Post> communityList = service5.communityList(sort, startRow);
+	         m.addAttribute("cList", communityList);
+
+	         int pageNum = 5;
+	         int totalPages = count / perPage + (count % perPage > 0 ? 1 : 0); 
+	         
+	         int begin = (page - 1) / pageNum * pageNum + 1;
+	         int end = begin + pageNum -1;
+	         if(end > totalPages) {
+	            end = totalPages;
+	         }
+	          m.addAttribute("begin", begin);
+	          m.addAttribute("end", end);
+	          m.addAttribute("pageNum", pageNum);
+	          m.addAttribute("totalPages", totalPages);
+	         }
+	      
+	      m.addAttribute("sort", sort);
+	      m.addAttribute("count", count);
 		List<User> infotable = service.alluser();
 		m.addAttribute("infotable",infotable);
+
 		return "admin/admain";
 	}
 	
+	@GetMapping("admin/adstyle")
+	public String style() {
+		return "admin/adstyle";
+	}
 
 	@GetMapping("chan/getOut")
 	public String getOut(Model m) {
 		return "chan/getOut";
 	}
+	
 
 }
-
-

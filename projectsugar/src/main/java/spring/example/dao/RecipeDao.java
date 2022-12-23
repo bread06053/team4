@@ -40,6 +40,7 @@ List<Map<String,Object>> bestRcpInfo();
 ("select rno,rtitle,rinfo,nickname,profile,rtime,rlevel,rprep,rlogic,REPLACE(REPLACE(rthumimg,'[',''),']','')as rthumimg,rtip,rlikes from recipe inner join user on recipe.userid=user.userid where rno=#{rno}")
 Recipe recipeinfo(int rno);
 
+
 @Insert
 ("insert into recipe(rno, rtitle, rinfo, rtime, rprep, rlogic, rthumimg, rtip, rlikes, rstate) values(#{rno}, #{rtitle}, #{rinfo}, #{rtime}, #{rprep}, #{rlogic}, #{rthumimg}, #{rtip}, #{rlikes}, 1)")
 int recipewrite(Recipe recipe);

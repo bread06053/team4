@@ -64,7 +64,7 @@ public class UserService {
 	public List<User> memsInfo(){
 		return dao.memsInfo();
 	}
-	public List<User> alluser() {
+	public List<User>  alluser() {
 		return dao.alluser();
 	}
 	

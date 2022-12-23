@@ -48,7 +48,7 @@ public class CommunityService {
       Map<String, Object> m = new HashMap<String, Object>();
       m.put("sort", sort);//
       m.put("start", start);
-      m.put("count", 20);
+      m.put("count", 10);
       return dao.communityList(m);
    }
    
