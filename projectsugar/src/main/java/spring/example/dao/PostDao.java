@@ -51,7 +51,13 @@ public interface PostDao {
    @Select
    ("select userid,ptitle,ptext,ptime,pview from post where pno=${pno}")
    Post viewPost(int pno);
+
    @Select
    ("select Count(*)from Comment where pno=#{pno}")
    int commentCnt(int pno);
+   
+   @Select
+   ("select count(pno) from post")
+   int cntpost();
+   
 }

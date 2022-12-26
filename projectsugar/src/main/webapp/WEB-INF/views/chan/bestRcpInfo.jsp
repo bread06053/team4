@@ -135,6 +135,7 @@
 <table border="1" style = "text-align : center;" >
 	<tr><td>제목</td><td>${Recipeinfo.rtitle}</td>
 	<tr><td>작성자</td><td>${Recipeinfo.nickname}</td> 
+	<tr><td>카테고리</td><td>${Recipeinfo.cateno}</td>
 	<tr><td colspan = "2"><img src = "/profile/${Recipeinfo.profile}"/></td>
 	<tr><td>내용</td><td>${Recipeinfo.rinfo}</td>
 	<tr><td>요리 시간</td><td>${Recipeinfo.rtime}</td>

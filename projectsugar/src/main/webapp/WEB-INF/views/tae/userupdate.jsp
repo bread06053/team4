@@ -73,7 +73,15 @@
                 </li>
                 <li><a href="https://www.10000recipe.com/recipe/list.html" class="active">나만의 레시피</a>
                 </li>
+<<<<<<< HEAD
                 <li><a href="/post/postlist">커뮤니티</a>
+=======
+<<<<<<< HEAD
+                <li><a href="/community/community_list">커뮤니티</a>
+=======
+                <li><a href="/post/postlist">커뮤니티</a>
+>>>>>>> branch 'master' of https://github.com/bread06053/team4.git
+>>>>>>> refs/heads/master
                 </li>
             </ul>
         </div>
