@@ -52,4 +52,8 @@ public interface PostDao {
    ("selete userid,ptitle,ptext,pdate,pview from post where pno=${pno}")
    Post viewPost(int pno);
    
+   @Select
+   ("select count(pno) from post")
+   int cntpost();
+   
 }
