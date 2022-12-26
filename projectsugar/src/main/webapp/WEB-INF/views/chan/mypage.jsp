@@ -56,7 +56,7 @@
 						<sec:authentication property = "principal.user.nickname"></sec:authentication>의 마이페이지
 					</div>
 					<div class="wrapper_right_setting">
-						<a href="/tae/userupdate">개인정보 변경</a>
+						<a href="/tae/userinfo">개인정보 변경</a>
 					</div>
 				</div>
 				  <div class="wrapper_right_body">

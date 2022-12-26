@@ -21,8 +21,14 @@ public class RecipeService {
 	public List<Map<String,String>> bestRcp(){
 		return dao.bestRcp();
 	}
+	public List<Map<String,String>> myRcp(){
+		return dao.myRcp();
+	}
 	public int bestcnt() {
 		return dao.bestcnt();
+	}
+	public int mycnt() {
+		return dao.mycnt();
 	}
 	public List<Map<String,Object>> cateName(){
 		return dao.cateName();

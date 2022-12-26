@@ -59,7 +59,7 @@
          <span style="margin: 10; padding: 10; font-size: 0; display: block; text-align: center;"><img src="" width="8"></span>
          <span style="border-radius: 2px; background: #ffd200; color: #000; display: block; font-size: 11px; padding:2px 5px; text-align: center;">회원가입</span>
     </div>
-    <a href="http://localhost:8084/tae/login">
+    <a href="http://localhost:8084/chan/mypage">
     <sec:authentication property = "principal.user.userid"></sec:authentication>님 안녕하세요!<br>
     <sec:authorize access = "!isAuthenticated()"/>
     <img src="/profile/<sec:authentication property = "principal.user.profile"/>">
@@ -71,17 +71,9 @@
             <ul class="yoyoNavi">
                 <li><a href="/chan/bestRcp">Best 레시피</a>
                 </li>
-                <li><a href="https://www.10000recipe.com/recipe/list.html" class="active">나만의 레시피</a>
+                <li><a href="/chan/myRcp">나만의 레시피</a>
                 </li>
-<<<<<<< HEAD
                 <li><a href="/post/postlist">커뮤니티</a>
-=======
-<<<<<<< HEAD
-                <li><a href="/community/community_list">커뮤니티</a>
-=======
-                <li><a href="/post/postlist">커뮤니티</a>
->>>>>>> branch 'master' of https://github.com/bread06053/team4.git
->>>>>>> refs/heads/master
                 </li>
             </ul>
         </div>

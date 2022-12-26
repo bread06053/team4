@@ -160,7 +160,6 @@ public class Mycontroller {
 	@GetMapping("chan/bestRcp")
 	public String bestRcp(Model m) {
 		List<Map<String,String>> best=service2.bestRcp();
-		System.out.println(best.size());
 		List<Map<String,Object>> cateName=service2.cateName();
 		List<String> rcpLevel=service2.rcpLevel();
 		List<Map<String,Object>> rcpTime=service2.rcpTime();
@@ -172,6 +171,20 @@ public class Mycontroller {
 		m.addAttribute("rcpTime",rcpTime);
 		System.out.println(best.get(0));
 		return "chan/bestRcp";
+	}
+	@GetMapping("chan/myRcp")
+	public String myRcp(Model m) {
+		List<Map<String,String>> my=service2.myRcp();
+		List<Map<String,Object>> cateName=service2.cateName();
+		List<String> rcpLevel=service2.rcpLevel();
+		List<Map<String,Object>> rcpTime=service2.rcpTime();
+		int cnt=service2.mycnt();
+		m.addAttribute("best",my);
+		m.addAttribute("cnt",cnt);
+		m.addAttribute("cateName",cateName);
+		m.addAttribute("rcpLevel",rcpLevel);
+		m.addAttribute("rcpTime",rcpTime);
+		return "chan/myRcp";
 	}
 	@GetMapping("chan/bestRcpInfo/{rno}")
 	public String bestRcpInfo(@PathVariable int rno, Model m){
@@ -196,7 +209,7 @@ public class Mycontroller {
 	@PostMapping("tae/userupdate")
 	public String userupdateForm(User user) {
 		service.userupdate(user);
-		return "redirect:/chan/main";
+		return "redirect:/chan/mypage";
 		}
 	@PostMapping("tae/delete")
 	@ResponseBody
@@ -249,7 +262,7 @@ public class Mycontroller {
 		 int count = service5.count();
 	      if(count > 0) {
 	         
-	         int perPage = 10; 
+	         int perPage = 5; 
 	         int startRow = (page - 1) * perPage; 
 	         
 	         List<Post> communityList = service5.communityList(sort, startRow);
@@ -295,11 +308,6 @@ public class Mycontroller {
 		m.addAttribute("cntP",post);
 		m.addAttribute("cntL",likes);
 		return "admin/adtotal";
-	}
-
-	@GetMapping("chan/getOut")
-	public String getOut(Model m) {
-		return "chan/getOut";
 	}
 
 	@GetMapping("chan/mypage")
