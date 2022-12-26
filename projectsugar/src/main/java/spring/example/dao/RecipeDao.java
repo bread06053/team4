@@ -18,11 +18,18 @@ public interface RecipeDao {
 List<Recipe> searchti1(String search);
 
 @Select
-("select REPLACE(REPLACE(rthumimg,'[',''),']','')as rthumimg,profile,nickname,rtitle,rno from recipe inner join user on recipe.userid=user.userid where rstate = 0")
+("select REPLACE(REPLACE(rthumimg,'[',''),']','')as rthumimg,profile,nickname,rtitle,rno from recipe inner join user on recipe.userid=user.userid where rstate=0")
 List<Map<String,String>> bestRcp();
+
 @Select
-("select count(rno) from recipe")
+("select rthumimg,profile,nickname,rtitle,rno from recipe inner join user on recipe.userid=user.userid where rstate=1")
+List<Map<String,String>> myRcp();
+@Select
+("select count(rno) from recipe where rstate=0")
 int bestcnt();
+@Select
+("select count(rno) from recipe where rstate=1")
+int mycnt();
 @Select
 ("select * from cate")
 List<Map<String,Object>> cateName();
@@ -42,7 +49,7 @@ Recipe recipeinfo(int rno);
 
 
 @Insert
-("insert into recipe( userid ,cateno,rtitle, rinfo, rtime, rprep, rlogic, rthumimg, rtip, rlikes, rstate ,rlevel) values(#{userid},#{cateno},#{rtitle}, #{rinfo}, #{rtime}, #{rprep}, #{rlogic}, #{rthumimg}, #{rtip}, 0, 1, #{rlevel})")
+("insert into recipe(userid,cateno,rtitle, rinfo, rtime, rprep, rlogic, rthumimg, rtip, rlikes, rstate ,rlevel) values(#{userid},#{cateno},#{rtitle}, #{rinfo}, #{rtime}, #{rprep}, #{rlogic}, #{rthumimg}, #{rtip}, 0, 1, #{rlevel})")
 int recipewrite(Recipe recipe);
 
 @Select
