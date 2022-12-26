@@ -42,7 +42,6 @@
 </div>
 <img src="/profile/<sec:authentication property = "principal.user.profile"/>">
 <button onclick = "location.href = '/mem/info'">회원 명단 다운로드</button>
-<button onclick = "location.href = '/admin/adstyle'">스타일 주기</button>
-<button onclick = "admin/adtotal">사이트 통계 보기</button>
+<button onclick = "location.href = '/admin/adtotal'">사이트 통계 보기</button>
 </body>
 </html>

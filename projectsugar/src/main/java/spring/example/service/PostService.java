@@ -17,5 +17,9 @@ public class PostService {
 	public List<Post> searchti2(String search){
 		return dao.searchti2(search);
 	}
+	
+	public int cntpost() {
+		return dao.cntpost();
+	}
 
 }

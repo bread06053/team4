@@ -43,4 +43,7 @@ public class RecipeService {
 	public int Recipewrite(Recipe recipe) {
 		return dao.recipewrite(recipe);
 	}
+	public List<Recipe> rlikes() {
+		return dao.rlikes();
+	}
 }
