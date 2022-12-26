@@ -43,7 +43,10 @@ dependencies {
 	implementation group: 'org.apache.poi', name: 'poi', version: '5.2.3'
 	// https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml
 	implementation group: 'org.apache.poi', name: 'poi-ooxml', version: '5.2.3'
+<<<<<<< HEAD
+=======
 
+>>>>>>> branch 'master' of https://github.com/bread06053/team4.git
 }
 
 tasks.named('test') {

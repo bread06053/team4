@@ -27,7 +27,7 @@
 	</a>
 	</h1>
 	<div class="yoyo_search">
-	<form id="yoyoSearch" method="post" action="/tae/searchpage">
+	<form id="yoyoSearch" method="get" action="">
 		<div class="input-group">
 		<input id="yoyoText" name="q" type="text" class="form-control ui-autocmplete-input" placeholder values="" style="ime-mode:active;" autocomplete="off">	
 		<span class="input-group-btn">
@@ -53,11 +53,11 @@
 </div>
 <div class="yoyo_navi">
             <ul class="yoyoNavi">
-                <li><a href="/chan/bestRcp">Best 레시피</a>
+                <li><a href="https://www.10000recipe.com/index.html">Best 레시피</a>
                 </li>
                 <li><a href="https://www.10000recipe.com/recipe/list.html" class="active">나만의 레시피</a>
                 </li>
-                <li><a href="/post/postlist">커뮤니티</a>
+                <li><a href="https://www.10000recipe.com/ranking/home_new.html">커뮤니티</a>
                 </li>
             </ul>
         </div>

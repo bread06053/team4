@@ -1,7 +1,9 @@
 package spring.example.controller;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -9,12 +11,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import spring.example.config.SecurityUser;
 //import spring.example.domain.CommentDto;
 import spring.example.domain.Post;
+import spring.example.domain.User;
 //import spring.example.service.CommentService;
 import spring.example.service.CommunityService;
 
@@ -24,27 +27,27 @@ public class CommunityController {
    @Autowired
    CommunityService service;
    
-   @Autowired
+//   @Autowired
  //  CommentService c_service;
    
    @GetMapping("/post/postwrite")
-   public String wirteForm() {
+   public String wirteForm(@AuthenticationPrincipal SecurityUser user, Model m) {
+	   m.addAttribute("id",user.getUser().getUserid());
       return "post/postwrite";
    }
    
    @PostMapping("/post/postwrite")
    public String community_write(Post post) {
       service.insert(post);
-      
       return "redirect:postlist";
    }
    
    @GetMapping("/post/postview/{pno}")
    public String content(@PathVariable int pno, Model m) {
-      Post post = service.communityOne(pno);
-     // int i=service.commentCnt(pno);
-      m.addAttribute("dto", post);
-    //  m.addAttribute("i",i);
+	   Map<String,Object> dto= service.communityOne(pno);
+	   int i=service.commentCnt(pno);
+      m.addAttribute("dto", dto);
+      m.addAttribute("i",i);
    //   List<CommentDto> commentList = c_service.selectComment(comm_no);
     //  m.addAttribute("commentList", commentList);
       return "post/postview";
@@ -52,8 +55,8 @@ public class CommunityController {
    
    @GetMapping("/post/postupdate/{pno}")
    public String community_update(@PathVariable int pno, Model m) {
-      Post post = service.communityOne(pno);
-      m.addAttribute("dto", post);
+	  Map<String,Object> dto = service.communityOne(pno);
+      m.addAttribute("dto", dto);
       return "post/postupdate";
    }
    

@@ -24,12 +24,13 @@ public class CommunityService {
       return dao.count();
    }
    
-   public Post communityOne(int pno) {
+   public Map<String,Object> communityOne(int pno) {
       dao.addReadcount(pno);
       return dao.communityOne(pno);
    }
-   
-   
+	public int commentCnt(int pno) {
+		return dao.commentCnt(pno);
+	}
    public int updatePost(Post post) {
       return dao.updatePost(post);
    }

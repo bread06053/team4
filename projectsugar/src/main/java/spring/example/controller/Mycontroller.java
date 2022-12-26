@@ -1,4 +1,3 @@
-
 package spring.example.controller;
 
 
@@ -14,11 +13,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -27,16 +24,21 @@ import org.springframework.web.multipart.MultipartFile;
 
 import spring.example.config.SecurityUser;
 import spring.example.domain.Ask;
+import spring.example.domain.Ban;
 import spring.example.domain.Post;
 import spring.example.domain.Recipe;
 import spring.example.domain.Style;
 import spring.example.domain.User;
 import spring.example.service.AskService;
+import spring.example.service.BanService;
 import spring.example.service.CommunityService;
 import spring.example.service.PostService;
 import spring.example.service.RecipeService;
 import spring.example.service.StyleService;
 import spring.example.service.UserService;
+
+
+
 
 @Controller
 @SessionAttributes("user")
@@ -60,6 +62,9 @@ public class Mycontroller {
 	@Autowired
 	StyleService service6;
 	
+	@Autowired
+	BanService service7;
+	
 	
 	@GetMapping("/")
 	public String first() {
@@ -78,8 +83,19 @@ public class Mycontroller {
 	public String login() {
 		return "tae/login";
 	}
+	@GetMapping("chan/main")
+	public String main(@AuthenticationPrincipal SecurityUser user,Model m) {
+		List<Map<String,String>> recent=service.recentRcp();
+		List<Map<String,Object>> bestChef= service.bestChef();
+		List<String> bestView=service.bestView();
 
-	
+		m.addAttribute("recent",recent);
+		m.addAttribute("bestChef",bestChef);
+		m.addAttribute("bestView",bestView);
+		m.addAttribute("cntUser",service.cntUser());
+		m.addAttribute("cntRecipe",service.cntRecipe());
+		return "chan/main";
+	}
 	@GetMapping("/tae/join")
 	public String join() {
 		return "tae/join";
@@ -109,30 +125,7 @@ public class Mycontroller {
 		return "tae/find";
 	}
 	
-	@GetMapping("chan/main")
-	public String main(@AuthenticationPrincipal SecurityUser user,Model m) {
-		List<Map<String,String>> recent=service.recentRcp();
-		List<Map<String,Object>> bestChef= service.bestChef();
-		List<String> bestView=service.bestView();
 
-		m.addAttribute("recent",recent);
-		m.addAttribute("bestChef",bestChef);
-		m.addAttribute("bestView",bestView);
-		m.addAttribute("cntUser",service.cntUser());
-		m.addAttribute("cntRecipe",service.cntRecipe());
-		return "chan/main";
-	}
-
-
-	@GetMapping("chan/subHeader")
-	public String subHeader() {
-		return "chan/subHeader";
-	}
-	@GetMapping("chan/mainHeader")
-	public String mainHeader() {
-		return "chan/mainHeader";
-	}
-	
 	@GetMapping("/tae/popup")
 	public String findid(String email, Model m) {
 		m.addAttribute("id",  service.findid(email));
@@ -208,7 +201,6 @@ public class Mycontroller {
 	@PostMapping("tae/delete")
 	@ResponseBody
 	public String delete(User user) {
-		System.out.println(user);
 		service.userdelete(user);
 		return "tae/userupdate";
 	}
@@ -290,6 +282,7 @@ public class Mycontroller {
 		List<Style> styleimg = service6.all();
 		m.addAttribute("styleimg",styleimg);
 		return "admin/adstyle";
+
 	}
 	@GetMapping("admin/adtotal")
 	public String total(Model m) {
@@ -309,7 +302,30 @@ public class Mycontroller {
 		return "chan/getOut";
 	}
 
-
+	@GetMapping("chan/mypage")
+	public String mypage(){
+		return "chan/mypage";	
+	}
+	@GetMapping("admin/asklist")
+	public String asklist(Model m) {
+		List<Map<String,Object>> ask=service4.asklist();
+		m.addAttribute("ask",ask);
+		return "admin/asklist";
+	}
+	@GetMapping("admin/reportlist")
+	public String reportlist(Model m) {
+		List<Map<String,Object>> report=service7.reportlist();
+		m.addAttribute("report",report);
+		return "admin/reportlist";
+	}
+	   @GetMapping("/admin/bpopup/{bno}")
+	   public String content(@PathVariable int bno, Model m) {
+		  Ban reporttext=service7.reporttext(bno); 
+		  m.addAttribute("reporttext",reporttext);
+	      return "admin/bpopup";
+	   }
 }
+
+
 
 

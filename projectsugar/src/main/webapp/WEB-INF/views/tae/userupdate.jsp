@@ -8,8 +8,7 @@
 </style>
 <head>
 <link rel="stylesheet" href="/css/mainHeader.css"/>
-<link rel="stylesheet" href="/css/main.css"/>
-
+<link rel="stylesheet" href="/css/userupdate.css"/>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Dongle&display=swap" rel="stylesheet">
 <style>
@@ -32,7 +31,7 @@
 <title>정보 수정/삭제</title>
 </head>
 <body>
-<div class="yoyo_top_wra p">
+<div class="yoyo_top_wrap">
 	<div class="yoyo_top">
 	<h1>
 	<a href="http://localhost:8084/chan/main">
@@ -54,51 +53,57 @@
 		</div>
 	</form>	
 </div> 
-</div>
 <div id = goodtaehun></div>
 <div class="yoyoRight" style="position:relative">
 	<div style="position: absolute; width:100px; top: 47px; left: 0; margin-left: -25px;display:none; margin:10;">
          <span style="margin: 10; padding: 10; font-size: 0; display: block; text-align: center;"><img src="" width="8"></span>
          <span style="border-radius: 2px; background: #ffd200; color: #000; display: block; font-size: 11px; padding:2px 5px; text-align: center;">회원가입</span>
     </div>
-    </div>
     <a href="http://localhost:8084/tae/login">
     <sec:authentication property = "principal.user.userid"></sec:authentication>님 안녕하세요!<br>
     <sec:authorize access = "!isAuthenticated()"/>
     <img src="/profile/<sec:authentication property = "principal.user.profile"/>">
     </a>
-
 </div>
-
+</div>
+</div>
 <div class="yoyo_navi">
             <ul class="yoyoNavi">
                 <li><a href="/chan/bestRcp">Best 레시피</a>
                 </li>
                 <li><a href="https://www.10000recipe.com/recipe/list.html" class="active">나만의 레시피</a>
                 </li>
+<<<<<<< HEAD
                 <li><a href="/post/postlist">커뮤니티</a>
+=======
+<<<<<<< HEAD
+                <li><a href="/community/community_list">커뮤니티</a>
+=======
+                <li><a href="/post/postlist">커뮤니티</a>
+>>>>>>> branch 'master' of https://github.com/bread06053/team4.git
+>>>>>>> refs/heads/master
                 </li>
             </ul>
         </div>
 
-<form action="userupdate" method="post" id="updateform" style = "text-align : center; align : center;">
+<form action="userupdate" method="post" id="updateform" style = "text-align : center; font-size:32pt">
 	
 		${info.userid}님의 정보를 수정합니다. <br>
-		아이디 현재 아이디 : ${info.userid} <br>
+		현재 아이디 : ${info.userid} <br>
 		<input type="hidden" name="userid" value="${info.userid}">
-		비밀번호 <input name="passwd" type="password" id="password" value="${info.passwd}"><br>
-		이메일 <input name = "email" value = "${info.email}"><br>
-		이름 <input name="name" id="name" value="${info.name}"><br>
-		닉네임 <input name = "nickname" value = "${info.nickname}"><br>
-		자기소개 <textarea name="pr"></textarea><br>
-		주소 <input name="address" id="address" value="${info.address}"> <input type="button" id="addbtn" value="우편번호 검색" onclick="addPost()"><br>
-		상세주소<input name = "address" id = "address">
-		
-		<input type="submit" value="수정">
+		비밀번호: <input name="passwd" type="password" id="password" value="${info.passwd}"><br>
+		이메일: <input name = "email" value = "${info.email}"><br>
+		이름: <input name="name" id="name" value="${info.name}"><br>
+		닉네임: <input name = "nickname" value = "${info.nickname}"><br>
+		<div class="pr"><span>자기소개:</span> <textarea name="pr"></textarea><br></div>
+		주소: <input name="address" id="address" value="${info.address}"> <input type="button" id="addbtn" value="우편번호 검색" onclick="addPost()"><br>
+		상세주소:<input name = "address" id = "address">
+		<br>
+		<input type="submit" id="change" value="수정">
 	
 		
 </form>
-		<button id = "deleteuser" >회원 탈퇴</button>															
+		<button id = "deleteuser" style="float: right;margin-right: 40%;">회원 탈퇴</button>															
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>

@@ -8,19 +8,15 @@
 </style>
 <head>
 <link rel="stylesheet" href="/css/mainHeader.css"/>
-<link rel="stylesheet" href="/css/main.css"/>
 <title>Insert title here</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Dongle&display=swap" rel="stylesheet">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Dongle&display=swap');
-.mySlides {display:none}
-.prev, .next, .dot {cursor:pointer}
-.dot {height:13px;width:13px;padding:0}
 </style>
 </head>
 <body>
-<div class="yoyo_top_wra p">
+<div class="yoyo_top_wrap">
 	<div class="yoyo_top">
 	<h1>
 	<a href="http://localhost:8084/chan/main">
@@ -43,7 +39,7 @@
 	</form>	
 </div> 
 <div id = goodtaehun></div>
-<dl class="yoyoRight" style="position:relative">
+<div class="yoyoRight" style="position:relative">
 	<div style="position: absolute; width:100px; top: 47px; left: 0; margin-left: -25px;display:none; margin:10;">
          <span style="margin: 10; padding: 10; font-size: 0; display: block; text-align: center;"><img src="" width="8"></span>
          <span style="border-radius: 2px; background: #ffd200; color: #000; display: block; font-size: 11px; padding:2px 5px; text-align: center;">회원가입</span>
@@ -53,16 +49,16 @@
     <sec:authorize access = "!isAuthenticated()"/>
     <img src="/profile/<sec:authentication property = "principal.user.profile"/>">
     </a>
-</dl>
+</div>
 </div>
 </div>
 <div class="yoyo_navi">
             <ul class="yoyoNavi">
                 <li><a href="/chan/bestRcp">Best 레시피</a>
                 </li>
-                <li><a href="https://www.10000recipe.com/recipe/list.html" class="active">나만의 레시피</a>
+                <li><a href="https://www.10000recipe.com/recipe/list.html">나만의 레시피</a>
                 </li>
-                <li><a href="https://www.10000recipe.com/ranking/home_new.html">커뮤니티</a>
+                <li><a href="/post/postlist">커뮤니티</a>
                 </li>
             </ul>
         </div>

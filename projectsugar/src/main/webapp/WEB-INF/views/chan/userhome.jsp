@@ -6,8 +6,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-
 <sec:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_MANAGER')">
 <button onclick = "location.href ='/admin/admain' "> 질문 잘 받으면 강사시켜줄게</button>
 </sec:authorize>
