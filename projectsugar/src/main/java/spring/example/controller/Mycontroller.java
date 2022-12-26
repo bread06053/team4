@@ -239,10 +239,7 @@ public class Mycontroller {
 		      return newName;
 	}
 	
-	@GetMapping("chan/userhome")
-	public String adminbt() {
-		return "chan/userhome";
-	}
+
 	
 	@GetMapping("admin/admain")
 	public String admain(User user, @RequestParam(name="p", defaultValue="1")int page,String sort, Model m) {

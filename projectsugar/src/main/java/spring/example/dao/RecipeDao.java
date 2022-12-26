@@ -18,7 +18,7 @@ public interface RecipeDao {
 List<Recipe> searchti1(String search);
 
 @Select
-("select REPLACE(REPLACE(rthumimg,'[',''),']','')as rthumimg,profile,nickname,rtitle,rno from recipe inner join user on recipe.userid=user.userid")
+("select REPLACE(REPLACE(rthumimg,'[',''),']','')as rthumimg,profile,nickname,rtitle,rno from recipe inner join user on recipe.userid=user.userid where rstate = 0")
 List<Map<String,String>> bestRcp();
 @Select
 ("select count(rno) from recipe")
@@ -42,7 +42,7 @@ Recipe recipeinfo(int rno);
 
 
 @Insert
-("insert into recipe( cateno,rtitle, rinfo, rtime, rprep, rlogic, rthumimg, rtip, rlikes, rstate ,rlevel) values(#{cateno},#{rtitle}, #{rinfo}, #{rtime}, #{rprep}, #{rlogic}, #{rthumimg}, #{rtip}, 0, 1, #{rlevel})")
+("insert into recipe( userid ,cateno,rtitle, rinfo, rtime, rprep, rlogic, rthumimg, rtip, rlikes, rstate ,rlevel) values(#{userid},#{cateno},#{rtitle}, #{rinfo}, #{rtime}, #{rprep}, #{rlogic}, #{rthumimg}, #{rtip}, 0, 1, #{rlevel})")
 int recipewrite(Recipe recipe);
 
 @Select
