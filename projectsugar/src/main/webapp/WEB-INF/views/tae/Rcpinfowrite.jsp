@@ -51,7 +51,7 @@ font-size : 10px;
 	</td></tr>
 	<tr><td>요리 팁</td><td><input name = "rtip" placeholder = "모든 재료 한꺼번에 넣어도 괜찮아요.겁내지 말고 도전하세요."></td></tr>
 	<tr><td>재료</td><td>	
-	<select name = "rprep">
+	<select name = "cateno">
     <option value="23">육류</option>
     <option value="24">해물류</option>
     <option value="25">건어물류</option>

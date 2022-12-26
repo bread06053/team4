@@ -42,7 +42,13 @@ Recipe recipeinfo(int rno);
 
 
 @Insert
-("insert into recipe(rno, rtitle, rinfo, rtime, rprep, rlogic, rthumimg, rtip, rlikes, rstate) values(#{rno}, #{rtitle}, #{rinfo}, #{rtime}, #{rprep}, #{rlogic}, #{rthumimg}, #{rtip}, #{rlikes}, 1)")
+("insert into recipe( cateno,rtitle, rinfo, rtime, rprep, rlogic, rthumimg, rtip, rlikes, rstate ,rlevel) values(#{cateno},#{rtitle}, #{rinfo}, #{rtime}, #{rprep}, #{rlogic}, #{rthumimg}, #{rtip}, 0, 1, #{rlevel})")
 int recipewrite(Recipe recipe);
+
+@Select
+("select rank() over(order by rlikes desc),rno,rlikes,rtitle from recipe where rstate=1 limit 3")
+List<Recipe> rlikes();
 }
+
+
 

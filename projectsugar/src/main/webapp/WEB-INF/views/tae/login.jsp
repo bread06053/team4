@@ -93,7 +93,7 @@ body{
             
             <div class="g-signin2" data-onsuccess="onSignIn"></div>
     	
-        
+        <a href= "/tae/join">회원가입</a>
         <a href="/tae/find">아이디/비밀번호를 잊어버리셨나요?</a>
         
 		

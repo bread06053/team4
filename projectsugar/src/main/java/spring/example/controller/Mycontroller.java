@@ -13,11 +13,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -28,12 +26,17 @@ import spring.example.config.SecurityUser;
 import spring.example.domain.Ask;
 import spring.example.domain.Post;
 import spring.example.domain.Recipe;
+import spring.example.domain.Style;
 import spring.example.domain.User;
 import spring.example.service.AskService;
 import spring.example.service.CommunityService;
 import spring.example.service.PostService;
 import spring.example.service.RecipeService;
+import spring.example.service.StyleService;
 import spring.example.service.UserService;
+
+
+
 
 @Controller
 @SessionAttributes("user")
@@ -54,6 +57,10 @@ public class Mycontroller {
 	@Autowired
 	CommunityService service5;
 	
+
+	@Autowired
+	StyleService service6;
+	
 	
 	@GetMapping("/")
 	public String first() {
@@ -72,8 +79,19 @@ public class Mycontroller {
 	public String login() {
 		return "tae/login";
 	}
+	@GetMapping("chan/main")
+	public String main(@AuthenticationPrincipal SecurityUser user,Model m) {
+		List<Map<String,String>> recent=service.recentRcp();
+		List<Map<String,Object>> bestChef= service.bestChef();
+		List<String> bestView=service.bestView();
 
-	
+		m.addAttribute("recent",recent);
+		m.addAttribute("bestChef",bestChef);
+		m.addAttribute("bestView",bestView);
+		m.addAttribute("cntUser",service.cntUser());
+		m.addAttribute("cntRecipe",service.cntRecipe());
+		return "chan/main";
+	}
 	@GetMapping("/tae/join")
 	public String join() {
 		return "tae/join";
@@ -103,30 +121,7 @@ public class Mycontroller {
 		return "tae/find";
 	}
 	
-	@GetMapping("chan/main")
-	public String main(@AuthenticationPrincipal SecurityUser user,Model m) {
-		List<Map<String,String>> recent=service.recentRcp();
-		List<Map<String,Object>> bestChef= service.bestChef();
-		List<String> bestView=service.bestView();
 
-		m.addAttribute("recent",recent);
-		m.addAttribute("bestChef",bestChef);
-		m.addAttribute("bestView",bestView);
-		m.addAttribute("cntUser",service.cntUser());
-		m.addAttribute("cntRecipe",service.cntRecipe());
-		return "chan/main";
-	}
-
-
-	@GetMapping("chan/subHeader")
-	public String subHeader() {
-		return "chan/subHeader";
-	}
-	@GetMapping("chan/mainHeader")
-	public String mainHeader() {
-		return "chan/mainHeader";
-	}
-	
 	@GetMapping("/tae/popup")
 	public String findid(String email, Model m) {
 		m.addAttribute("id",  service.findid(email));
@@ -161,6 +156,7 @@ public class Mycontroller {
 	@GetMapping("chan/bestRcp")
 	public String bestRcp(Model m) {
 		List<Map<String,String>> best=service2.bestRcp();
+		System.out.println(best.size());
 		List<Map<String,Object>> cateName=service2.cateName();
 		List<String> rcpLevel=service2.rcpLevel();
 		List<Map<String,Object>> rcpTime=service2.rcpTime();
@@ -201,7 +197,6 @@ public class Mycontroller {
 	@PostMapping("tae/delete")
 	@ResponseBody
 	public String delete(User user) {
-		System.out.println(user);
 		service.userdelete(user);
 		return "tae/userupdate";
 	}
@@ -215,10 +210,11 @@ public class Mycontroller {
 	public String Rcpinfowrite(Recipe recipe, MultipartFile img,HttpServletRequest request) {
 		
 		String path = upload(img, request);
+		
 		recipe.setRthumimg(path);
 		
 		service2.Recipewrite(recipe);
-		return "tae/Rcpinfowrite";
+		return "redirect:/chan/bestRcp";
 	}
 	private String upload(MultipartFile rthumimg ,HttpServletRequest request) {
 		long currentTime = System.currentTimeMillis();
@@ -278,14 +274,31 @@ public class Mycontroller {
 	}
 	
 	@GetMapping("admin/adstyle")
-	public String style() {
+	public String style(Model m) {
+		List<Style> styleimg = service6.all();
+		m.addAttribute("styleimg",styleimg);
 		return "admin/adstyle";
+
+	}
+	@GetMapping("admin/adtotal")
+	public String total(Model m) {
+		int recent=service.cntRecipe();
+		int bestChef= service.cntUser();
+		int post = service3.cntpost();
+		List<Recipe> likes = service2.rlikes();
+		m.addAttribute("cntR",recent);
+		m.addAttribute("cntU",bestChef);
+		m.addAttribute("cntP",post);
+		m.addAttribute("cntL",likes);
+		return "admin/adtotal";
 	}
 
 	@GetMapping("chan/getOut")
 	public String getOut(Model m) {
 		return "chan/getOut";
 	}
-	
+
+
 
 }
+
