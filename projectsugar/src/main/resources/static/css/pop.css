@@ -1,0 +1,49 @@
+@charset "UTF-8";
+.line{
+    border-top: 1px solid black;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+.popup{
+	height:560px;
+    background-color:burlywood;
+    padding-left: 20px;
+    padding-top: 20px;
+        border-radius:2%;
+        margin:auto;
+}
+.outerbox{
+    width: 740px;
+    height: 500px;
+    background-color:antiquewhite;
+    border-radius:2%;
+}
+.wrapper{
+    width: 524px;
+    height: 440px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: 10px;
+    z-index: 1;
+}
+.wrapper_body{
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 15px;
+    width: 650px;
+    height: 450px;
+    margin-left: 20px;
+}
+.title{
+    font-size: 20px;
+    font-weight: 700;
+    font-style: Malgun Gothic normal;
+    color: burlywood;
+}
+.header{
+    height: 40px;
+    padding-top: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+}

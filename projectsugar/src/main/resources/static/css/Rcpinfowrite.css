@@ -1,0 +1,91 @@
+@charset "UTF-8";
+.container {
+    width: 1240px;
+    max-width: none !important;
+    margin-right: auto;
+    margin-left: auto;
+}
+.regi_center {
+    border: 1px solid #e6e7e8;
+    background: #fff;
+    margin: 0;
+    padding: 0;
+}
+.regi_title {
+    background: #f8f8f8;
+    border-bottom: 1px solid #e6e7e8;
+    padding: 14px 18px;
+    font-size: 20px;
+    font-weight: bold;
+    position: relative;
+}
+.pad_l_60 {
+    padding-left: 60px !important;
+}
+.cont_box {
+    padding: 26px 30px;
+    border-bottom: 10px solid #f1f1f2;
+    margin: 0 -1px;
+}
+.cont_pic{
+    width: 250px;
+    float: right;
+    margin-right: 60px;
+}
+.cont_box input {
+    background: #f5f5f5;
+    border: 1px solid #e1e1e1;
+    font-size: 16px;
+    padding-left: 15px;
+    height: 50px;
+    vertical-align: middle;
+    margin-top: -1px;
+}
+.cont_line {
+    width: 800px;
+    padding: 8px 0 0 0;
+}
+.cont_tit4 {
+    width: 140px;
+    display: inline-block;
+    font-size: 20px;
+    font-weight: normal;
+    vertical-align: top;
+}
+.cont_line input {
+    display: inline-block;
+}
+.pad_b_25 {
+    padding-bottom: 25px !important;
+}
+.step_cont {
+    display: inline-block;
+    vertical-align: middle;
+    background: #f5f5f5;
+    border: 1px solid #e1e1e1;
+    font-size: 16px;
+    line-height: 25px;
+}
+.cont_box select {
+    background: #f5f5f5;
+    border: 1px solid #e1e1e1;
+    font-size: 16px;
+    padding: 8px 2px;
+    margin: 0 2px 0 0;
+    border-radius: 4px;
+}
+.cont_box .guide {
+    font-size: 14px;
+    display: inline-block;
+    line-height: 1.8;
+    margin-top: 6px;
+    color: #999;
+    background: url(//recipe1.ezmember.co.kr/img/icon_tip.png) left 2px no-repeat;
+    padding: 0 0 0 20px;
+    vertical-align: top;
+}
+p{
+	padding: 0 0 0 2px;
+    margin: 0 0 22px 0;
+    line-height: 50px;
+}

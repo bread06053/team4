@@ -5,7 +5,7 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Dongle&display=swap');
 #good{
-background-image : url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrZdTGyurUhIzhhDK7J4R6XMGSNLVCpLASLw&usqp=CAU");
+background-color : burlywood;
 background-repeat : no-repeat;
 background-size:225% 225%;
 }
@@ -22,7 +22,7 @@ background-size:225% 225%;
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Dongle&display=swap" rel="stylesheet">
 </head>
 <body>
-<div id = good align="center" style="width: 1910px; height: 70px;" onclick = "location.href = '/chan/mainHeader'">
+<div id = good align="center" style="width: 1910px; height: 70px;" onclick = "location.href = '/chan/main'">
 <p class="a"><span style="font-size: 200%;">요</span><span style="font-size:100%;">리초보들을 위한</span>
 <span style="font-size: 200%;">요</span><span style="font-size:100%;">리비책</span></p>
 </div>

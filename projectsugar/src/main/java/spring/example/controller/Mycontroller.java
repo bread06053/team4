@@ -13,11 +13,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -26,10 +24,12 @@ import org.springframework.web.multipart.MultipartFile;
 
 import spring.example.config.SecurityUser;
 import spring.example.domain.Ask;
+import spring.example.domain.Ban;
 import spring.example.domain.Post;
 import spring.example.domain.Recipe;
 import spring.example.domain.User;
 import spring.example.service.AskService;
+import spring.example.service.BanService;
 import spring.example.service.CommunityService;
 import spring.example.service.PostService;
 import spring.example.service.RecipeService;
@@ -54,6 +54,8 @@ public class Mycontroller {
 	@Autowired
 	CommunityService service5;
 	
+	@Autowired
+	BanService service6;
 	
 	@GetMapping("/")
 	public String first() {
@@ -95,7 +97,7 @@ public class Mycontroller {
 	@PostMapping("/tae/join")
 	public String insert(User user) {
 		service.insertuser(user);
-		return "redirect:/chan/main";
+		return "redirect:/tae/login";
 	}
 	
 	@GetMapping("tae/find")
@@ -286,6 +288,26 @@ public class Mycontroller {
 	public String getOut(Model m) {
 		return "chan/getOut";
 	}
-	
-
+	@GetMapping("chan/mypage")
+	public String mypage(){
+		return "chan/mypage";	
+	}
+	@GetMapping("admin/asklist")
+	public String asklist(Model m) {
+		List<Map<String,Object>> ask=service4.asklist();
+		m.addAttribute("ask",ask);
+		return "admin/asklist";
+	}
+	@GetMapping("admin/reportlist")
+	public String reportlist(Model m) {
+		List<Map<String,Object>> report=service6.reportlist();
+		m.addAttribute("report",report);
+		return "admin/reportlist";
+	}
+	   @GetMapping("/admin/bpopup/{bno}")
+	   public String content(@PathVariable int bno, Model m) {
+		  Ban reporttext=service6.reporttext(bno); 
+		  m.addAttribute("reporttext",reporttext);
+	      return "admin/bpopup";
+	   }
 }

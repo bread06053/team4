@@ -1,0 +1,20 @@
+package spring.example.dao;
+
+import java.util.List;
+import java.util.Map;
+
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
+
+import spring.example.domain.Ban;
+
+@Mapper
+public interface BanDao {
+	@Select
+	("select * from ban")
+	List<Map<String,Object>> reportlist();
+	
+	@Select
+	("select * from ban inner join post on ban.pno=post.pno where ban.bno=#{ban.bno}")
+	Ban reporttext(int bno);
+}

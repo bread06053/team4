@@ -61,7 +61,7 @@
             <ul class="yoyoNavi">
                 <li><a href="/chan/bestRcp">Best 레시피</a>
                 </li>
-                <li><a href="https://www.10000recipe.com/recipe/list.html" class="active">나만의 레시피</a>
+                <li><a href="https://www.10000recipe.com/recipe/list.html">나만의 레시피</a>
                 </li>
                 <li><a href="/community/community_list">커뮤니티</a>
                 </li>
