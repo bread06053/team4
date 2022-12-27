@@ -18,21 +18,26 @@
 	<div class="wrapper_body">
 	<div class="no">
 	<input type="hidden" name = "bno" value="${reporttext.bno}">
-		<div class="title1">
-			피 신고 글 번호: ${reporttext.pno}
-		</div>
+		<div class="header2">
 		<div class="title2">
-			신고 제목: ${reporttext.btitle}
+			<span>글 번호:</span> ${reporttext.pno}
+		</div>
+		<div class="title1">
+			<span>신고 제목:</span> ${reporttext.btitle}
 		</div>
 		<div class="who">
-			신고자: ${reporttext.userid}
+			<span>신고자:</span> ${reporttext.userid}
 		</div>
 		<div class="line"></div>
+		</div>
 		<div class="text">
 			${reporttext.btext}
 		</div>
 	</div>
 	</div>
+			<div class="btn">
+		<button style="float:right;margin-top: 10px;">피신고자 추방하기</button>
+		</div>
 	</div>
 	</div>
 </div>

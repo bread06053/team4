@@ -158,28 +158,62 @@ public class Mycontroller {
 
 	}
 	@GetMapping("chan/bestRcp")
-	public String bestRcp(Model m) {
-		List<Map<String,String>> best=service2.bestRcp();
+	public String bestRcp(@RequestParam(name="p",defaultValue="1")int page,Model m) {
+	      int cnt = service2.bestcnt();
+	      if(cnt > 0) {
+	         
+	         int perPage = 16; 
+	         int startRow = (page - 1) * perPage; 
+	         List<Map<String,Object>> best=service2.bestRcp(startRow);
+		m.addAttribute("best",best);
+		int pageNum = 5;
+        int totalPages = cnt / perPage + (cnt % perPage > 0 ? 1 : 0); 
+        
+        int begin = (page - 1) / pageNum * pageNum + 1;
+        int end = begin + pageNum -1;
+        if(end > totalPages) {
+           end = totalPages;
+        }
+         m.addAttribute("begin", begin);
+         m.addAttribute("end", end);
+         m.addAttribute("pageNum", pageNum);
+         m.addAttribute("totalPages", totalPages);
+        }
 		List<Map<String,Object>> cateName=service2.cateName();
 		List<String> rcpLevel=service2.rcpLevel();
 		List<Map<String,Object>> rcpTime=service2.rcpTime();
-		int cnt=service2.bestcnt();
-		m.addAttribute("best",best);
 		m.addAttribute("cnt",cnt);
 		m.addAttribute("cateName",cateName);
 		m.addAttribute("rcpLevel",rcpLevel);
 		m.addAttribute("rcpTime",rcpTime);
-		System.out.println(best.get(0));
 		return "chan/bestRcp";
 	}
 	@GetMapping("chan/myRcp")
-	public String myRcp(Model m) {
-		List<Map<String,String>> my=service2.myRcp();
+	
+	public String myRcp(@RequestParam(name="p",defaultValue="1")int page,Model m) {
+	      int cnt = service2.mycnt();
+	      if(cnt > 0) {
+	         
+	         int perPage = 16; 
+	         int startRow = (page - 1) * perPage; 
+		List<Map<String,Object>> my=service2.myRcp(startRow);
+		m.addAttribute("best",my);
+		int pageNum = 5;
+        int totalPages = cnt / perPage + (cnt % perPage > 0 ? 1 : 0); 
+        
+        int begin = (page - 1) / pageNum * pageNum + 1;
+        int end = begin + pageNum -1;
+        if(end > totalPages) {
+           end = totalPages;
+        }
+         m.addAttribute("begin", begin);
+         m.addAttribute("end", end);
+         m.addAttribute("pageNum", pageNum);
+         m.addAttribute("totalPages", totalPages);
+        }
 		List<Map<String,Object>> cateName=service2.cateName();
 		List<String> rcpLevel=service2.rcpLevel();
 		List<Map<String,Object>> rcpTime=service2.rcpTime();
-		int cnt=service2.mycnt();
-		m.addAttribute("best",my);
 		m.addAttribute("cnt",cnt);
 		m.addAttribute("cateName",cateName);
 		m.addAttribute("rcpLevel",rcpLevel);
@@ -324,10 +358,16 @@ public class Mycontroller {
 		return "admin/reportlist";
 	}
 	   @GetMapping("/admin/bpopup/{bno}")
-	   public String content(@PathVariable int bno, Model m) {
+	   public String reporttext(@PathVariable int bno, Model m) {
 		  Ban reporttext=service7.reporttext(bno); 
 		  m.addAttribute("reporttext",reporttext);
 	      return "admin/bpopup";
+	   }
+	   @GetMapping("/admin/apopup/{ano}")
+	   public String asktext(@PathVariable int ano, Model m) {
+		  Ask asktext=service4.asktext(ano); 
+		  m.addAttribute("asktext",asktext);
+	      return "admin/apopup";
 	   }
 	   
 	 @GetMapping("chan/myRcpinfo/{rno}")
@@ -369,7 +409,7 @@ public class Mycontroller {
 		 return "redirect:admin/reportlist";
 	 }
 	 
-	
+
 }
 
 
