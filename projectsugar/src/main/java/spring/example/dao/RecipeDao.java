@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import spring.example.domain.Recipe;
 
@@ -20,6 +21,7 @@ List<Recipe> searchti1(String search);
 @Select
 ("select REPLACE(REPLACE(rthumimg,'[',''),']','')as rthumimg,profile,nickname,rtitle,rno from recipe inner join user on recipe.userid=user.userid where rstate=0")
 List<Map<String,String>> bestRcp();
+
 @Select
 ("select rthumimg,profile,nickname,rtitle,rno from recipe inner join user on recipe.userid=user.userid where rstate=1")
 List<Map<String,String>> myRcp();
@@ -54,6 +56,10 @@ int recipewrite(Recipe recipe);
 @Select
 ("select rank() over(order by rlikes desc),rno,rlikes,rtitle from recipe where rstate=1 limit 3")
 List<Recipe> rlikes();
+
+@Update
+("update recipe set rlikes = rlikes +1 where rno = #{rno}")
+int rlikesup(int rno);
 }
 
 

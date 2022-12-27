@@ -103,7 +103,7 @@
 <h4>${cnt}개의 검색 결과가 있습니다.</h4>
 <c:forEach var="i" items="${best}">
 	<div class="thumimg">
-	<a href ="/chan/bestRcpInfo/${i.rno}"><img src="/rthumimg/${i.rthumimg}"></a>
+	<a href ="/chan/myRcpinfo/${i.rno}"><img src="/rthumimg/${i.rthumimg}"></a>
 	<div class="title">
 <strong style="">${i.rtitle}</strong>
 </div>

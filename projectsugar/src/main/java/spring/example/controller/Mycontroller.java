@@ -252,10 +252,7 @@ public class Mycontroller {
 		      return newName;
 	}
 	
-	@GetMapping("chan/userhome")
-	public String adminbt() {
-		return "chan/userhome";
-	}
+
 	
 	@GetMapping("admin/admain")
 	public String admain(User user, @RequestParam(name="p", defaultValue="1")int page,String sort, Model m) {
@@ -332,6 +329,47 @@ public class Mycontroller {
 		  m.addAttribute("reporttext",reporttext);
 	      return "admin/bpopup";
 	   }
+	   
+	 @GetMapping("chan/myRcpinfo/{rno}")
+	 public String myRcpinfo(@PathVariable int rno, Model m) {
+		Recipe Recipeinfo = service2.Recipeinfo(rno);
+		m.addAttribute("Recipeinfo",Recipeinfo);
+		 return "chan/myRcpinfo";
+	 }
+	 @PostMapping("chan/myRcpinfo1")
+	 @ResponseBody
+	 public String myRcpinfo1(int rno) {
+		System.out.println("myRcpinfo1실");		
+		service2.rlikesup(rno);
+		 return "chan/myRcpinfo";
+	 }
+	 
+	 @GetMapping("/post/rpopup/{pno}")
+	 public String rpopup(@PathVariable int pno,Model m, @AuthenticationPrincipal SecurityUser user) {
+		 
+		 //Map<String,Object> dto= service5.communityOne(pno);
+		 
+		 m.addAttribute("pno", pno);
+		 m.addAttribute("userid", user.getUser().getUserid());
+		 
+		 return "/post/rpopup";
+	 }
+	 
+	 @PostMapping("admin/rpopup1")
+	 public String insertban(Ban ban) {
+		 service7.inseertban(ban);
+		 return "/tae/popupclose";
+	 }
+	 
+	 @PostMapping("tae/deletePost")
+	 @ResponseBody
+	 public String deletepost(int pno) {
+		 System.out.println("delete");
+		 service5.deletePost(pno);
+		 return "redirect:admin/reportlist";
+	 }
+	 
+	
 }
 
 
