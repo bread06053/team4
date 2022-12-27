@@ -119,7 +119,7 @@
 	
 	<c:forEach var="i" items="${recent}">
 	<div class="thumimg">
-	<img src="/rthumimg/${i.rthumimg}">
+	<img src="/rthumimg/${i.rthumimg}" style="width:300px; height:200px"><br>
 <strong>${i.rtitle}</strong>
 	</div>
 	</c:forEach>

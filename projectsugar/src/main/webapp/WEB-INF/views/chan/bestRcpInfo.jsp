@@ -131,29 +131,6 @@
 		<div class="heart">추천수: ${Recipeinfo.rlikes}</div>
 	</div>
 </div>
-<!--
-<table border="1" style = "text-align : center;" >
-	<tr><td>제목</td><td>${Recipeinfo.rtitle}</td>
-	<tr><td>작성자</td><td>${Recipeinfo.nickname}</td> 
-	<tr><td>카테고리</td><td>${Recipeinfo.cateno}</td>
-	<tr><td colspan = "2"><img src = "/profile/${Recipeinfo.profile}"/></td>
-	<tr><td>내용</td><td>${Recipeinfo.rinfo}</td>
-	<tr><td>요리 시간</td><td>${Recipeinfo.rtime}</td>
-	<tr><td>요리 팁</td><td>${Recipeinfo.rtip}</td>
-	<tr><td>재료</td><td>${Recipeinfo.rprep}</td>
-	<tr><td>완성 요리사진</td><td>${Recipeinfo.rthumimg}</td>
-	<tr><td>요리 방법</td><td>${Recipeinfo.rlogic}</td>
-	<tr><td>추천 수</td><td>${Recipeinfo.rlikes}</td>
-	<tr><td colspan = "2" align = "right">
-	
-	<a href="../main">커뮤니티로 이동</a> 
-	</td></tr>
-</table>
- -->
-<<<<<<< 
-
-
-
  <a class="gohome" href="/chan/bestRcp"><img src="/style/밤고구마.jpeg" style="margin-left:150px;"></a>
 </body>
 </html>

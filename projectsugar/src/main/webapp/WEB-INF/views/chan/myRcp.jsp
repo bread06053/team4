@@ -99,13 +99,13 @@
 </div><br>
 
 <div class="bestcontainer">
-<h3>추천 레시피</h3>
 <button onclick = "location.href = '/tae/Rcpinfowrite'">글 쓰기</button>
+<h3>추천 레시피</h3>
 <h4>${cnt}개의 검색 결과가 있습니다.</h4>
 <div class="rinfo">
 <c:forEach var="i" items="${best}">
 	<div class="thumimg">
-	<a href ="/chan/myRcpinfo/${i.rno}"><img src="/rthumimg/${i.rthumimg}"></a>
+	<a href ="/chan/myRcpinfo/${i.rno}"><img src="/rthumimg/${i.rthumimg}" style="width:430px; height:200px;"></a>
 	<div class="title">
 <strong style="">${i.rtitle}</strong>
 </div>

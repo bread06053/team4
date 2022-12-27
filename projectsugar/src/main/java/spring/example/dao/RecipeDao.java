@@ -9,6 +9,7 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 import spring.example.domain.Recipe;
+import spring.example.domain.Cate;
 
 @Mapper
 public interface RecipeDao {
@@ -23,7 +24,7 @@ List<Recipe> searchti1(String search);
 List<Map<String,Object>> bestRcp(Map<String,Object> m);
 
 @Select
-("select rthumimg,profile,nickname,rtitle,rno from recipe inner join user on recipe.userid=user.userid where rstate=1 limit #{start} , #{cnt}")
+("select rthumimg,profile,nickname,rtitle,rno from recipe inner join user on recipe.userid=user.userid where rstate=1 order by rno desc limit #{start} , #{cnt}")
 List<Map<String,Object>> myRcp(Map<String,Object> m);
 @Select
 ("select count(rno) from recipe where rstate=0")
@@ -38,7 +39,7 @@ List<Map<String,Object>> cateName();
 ("Select rlevel from recipe where rlevel !='???' group by rlevel order by rlevel desc")
 List<String> rcpLevel();
 @Select
-("select rtime,Rank() over (order by rtime)as num from recipe where rtime != '???'group by rtime")
+("select rtime,Rank() over (order by rtime)as num from recipe where rtime != '???' group by rtime")
 List<Map<String,Object>> rcpTime();
 @Select
 ("Select * from recipe")
@@ -61,6 +62,9 @@ List<Recipe> rlikes();
 ("update recipe set rlikes = rlikes +1 where rno = #{rno}")
 int rlikesup(int rno);
 
+@Select
+("select catename as x,count(*)as value from cate inner join recipe on cate.cateno=recipe.cateno group by cate.cateno")
+List<Map<String,Object>> wordcloud();
 }
 
 
