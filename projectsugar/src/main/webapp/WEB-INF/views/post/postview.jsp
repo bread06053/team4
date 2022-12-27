@@ -64,6 +64,7 @@
                 </li>
             </ul>
         </div>
+
 <div class="Article layout_content">
 	<div class="article_warp">
 		<div class="ArticleContentBox">
@@ -91,6 +92,7 @@
 				<div class="article_container"><br>
 					<div class="aricle_viewer">
 					${dto.ptext}
+					<input type="hidden" name = "pno" id = "pno" value="${dto.pno}">
 					</div>
 					<div class="ReplyBox">
 						<div class="box_left">
@@ -98,7 +100,7 @@
 						</div>
 						<div class="box_right">
 							<div class="report_article">
-							<a href="#" class="button_report">신고</a>
+							<button class="layer_button" id = "btn_rep" type = "submit">신고</button>
 							</div>
 						</div>
 					</div>
@@ -129,12 +131,13 @@
 									</div>
 									<ul class="layer_list">
 										<li class="layer_item">
-											<a href="#" role="button" class="layer_button">신고</a>
+											
 										</li>
 									</ul>			
 									</div>
 								</li>
 								</ul>
+								   <input type="hidden" name = "pno" id = "pno" value="${dto.pno}">
 								<div class="CommentWriter">
 									<em class="comment_inbox_name">
 									${user.nickname}
@@ -148,29 +151,14 @@
 		<button type="button" onclick="location.href='/post/postlist'">목록으로</button>
 	</div>
 </div>
-<!--  
-<form id="viewpost">
-<table border="1" class="table">
-<tr>
-<td>제목 : ${dto.ptitle}</td>
-</tr>
-<tr>
-<td>
-<pre><b>작성자 : ${dto.userid}                     작성일 : ${dto.ptime}      조회수 : ${dto.pview}</b>
-</pre>
-</td>
-</tr>
-<tr height ="300">
-<td>
-${dto.ptext}
-</td>
-</tr>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
 
-</table>
-</form>
-      <a href="/community/community_update/${dto.pno}">글 수정 </a> 
-      <a id="${dto.pno}" href="#">글 삭제</a>
-      <button type="button" onclick="location.href='/community/community_list'">목록으로</button>
--->
+$("#btn_rep").click(function(){
+				
+				window.open('/post/rpopup/${dto.pno}', 'pop01', 'top=10, left=10, width=500, height=600, status=no, menubar=no, toolbar=no, resizable=no');
+})
+
+</script>
 </body>
 </html>
