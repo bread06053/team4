@@ -72,5 +72,9 @@ public class UserService {
 		return dao.alluser(m);
 	}
 	
+	public User findById(String id) {
+		return dao.findById(id);
+	}
+	
 }
 	

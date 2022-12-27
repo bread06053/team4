@@ -33,7 +33,12 @@ public class AskService {
 	public Ask asktext(int ano) {
 		return dao2.asktext( ano);
 }
+	
 	public int cntAsk() {
 		return dao2.cntAsk();
+	}
+	
+	public List<Ask> myask(String id) {
+		return dao2.myask(id);
 	}
 }

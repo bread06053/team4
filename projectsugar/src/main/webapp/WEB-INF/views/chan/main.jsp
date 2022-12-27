@@ -57,7 +57,12 @@
     <a href="http://localhost:8084/chan/mypage">
     <sec:authentication property = "principal.user.userid"></sec:authentication>님 안녕하세요!<br>
     <sec:authorize access = "!isAuthenticated()"/>
+    <c:if test="${profile == null }" >
+    <img src="/style/goguma3.jpeg">
+    </c:if>
+    <c:if test = "${profile != null }">
     <img src="/profile/<sec:authentication property = "principal.user.profile"/>">
+    </c:if>
     </a>
     <button class ="logout" onclick = 'location.href = "/logout"'>로그아웃</button>
 </div>
@@ -130,7 +135,7 @@
 <form action="/tae/asklist" method="post" id="asklist">
 <div class="comment">
 <h4 style="margin-bottom:0px;">건의 사항</h4>
-<input name = atitle id = atitle placeholder="제목 입력.."> <input name = userid id = userid placeholder="아이디 입력..">
+<input name = atitle id = atitle placeholder="제목 입력.."> <input name = userid id = userid type = "hidden" value ="${userid}">
 <textarea id="customerSend" name="atext" class="form-control" placeholder="불편한 사항 혹은 제안 사항을 적어주세요!">
 </textarea>
 <input type="submit" id= "join" value="전달">

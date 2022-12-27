@@ -24,12 +24,22 @@
 				<div class="wrapper_left_body">
 					<div class="header">
 						<div class="profile">
+						<c:if test = "${id.profile == null }">
+						<img src ="/style/goguma1.jpeg">
+						</c:if>
+						<c:if test= "${id.profile != null }">
 							  <img src="/profile/<sec:authentication property = "principal.user.profile"/>">
+							  </c:if>
 							</div>
 						<div class="line"></div>
 						<div class="prnbtn">
 							<div class="pr">
+							<c:if test = "${id.pr == null}">
+							자기소개가 없습니다.
+							</c:if>
+							<c:if test = "${id.pr != null }">
 							<sec:authentication property = "principal.user.pr"></sec:authentication>
+							</c:if>
 							</div>
 						</div>
 					</div>
@@ -56,6 +66,7 @@
 						<sec:authentication property = "principal.user.nickname"></sec:authentication>의 마이페이지
 					</div>
 					<div class="wrapper_right_setting">
+					<button onclick = 'location.href = "/tae/myask1?id=<sec:authentication property = 'principal.user.userid'/>"'></button>
 						<a href="/tae/userinfo">개인정보 변경</a>
 					</div>
 				</div>
@@ -71,7 +82,7 @@
                						<span>이름: </span><sec:authentication property = "principal.user.name"></sec:authentication><br>
                					</div>
                					<div class="myaccount">
-               						<span>아이디: </span><sec:authentication property = "principal.user.userid"></sec:authentication><br>
+               						<span>아이디: </span><sec:authentication property = "principal.user.userid"></sec:authentication> <br>
                					</div>
                					<div class="myaccount">
                						<span>이메일: </span><sec:authentication property = "principal.user.email"></sec:authentication><br>

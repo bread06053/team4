@@ -43,11 +43,12 @@ public class CommunityController {
    }
    
    @GetMapping("/post/postview/{pno}")
-   public String content(@PathVariable int pno, Model m) {
+   public String content(@PathVariable int pno, Model m, @AuthenticationPrincipal SecurityUser user) {
 	   Map<String,Object> dto= service.communityOne(pno);
 	   int i=service.commentCnt(pno);
-      m.addAttribute("dto", dto);
-      m.addAttribute("i",i);
+	   m.addAttribute("profile", user.getUser().getProfile());
+	   m.addAttribute("dto", dto);
+	   m.addAttribute("i",i);
    //   List<CommentDto> commentList = c_service.selectComment(comm_no);
     //  m.addAttribute("commentList", commentList);
       return "post/postview";
@@ -60,7 +61,7 @@ public class CommunityController {
       return "post/postupdate";
    }
    
-   @PutMapping("/post/postupdate")
+   @PostMapping("/post/postupdate")
    public String update(Post post) {
       service.updatePost(post);
       return "redirect:postlist";

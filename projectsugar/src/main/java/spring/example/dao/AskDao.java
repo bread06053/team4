@@ -21,5 +21,10 @@ public interface AskDao {
 	@Select
 	("select count(ano) from ask")
 	int cntAsk();
+	
+	
+	@Select
+	("select * from ask where userid = #{userid}")
+	List<Ask> myask(String id);
 
 }

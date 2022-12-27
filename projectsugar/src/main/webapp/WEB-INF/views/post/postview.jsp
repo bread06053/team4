@@ -74,7 +74,12 @@
 					<h3 class="title_text"> ${dto.ptitle}</h3>
 					</div>
 					<div class="WriterInfo">
+					<c:if test = "${profile == null}">
+					<img src = "/style/goguma1.jpeg">
+					</c:if>
+					<c:if test = "${profile != null }">
 						<img src="/profile/${dto.profile}" width="36" height="36">
+						</c:if>
 						<div class="profile_area">
 							<div class="profile_info">
 								<div class="nick_box">
@@ -101,6 +106,7 @@
 						<div class="box_right">
 							<div class="report_article">
 							<button class="layer_button" id = "btn_rep" type = "submit">신고</button>
+							<button onclick = "location.href = '/post/postupdate/${pno}'"> 글 수정</button>
 							</div>
 						</div>
 					</div>
