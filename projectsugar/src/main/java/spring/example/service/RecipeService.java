@@ -1,5 +1,6 @@
 package spring.example.service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -18,11 +19,17 @@ public class RecipeService {
 	public List<Recipe> searchti1(String search){
 		return dao.searchti1(search);
 	}
-	public List<Map<String,String>> bestRcp(){
-		return dao.bestRcp();
+	public List<Map<String,Object>> bestRcp(int start){  
+		Map<String, Object> m = new HashMap<String, Object>();
+		m.put("start", start);
+	    m.put("cnt", 16);
+		return dao.bestRcp(m);
 	}
-	public List<Map<String,String>> myRcp(){
-		return dao.myRcp();
+	public List<Map<String,Object>> myRcp(int start){
+		Map<String,Object>m=new HashMap<String,Object>();
+		m.put("start", start);
+		m.put("cnt", 16);
+		return dao.myRcp(m);
 	}
 	public int bestcnt() {
 		return dao.bestcnt();
@@ -51,5 +58,8 @@ public class RecipeService {
 	}
 	public List<Recipe> rlikes() {
 		return dao.rlikes();
+	}
+	public int count() {
+		return dao.count();
 	}
 }

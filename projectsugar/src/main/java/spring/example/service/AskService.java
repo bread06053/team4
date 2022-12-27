@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import spring.example.dao.AskDao;
 import spring.example.dao.UserDao;
 import spring.example.domain.Ask;
+import spring.example.domain.Ban;
 
 @Service
 public class AskService {
@@ -25,4 +26,7 @@ public class AskService {
 	public List<Map<String,Object>> asklist(){
 		return dao2.asklist();
 	}
+	public Ask asktext(int ano) {
+		return dao2.asktext( ano);
+}
 }

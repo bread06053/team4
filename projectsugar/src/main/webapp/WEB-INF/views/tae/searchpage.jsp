@@ -1,7 +1,6 @@
-
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
 <style>
@@ -18,7 +17,6 @@
 </head>
 </head>
 <body>
-
 <div class="yoyo_top_wrap">
 	<div class="yoyo_top">
 	<h1>
@@ -27,11 +25,12 @@
 	</a>
 	</h1>
 	<div class="yoyo_search">
-	<form id="yoyoSearch" method="get" action="">
+	<form id="yoyoSearch" method="post" action="/tae/searchpage">
 		<div class="input-group">
+
 		<input id="yoyoText" name="q" type="text" class="form-control ui-autocmplete-input" placeholder values="" style="ime-mode:active;" autocomplete="off">	
 		<span class="input-group-btn">
-		<button class="btn btn-default" type="button" onclick="$('#yoyoSearch').submit();">
+		<button class="btn btn-default" type="submit" style="padding-bottom: 8px;">
 			<span class="glyphicon glyphicon-search">
 			::검색
 			</span>
@@ -40,15 +39,18 @@
 		</div>
 	</form>	
 </div> 
-<dl class="yoyoRight" style="position:relative">
+<div id = goodtaehun></div>
+<div class="yoyoRight" style="position:relative">
 	<div style="position: absolute; width:100px; top: 47px; left: 0; margin-left: -25px;display:none; margin:10;">
          <span style="margin: 10; padding: 10; font-size: 0; display: block; text-align: center;"><img src="" width="8"></span>
          <span style="border-radius: 2px; background: #ffd200; color: #000; display: block; font-size: 11px; padding:2px 5px; text-align: center;">회원가입</span>
     </div>
-    <a href="">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKqph2wqtX84lDFu9tH5kMGjUQwoL14qT45w&usqp=CAU" alt="로그인">
+    <a href="http://localhost:8084/chan/mypage">
+    <sec:authentication property = "principal.user.userid"></sec:authentication>님 안녕하세요!<br>
+    <sec:authorize access = "!isAuthenticated()"/>
+    <img src="/profile/<sec:authentication property = "principal.user.profile"/>">
     </a>
-</dl>
+</div>
 </div>
 </div>
 <div class="yoyo_navi">
@@ -61,8 +63,6 @@
                 </li>
             </ul>
         </div>
-
-
 ${q }으로/로 검색 결과를 보여줍니다.<br>
 레시피 검색 결과 입니다..
 <hr>
