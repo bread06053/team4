@@ -150,10 +150,10 @@
 	</td></tr>
 </table>
  -->
-<<<<<<< HEAD
-=======
+<<<<<<< 
 
->>>>>>> refs/heads/master
+
+
  <a class="gohome" href="/chan/bestRcp"><img src="/style/밤고구마.jpeg" style="margin-left:150px;"></a>
 </body>
 </html>

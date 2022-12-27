@@ -35,7 +35,7 @@ int mycnt();
 ("select * from cate")
 List<Map<String,Object>> cateName();
 @Select
-("Select rlevel from recipe where rlevel !='???' group by rlevel")
+("Select rlevel from recipe where rlevel !='???' group by rlevel order by rlevel desc")
 List<String> rcpLevel();
 @Select
 ("select rtime,Rank() over (order by rtime)as num from recipe where rtime != '???'group by rtime")

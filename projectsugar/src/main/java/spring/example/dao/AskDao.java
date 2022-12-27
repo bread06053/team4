@@ -18,4 +18,9 @@ public interface AskDao {
 	@Select
 	("select * from ask where ask.ano=#{ask.ano}")
 	Ask asktext(int ano);
+	
+	
+	@Select
+	("select * from ask where userid = #{userid}")
+	List<Ask> myask(String id);
 }

@@ -88,7 +88,9 @@ public class Mycontroller {
 		List<Map<String,String>> recent=service.recentRcp();
 		List<Map<String,Object>> bestChef= service.bestChef();
 		List<String> bestView=service.bestView();
-
+		
+		m.addAttribute("userid",user.getUser().getUserid());
+		m.addAttribute("profile",user.getUser().getProfile());
 		m.addAttribute("recent",recent);
 		m.addAttribute("bestChef",bestChef);
 		m.addAttribute("bestView",bestView);
@@ -342,7 +344,9 @@ public class Mycontroller {
 	}
 
 	@GetMapping("chan/mypage")
-	public String mypage(){
+	public String mypage(Model m,String id){
+		User user =service.findById(id);
+		m.addAttribute("id",user);
 		return "chan/mypage";	
 	}
 	@GetMapping("admin/asklist")
@@ -379,7 +383,7 @@ public class Mycontroller {
 	 @PostMapping("chan/myRcpinfo1")
 	 @ResponseBody
 	 public String myRcpinfo1(int rno) {
-		System.out.println("myRcpinfo1실");		
+			
 		service2.rlikesup(rno);
 		 return "chan/myRcpinfo";
 	 }
@@ -404,9 +408,19 @@ public class Mycontroller {
 	 @PostMapping("tae/deletePost")
 	 @ResponseBody
 	 public String deletepost(int pno) {
-		 System.out.println("delete");
 		 service5.deletePost(pno);
 		 return "redirect:admin/reportlist";
+	 }
+	 
+	 @GetMapping("tae/myask1")
+	 public String myask(String id, Model m) {
+		 List<Ask> ask = service4.myask(id);
+		 if (ask.size() == 0) {
+			 return "tae/nullmyask";
+		 } else {
+			 m.addAttribute("ask",ask);
+			 return "tae/myask";
+		 }
 	 }
 	 
 

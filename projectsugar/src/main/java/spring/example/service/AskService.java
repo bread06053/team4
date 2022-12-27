@@ -27,6 +27,9 @@ public class AskService {
 		return dao2.asklist();
 	}
 	public Ask asktext(int ano) {
-		return dao2.asktext( ano);
-}
+		return dao2.asktext( ano);	
+	}
+	public List<Ask> myask(String id) {
+		return dao2.myask(id);
+	}
 }
