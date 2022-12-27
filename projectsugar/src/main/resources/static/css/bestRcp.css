@@ -71,3 +71,11 @@ background-color: OrangeRed;
 .cate h4{
 	color:orange;
 }
+.bestcontainer button{
+    text-transform: none;
+    margin-left: 1550px;
+    background: beige;
+    border: none;
+    width:48px;
+    height:30px;
+}

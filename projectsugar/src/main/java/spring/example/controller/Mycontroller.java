@@ -29,6 +29,7 @@ import spring.example.domain.Post;
 import spring.example.domain.Recipe;
 import spring.example.domain.Style;
 import spring.example.domain.User;
+import spring.example.domain.Cate;
 import spring.example.service.AskService;
 import spring.example.service.BanService;
 import spring.example.service.CommunityService;
@@ -189,7 +190,6 @@ public class Mycontroller {
 		return "chan/bestRcp";
 	}
 	@GetMapping("chan/myRcp")
-	
 	public String myRcp(@RequestParam(name="p",defaultValue="1")int page,Model m) {
 	      int cnt = service2.mycnt();
 	      if(cnt > 0) {
@@ -289,18 +289,18 @@ public class Mycontroller {
 
 	
 	@GetMapping("admin/admain")
-	public String admain(User user, @RequestParam(name="p", defaultValue="1")int page,String sort, Model m) {
-		 int count = service5.count();
-	      if(count > 0) {
+	public String admain(@RequestParam(name="p", defaultValue="1")int page, Model m) {
+		 int cntUser = service.cntUser();
+	      if(cntUser > 0) {
 	         
 	         int perPage = 5; 
 	         int startRow = (page - 1) * perPage; 
 	         
-	         List<Post> communityList = service5.communityList(sort, startRow);
-	         m.addAttribute("cList", communityList);
+	         List<Map<String,Object>> infotable = service.alluser(startRow);
+	         m.addAttribute("infotable",infotable);
 
 	         int pageNum = 5;
-	         int totalPages = count / perPage + (count % perPage > 0 ? 1 : 0); 
+	         int totalPages = cntUser / perPage + (cntUser % perPage > 0 ? 1 : 0); 
 	         
 	         int begin = (page - 1) / pageNum * pageNum + 1;
 	         int end = begin + pageNum -1;
@@ -311,12 +311,8 @@ public class Mycontroller {
 	          m.addAttribute("end", end);
 	          m.addAttribute("pageNum", pageNum);
 	          m.addAttribute("totalPages", totalPages);
-	         }
-	      
-	      m.addAttribute("sort", sort);
-	      m.addAttribute("count", count);
-		List<User> infotable = service.alluser();
-		m.addAttribute("infotable",infotable);
+	         }	      
+	      m.addAttribute("cntUser",cntUser);
 
 		return "admin/admain";
 	}
@@ -330,10 +326,12 @@ public class Mycontroller {
 	}
 	@GetMapping("admin/adtotal")
 	public String total(Model m) {
+		List<Map<String,Object>> wordcloud=service2.wordcloud();
 		int recent=service.cntRecipe();
 		int bestChef= service.cntUser();
 		int post = service3.cntpost();
 		List<Recipe> likes = service2.rlikes();
+		m.addAttribute("wordcloud",wordcloud);
 		m.addAttribute("cntR",recent);
 		m.addAttribute("cntU",bestChef);
 		m.addAttribute("cntP",post);
@@ -346,15 +344,53 @@ public class Mycontroller {
 		return "chan/mypage";	
 	}
 	@GetMapping("admin/asklist")
-	public String asklist(Model m) {
-		List<Map<String,Object>> ask=service4.asklist();
+	public String asklist(@RequestParam(name="p", defaultValue="1") int page,Model m) {
+		  int cntAsk = service4.cntAsk();
+	      if(cntAsk > 0) {
+	         
+	         int perPage = 5; 
+	         int startRow = (page - 1) * perPage; 
+		List<Map<String,Object>> ask=service4.asklist(startRow);         
 		m.addAttribute("ask",ask);
+		 int pageNum = 5;
+         int totalPages = cntAsk / perPage + (cntAsk % perPage > 0 ? 1 : 0); 
+         
+         int begin = (page - 1) / pageNum * pageNum + 1;
+         int end = begin + pageNum -1;
+         if(end > totalPages) {
+            end = totalPages;
+         }
+         m.addAttribute("begin", begin);
+         m.addAttribute("end", end);
+         m.addAttribute("pageNum", pageNum);
+         m.addAttribute("totalPages", totalPages);
+        }
+        m.addAttribute("cntAsk",cntAsk);
 		return "admin/asklist";
 	}
 	@GetMapping("admin/reportlist")
-	public String reportlist(Model m) {
-		List<Map<String,Object>> report=service7.reportlist();
+	public String reportlist(@RequestParam(name="p", defaultValue="1") int page,Model m) {
+		 int cntBan = service7.cntBan();
+	      if(cntBan > 0) {
+	         
+	         int perPage = 5; 
+	         int startRow = (page - 1) * perPage; 
+	         List<Map<String,Object>> report=service7.reportlist(startRow);
 		m.addAttribute("report",report);
+		 int pageNum = 5;
+         int totalPages = cntBan / perPage + (cntBan % perPage > 0 ? 1 : 0); 
+         
+         int begin = (page - 1) / pageNum * pageNum + 1;
+         int end = begin + pageNum -1;
+         if(end > totalPages) {
+            end = totalPages;
+         }
+          m.addAttribute("begin", begin);
+          m.addAttribute("end", end);
+          m.addAttribute("pageNum", pageNum);
+          m.addAttribute("totalPages", totalPages);
+         }
+      m.addAttribute("cntBan", cntBan);
 		return "admin/reportlist";
 	}
 	   @GetMapping("/admin/bpopup/{bno}")

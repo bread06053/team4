@@ -1,5 +1,6 @@
 package spring.example.service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -23,10 +24,16 @@ public class AskService {
 	public int asksome(Ask ask) {
 		return dao.asksome(ask);
 	}
-	public List<Map<String,Object>> asklist(){
-		return dao2.asklist();
+	public List<Map<String,Object>> asklist(int start){
+		Map<String, Object> m = new HashMap<String, Object>();
+	      m.put("start", start);
+	      m.put("cntAsk", 5);
+		return dao2.asklist(m);
 	}
 	public Ask asktext(int ano) {
 		return dao2.asktext( ano);
 }
+	public int cntAsk() {
+		return dao2.cntAsk();
+	}
 }

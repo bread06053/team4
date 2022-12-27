@@ -116,20 +116,20 @@ font-size : 10px;
 				<p class="cont_tit4">요리정보</p>
 				시간
 				<select name = "rtime">
-    				<option value="5분이내">5분이내</option>
-    				<option value="10분이내">10분이내</option>
-    				<option value="15분이내">15분이내</option>
-    				<option value="20분이내">20분이내</option>
-    				<option value="25분이내">25분이내</option>
-    				<option value="30분이내">30분이내</option>
-    				<option value="60분이내">60분이내</option>
+    				<option value="5분 이내"> 5분 이내</option>
+    				<option value="10분 이내">10분 이내</option>
+    				<option value="15분 이내">15분 이내</option>
+    				<option value="20분 이내">20분 이내</option>
+    				<option value="25분 이내">25분 이내</option>
+    				<option value="30분 이내">30분 이내</option>
+    				<option value="60분 이내">60분 이내</option>
 				</select>
 				난이도
 				<select name = "rlevel">
     				<option value="아무나">아무나</option>
-    				<option value="초급">초급</option>
-    				<option value="중급">중급</option>
-    				<option value="고급">고급</option>
+    				<option value=" 초급"> 초급</option>
+    				<option value=" 중급"> 중급</option>
+    				<option value=" 고급"> 고급</option>
 				</select>			
 			</div>
 		</div>
@@ -148,7 +148,7 @@ font-size : 10px;
 			<input name="rtip" placeholder = "요리 팁을 적어주세요. 예)레드벨벳 오레오로 만들어도 이뻐요." style="height:100px; width:610px; resize:none;">
 		</div>
 		<div class="cont_box pad_1_60">
-			<a href="/chan/bestRcp" type="button">커뮤니티로 이동</a><button type ="submit" id = "save">글 쓰기</button>
+			<a href="/chan/myRcp" type="button">커뮤니티로 이동</a><button type ="submit" id = "save">글 쓰기</button>
 		</div>
 
 	</div>

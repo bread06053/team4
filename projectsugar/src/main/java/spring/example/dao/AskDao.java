@@ -12,10 +12,14 @@ import spring.example.domain.Ask;
 public interface AskDao {
 	
 	@Select
-	("select * from ask")
-	List<Map<String,Object>> asklist();
+	("select * from ask limit #{start} , #{cntAsk}")
+	List<Map<String,Object>> asklist(Map<String, Object> m);
 
 	@Select
 	("select * from ask where ask.ano=#{ask.ano}")
 	Ask asktext(int ano);
+	@Select
+	("select count(ano) from ask")
+	int cntAsk();
+
 }

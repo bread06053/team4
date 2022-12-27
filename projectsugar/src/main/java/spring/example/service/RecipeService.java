@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import spring.example.dao.RecipeDao;
 import spring.example.domain.Recipe;
+import spring.example.domain.Cate;
 
 @Service
 public class RecipeService {
@@ -61,6 +62,9 @@ public class RecipeService {
 	}	
 	public int rlikesup(int rno) {
 		return dao.rlikesup(rno);
+	}
+	public List<Map<String,Object>>wordcloud(){
+		return dao.wordcloud();
 	}
 
 }

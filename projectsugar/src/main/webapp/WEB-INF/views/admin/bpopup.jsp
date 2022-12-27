@@ -36,12 +36,11 @@
 	</div>
 	</div>
 			<div class="btn">
-		<button style="float:right;margin-top: 10px;">피신고자 추방하기</button>
+				<button id = "deletepost">신고 글 삭제</button>
 		</div>
 	</div>
 	</div>
 </div>
-<button id = "deletepost">신고 글 삭제</button>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <script>
 $(function(){

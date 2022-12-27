@@ -12,8 +12,8 @@ import spring.example.domain.Ban;
 @Mapper
 public interface BanDao {
 	@Select
-	("select * from ban")
-	List<Map<String,Object>> reportlist();
+	("select * from ban limit #{start} , #{cntBan}")
+	List<Map<String,Object>> reportlist(Map<String, Object> m);
 	
 	@Select
 	("select * from ban inner join post on ban.pno=post.pno where ban.bno=#{ban.bno}")
@@ -22,4 +22,8 @@ public interface BanDao {
 	@Insert
 	("insert into ban(btitle, btext, userid, pno, btime) values(#{btitle},#{btext},#{userid},#{pno}, now())")
 	int insertban(Ban ban);
+	
+	@Select
+	("select count(bno) from ban")
+	int cntBan();
 }
