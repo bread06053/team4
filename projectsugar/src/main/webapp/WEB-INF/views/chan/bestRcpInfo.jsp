@@ -150,11 +150,10 @@
 	</td></tr>
 </table>
  -->
-<div class="infoView">
-<c:forEach var="i" items="${bestRcpInfo}">
-${i.rno}
-</c:forEach>
-</div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> refs/heads/master
  <a class="gohome" href="/chan/bestRcp"><img src="/style/밤고구마.jpeg" style="margin-left:150px;"></a>
 </body>
 </html>

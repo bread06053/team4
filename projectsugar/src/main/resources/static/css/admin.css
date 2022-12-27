@@ -182,3 +182,27 @@ button{
     border-radius: 4%;
 	color:antiquewhite;
 }
+.total{
+	margin-top:20px;
+	width: 600px;
+	height: 300px;
+	float:left;
+}
+.btm_stats li {
+    text-align: center;
+    display: inline-block;
+    color: black;
+    font-size: 14px;
+    width: 100px;
+    height: 200px;
+}
+.btm_stats li img{
+	    margin-left: 30px;
+    width: 50px;
+    height: 50px;
+    display: block;
+    margin-bottom: 6px;
+}
+.btm_stats{
+	margin-top:10px
+}

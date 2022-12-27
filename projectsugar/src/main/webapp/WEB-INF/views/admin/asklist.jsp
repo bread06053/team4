@@ -68,7 +68,7 @@
 											<th>글번호</th><th>제목</th><th>유저아이디</th>
 										</tr>
 										<c:forEach items="${ask}" var="i">	
-										<tr><td>${i.ano}</td><td><a>${i.atitle}</a></td><td>${i.userid}</td>
+										<tr><td>${i.ano}</td><td><a href="apopup/${i.ano}"onclick="window.open(this.href, '_blank', 'width=800, height=600'); return false;">${i.atitle}</a></td><td>${i.userid}</td>
 										</tr>
 										</c:forEach>
 									</table>

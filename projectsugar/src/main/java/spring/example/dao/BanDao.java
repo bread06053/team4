@@ -3,6 +3,7 @@ package spring.example.dao;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
@@ -17,4 +18,8 @@ public interface BanDao {
 	@Select
 	("select * from ban inner join post on ban.pno=post.pno where ban.bno=#{ban.bno}")
 	Ban reporttext(int bno);
+	
+	@Insert
+	("insert into ban(btitle, btext, userid, pno, btime) values(#{btitle},#{btext},#{userid},#{pno}, now())")
+	int insertban(Ban ban);
 }

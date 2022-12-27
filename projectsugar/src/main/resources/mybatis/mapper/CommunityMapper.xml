@@ -4,6 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="spring.example.dao.PostDao">
 
+
    
    <select id="communityList" parameterType="map" resultType="spring.example.domain.Post">
       select * from post 

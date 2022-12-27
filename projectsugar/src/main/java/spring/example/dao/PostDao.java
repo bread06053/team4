@@ -60,4 +60,8 @@ public interface PostDao {
    ("select count(pno) from post")
    int cntpost();
    
+   @Delete
+   ("delete from post where pno = #{pno}")
+   int deletepost(int pno);
+   
 }

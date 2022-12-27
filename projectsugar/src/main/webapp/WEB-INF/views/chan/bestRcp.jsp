@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="/css/mainHeader.css"/>
 <link rel="stylesheet" href="/css/main.css"/>
 <link rel="stylesheet" href="/css/bestRcp.css"/>
+<link rel="stylesheet" href="/css/paging.css"/>
 <title>Insert title here</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Dongle&display=swap" rel="stylesheet">
@@ -101,6 +102,7 @@
 <h3>추천 레시피</h3>
 <button onclick = "location.href = '/tae/Rcpinfowrite'">글 쓰기</button>
 <h4>${cnt}개의 검색 결과가 있습니다.</h4>
+<div class="rinfo">
 <c:forEach var="i" items="${best}">
 	<div class="thumimg">
 	<a href ="/chan/bestRcpInfo/${i.rno}">${i.rthumimg}</a>
@@ -114,6 +116,22 @@ ${i.nickname}
 	</div>
 	</div>
 	</c:forEach>
-</div>
+      </div>
+  </div>
+  <div class="page_wrap"style="clear:both;">
+  <div class="page_nation">
+      <div class="paging" align="center" >
+         <c:if test="${begin > pageNum}">
+            <a class="point" href="bestRcp?p=${begin-1}">◀</a>
+         </c:if>
+         <c:forEach begin="${begin}" end = "${end}" var='i'>
+            <a class="point" href="bestRcp?p=${i}" class="page">${i}</a>
+         </c:forEach>
+         <c:if test="${end < totalPages}">
+            <a class="point" href="bestRcp?p=${end+1}">▶</a>
+         </c:if>
+      </div>
+      </div>
+      </div>
 </body>
 </html>

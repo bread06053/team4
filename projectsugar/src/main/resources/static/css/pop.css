@@ -19,7 +19,7 @@
     border-radius:2%;
 }
 .wrapper{
-    width: 524px;
+   	width: 660px;
     height: 440px;
     display: flex;
     flex-direction: column;
@@ -46,4 +46,41 @@
     padding-top: 20px;
     padding-left: 30px;
     padding-right: 30px;
+}
+button{
+	height: 30px;
+	background-color:red;
+	border: none;
+    border-radius: 4%;
+	color:ivory;
+	
+}
+.header2{
+    height: 127px;
+    padding-top: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.title1 {
+    font-size: 20pt;
+}
+.title2{
+		padding-left:5px;
+	font-size:9pt;
+}
+.who{
+	padding-left:3px;
+}
+span{
+	color:burlywood;
+}
+.text {
+	padding-left: 30px;
+    padding-right: 30px;
+	margin-top:10px;
+    font-family: 'Dongle', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12pt;
+    line-height: 30px;
 }
