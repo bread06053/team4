@@ -21,5 +21,6 @@ public class PostService {
 	public int cntpost() {
 		return dao.cntpost();
 	}
+	
 
 }

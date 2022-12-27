@@ -36,5 +36,21 @@
 	</div>
 	</div>
 </div>
+<button id = "deletepost">신고 글 삭제</button>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+<script>
+$(function(){
+	$("#deletepost").click(function(){
+		if (!confirm("정말로 삭제 하시겠습니까?.")) {
+    			return false;
+			} else {
+				$.ajax({url:"/tae/deletePost",
+				 	data:"pno=${reporttext.pno}",
+				 	method:'post'
+				})
+			}//if
+	})//click
+})//ready
+</script>
 </body>
 </html>

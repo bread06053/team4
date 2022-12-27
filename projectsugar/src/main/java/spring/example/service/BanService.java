@@ -20,4 +20,7 @@ public class BanService {
 	public Ban reporttext(int bno) {
 			return dao.reporttext( bno);
 	}
+	public int inseertban(Ban ban) {
+		return dao.insertban(ban);
+	}
 }

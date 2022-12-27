@@ -52,4 +52,9 @@ public class RecipeService {
 	public List<Recipe> rlikes() {
 		return dao.rlikes();
 	}
+	
+	public int rlikesup(int rno) {
+		return dao.rlikesup(rno);
+	}
+
 }

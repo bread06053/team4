@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import spring.example.domain.Recipe;
 
@@ -55,6 +56,10 @@ int recipewrite(Recipe recipe);
 @Select
 ("select rank() over(order by rlikes desc),rno,rlikes,rtitle from recipe where rstate=1 limit 3")
 List<Recipe> rlikes();
+
+@Update
+("update recipe set rlikes = rlikes +1 where rno = #{rno}")
+int rlikesup(int rno);
 }
 
 
