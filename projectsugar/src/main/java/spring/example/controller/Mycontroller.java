@@ -70,11 +70,8 @@ public class Mycontroller {
 	public String first() {
 		return "/tae/login";
 	}
-	@GetMapping("/logout")
-	public String autologout(SessionStatus status) {
-		status.setComplete();
-		return "tae/login";
-	}
+	
+	
 	@GetMapping("/gg")
 	public String gg() {
 		return "tae/gg";
@@ -161,6 +158,7 @@ public class Mycontroller {
 	}
 	@GetMapping("chan/bestRcp")
 	public String bestRcp(@RequestParam(name="p",defaultValue="1")int page,Model m) {
+		
 	      int cnt = service2.bestcnt();
 	      if(cnt > 0) {
 	         
@@ -344,8 +342,8 @@ public class Mycontroller {
 	}
 
 	@GetMapping("chan/mypage")
-	public String mypage(Model m,String id){
-		User user =service.findById(id);
+	public String mypage(Model m,@AuthenticationPrincipal SecurityUser users){
+		User user =users.getUser();
 		m.addAttribute("id",user);
 		return "chan/mypage";	
 	}
@@ -422,7 +420,20 @@ public class Mycontroller {
 			 return "tae/myask";
 		 }
 	 }
-	 
+	 @GetMapping("tae/recipeSearch")
+	 public String resultsearch(Recipe recipe , Model m) {
+		  List<Recipe> search = service2.recipeSearch(recipe);
+		  int search1 = service2.recipeSearch1(recipe);
+			List<Map<String,Object>> cateName=service2.cateName();
+			List<String> rcpLevel=service2.rcpLevel();
+			List<Map<String,Object>> rcpTime=service2.rcpTime();
+			m.addAttribute("cateName",cateName);
+			m.addAttribute("rcpLevel",rcpLevel);
+			m.addAttribute("rcpTime",rcpTime);
+		  m.addAttribute("search",search);
+		  m.addAttribute("search1",search1);
+		 return "tae/recipeSearch";
+	 }
 
 }
 

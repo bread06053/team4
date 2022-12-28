@@ -61,6 +61,8 @@ List<Recipe> rlikes();
 ("update recipe set rlikes = rlikes +1 where rno = #{rno}")
 int rlikesup(int rno);
 
+List<Recipe> recipeSearch(Recipe recipe);
+int recipeSearch1(Recipe recipe);
 }
 
 

@@ -23,30 +23,30 @@
 </head>
 <body>
 <div class="yoyo_top_wra p">
-   <div class="yoyo_top">
-   <h1>
-   <a href="http://localhost:8084/chan/main">
-   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYeFHo_i34CbGLC4ZmZyjA3V8XSK_sUHWE7A&usqp=CAU" alt="로고">
-   </a>
-   </h1>
-   <div class="yoyo_search">
-   <form id="yoyoSearch" method="post" action="/tae/searchpage">
-      <div class="input-group">
+	<div class="yoyo_top">
+	<h1>
+	<a href="http://localhost:8084/chan/main">
+	<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYeFHo_i34CbGLC4ZmZyjA3V8XSK_sUHWE7A&usqp=CAU" alt="로고">
+	</a>
+	</h1>
+	<div class="yoyo_search">
+	<form id="yoyoSearch" method="post" action="/tae/searchpage">
+		<div class="input-group">
 
-      <input id="yoyoText" name="q" type="text" class="form-control ui-autocmplete-input" placeholder values="" style="ime-mode:active;" autocomplete="off">   
-      <span class="input-group-btn">
-      <button class="btn btn-default" type="submit" style="padding-bottom: 8px;">
-         <span class="glyphicon glyphicon-search">
-         ::검색
-         </span>
-      </button>   
-      </span>
-      </div>
-   </form>   
+		<input id="yoyoText" name="q" type="text" class="form-control ui-autocmplete-input" placeholder values="" style="ime-mode:active;" autocomplete="off">	
+		<span class="input-group-btn">
+		<button class="btn btn-default" type="submit" style="padding-bottom: 8px;">
+			<span class="glyphicon glyphicon-search">
+			::검색
+			</span>
+		</button>	
+		</span>
+		</div>
+	</form>	
 </div> 
 <div id = goodtaehun></div>
 <dl class="yoyoRight" style="position:relative">
-   <div style="position: absolute; width:100px; top: 47px; left: 0; margin-left: -25px;display:none; margin:10;">
+	<div style="position: absolute; width:100px; top: 47px; left: 0; margin-left: -25px;display:none; margin:10;">
          <span style="margin: 10; padding: 10; font-size: 0; display: block; text-align: center;"><img src="" width="8"></span>
          <span style="border-radius: 2px; background: #ffd200; color: #000; display: block; font-size: 11px; padding:2px 5px; text-align: center;">회원가입</span>
     </div>
@@ -76,6 +76,7 @@
 <dd style="margin-top:-10px;">
 <form method="get" class="cate" action="/tae/recipeSearch">
 <h4>재료별</h4>
+
 <c:forEach var="i" items="${cateName}">
 <input type='radio' id='${i.cateno }' name="cateno" value='${i.cateno}'/>
 <label for='${i.cateno}'>
@@ -96,29 +97,29 @@
 <input type='submit' value='검색'>
 </form>
 </dl>
-</div><br>
-
+</div>
+<!--  이거 체크박스 아래에 숨겨져 있습니다. -->
 <div class="bestcontainer">
-<button onclick = "location.href = '/tae/Rcpinfowrite'">글 쓰기</button>
 <h3>추천 레시피</h3>
-<h4>${cnt}개의 검색 결과가 있습니다.</h4>
+<button onclick = "location.href = '/tae/Rcpinfowrite'">글 쓰기</button>
+${search1}개의 검색 결과 입니다.
 <div class="rinfo">
-<c:forEach var="i" items="${best}">
-   <div class="thumimg">
-   <a href ="/chan/myRcpinfo/${i.rno}"><img src="/rthumimg/${i.rthumimg}" style="width:430px; height:200px;"></a>
-   <div class="title">
-<strong style="">${i.rtitle}</strong>
+<c:forEach items="${search}" var="se">
+<div class="thumimg">
+<a href ="/chan/bestRcpInfo/${se.rno}">${se.rthumimg}</a>
+<div class="title">
+<strong style="">${se.rtitle}</strong>
 </div>
 <div class="chefinfo">
-작성자: 
-<img src="/profile/${i.profile}">
-${i.nickname}
-   </div>
-   </div>
-   </c:forEach>
+작성자 : <img src="/profile/${se.profile}"> 
+${se.nickname}
 </div>
 </div>
- <div class="page_wrap"style="clear:both;">
+
+</c:forEach>
+</div>
+</div>
+  <div class="page_wrap"style="clear:both;">
   <div class="page_nation">
       <div class="paging" align="center" >
          <c:if test="${begin > pageNum}">

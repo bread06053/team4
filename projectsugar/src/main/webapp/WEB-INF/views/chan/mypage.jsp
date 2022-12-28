@@ -66,7 +66,9 @@
 						<sec:authentication property = "principal.user.nickname"></sec:authentication>의 마이페이지
 					</div>
 					<div class="wrapper_right_setting">
-					<button onclick = 'location.href = "/tae/myask1?id=<sec:authentication property = 'principal.user.userid'/>"'></button>
+					<sec:authorize access="hasAnyRole('ROLE_MEMBER')">
+					<button onclick = 'location.href = "/tae/myask1?id=<sec:authentication property = 'principal.user.userid'/>"'>내 문의내역</button>
+					</sec:authorize>
 						<a href="/tae/userinfo">개인정보 변경</a>
 					</div>
 				</div>
