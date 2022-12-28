@@ -74,6 +74,10 @@ button{
 span{
 	color:burlywood;
 }
+.btn1{
+	float: right;
+    margin-top: 10px;
+}
 .text {
 	padding-left: 30px;
     padding-right: 30px;

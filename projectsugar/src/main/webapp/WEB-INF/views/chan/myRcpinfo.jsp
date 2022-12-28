@@ -84,7 +84,7 @@ btn_gotop {
 	<div id="contents_area" class="col-xs-9">
 		<div class="view2_pic">
 			<div class="centeredcrop">
-				${Recipeinfo.rthumimg}
+				<img src="/rthumimg/${Recipeinfo.rthumimg}">
 			</div>
 			<div class="user_info2">
 				<a class="app_block_link_remove user_info2_pic">

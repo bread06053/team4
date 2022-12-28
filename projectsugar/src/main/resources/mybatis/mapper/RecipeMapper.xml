@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="spring.example.dao.RecipeDao">
+<mapper namespace="spring.example.domian.Recipe">
 
-	<select id="RecipeSearch" parameterType="dto" resultType="spring.example.domain.Recipe">
+	<!-- <select id="RecipeSearch" parameterType="dto" resultType="spring.example.domain.Recipe">
 		
 		select * from recipe 
 		<where>
@@ -15,5 +15,5 @@
 				<when test="rtime == null"> cateno = #{cateno} and rlevel = #{rlevel} </when>
 			</choose>
 		</where> 
-		</select>
+		</select> -->
 </mapper>

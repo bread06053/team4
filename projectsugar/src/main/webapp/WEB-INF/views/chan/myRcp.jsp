@@ -74,22 +74,22 @@
 <h3>주재료 <span>카테고리</span></h3>
 </dt>
 <dd style="margin-top:-10px;">
-<form method="get" class="cate" action="">
+<form method="get" class="cate" action="/tae/recipeSearch">
 <h4>재료별</h4>
 <c:forEach var="i" items="${cateName}">
-<input type='checkbox' id='${i.cateno }' name="cate1" value='${i.cateno}'/>
+<input type='radio' id='${i.cateno }' name="cateno" value='${i.cateno}'/>
 <label for='${i.cateno}'>
 </label>${i.catename}
 </c:forEach><br><br>
 <h4>난이도별</h4>
 <c:forEach var="i" items="${rcpLevel}">
-<input type='checkbox' id='${i}' name="cate2" value='${i}'/>
+<input type='radio' id='${i}' name="rlevel" value='${i}'/>
 <label for='${i}'>
 </label>${i}
 </c:forEach><br><br>
 <h4>시간별</h4>
 <c:forEach var="i" items="${rcpTime}">
-<input type='checkbox' id='${i.num}' name="cate3" value='${i.num}'/>
+<input type='radio' id='${i.num}' name="rtime" value='${i.num}'/>
 <label for='${i.num}'>
 </label>${i.rtime}
 </c:forEach><br>
@@ -122,13 +122,13 @@ ${i.nickname}
   <div class="page_nation">
       <div class="paging" align="center" >
          <c:if test="${begin > pageNum}">
-            <a class="point" href="bestRcp?p=${begin-1}">◀</a>
+            <a class="point" href="myRcp?p=${begin-1}">◀</a>
          </c:if>
          <c:forEach begin="${begin}" end = "${end}" var='i'>
-            <a class="point" href="bestRcp?p=${i}" class="page">${i}</a>
+            <a class="point" href="myRcp?p=${i}" class="page">${i}</a>
          </c:forEach>
          <c:if test="${end < totalPages}">
-            <a class="point" href="bestRcp?p=${end+1}">▶</a>
+            <a class="point" href="myRcp?p=${end+1}">▶</a>
          </c:if>
       </div>
       </div>

@@ -53,7 +53,7 @@
 						문의 내역
 					</div>
 					<div class="wrapper_right_setting">
-						<a href="/tae/userupdate">개인정보 변경</a>
+						<a href="/tae/userinfo">개인정보 변경</a>
 					</div>
 				</div>
 				  <div class="wrapper_right_body">

@@ -28,7 +28,7 @@
 	<button id = "btn3">크리스마스 배너</button>
 	
 	</sec:authorize>
-	<h1>
+	<h1 style="padding-left:200px">
 	<a href="http://localhost:8084/chan/main">
 	<img id = "sugarimg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYeFHo_i34CbGLC4ZmZyjA3V8XSK_sUHWE7A&usqp=CAU" alt="로고">
 	</a>

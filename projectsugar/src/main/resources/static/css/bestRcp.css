@@ -33,7 +33,7 @@
 .title{
 	height: 50px;
 }
-input[type=checkbox]+label{
+input[type=radio]+label{
 	display:inline-block;
 	margin-left:10px;
 	width:20px;
@@ -42,11 +42,11 @@ input[type=checkbox]+label{
 	cursor:pointer;
 	border-radius: 2px;
 }
-input[type=checkbox]:checked+label::after{
+input[type=radio]:checked+label::after{
 	content:'✔';
 	color:orangered;
 }
-input[type=checkbox]{
+input[type=radio]{
 	display:none;
 }
 .cate{
@@ -72,10 +72,13 @@ background-color: OrangeRed;
 	color:orange;
 }
 .bestcontainer button{
+	font-size:20px;
     text-transform: none;
-    margin-left: 1550px;
-    background: beige;
+    margin-left: 1800px;
+    background: burlywood;
+    color:ivory;
     border: none;
-    width:48px;
-    height:30px;
+    border-radius: 4px;
+    width:64px;
+    height:40px;
 }

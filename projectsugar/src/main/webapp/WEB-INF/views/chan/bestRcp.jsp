@@ -74,22 +74,23 @@
 <h3>주재료 <span>카테고리</span></h3>
 </dt>
 <dd style="margin-top:-10px;">
-<form method="get" class="cate" action="">
+<form method="get" class="cate" action="/tae/recipeSearch">
 <h4>재료별</h4>
+
 <c:forEach var="i" items="${cateName}">
-<input type='checkbox' id='${i.cateno }' name="cate1" value='${i.cateno}'/>
+<input type='radio' id='${i.cateno }' name="cateno" value='${i.cateno}'/>
 <label for='${i.cateno}'>
 </label>${i.catename}
 </c:forEach><br><br>
 <h4>난이도별</h4>
 <c:forEach var="i" items="${rcpLevel}">
-<input type='checkbox' id='${i}' name="cate2" value='${i}'/>
+<input type='radio' id='${i}' name="rlevel" value='${i}'/>
 <label for='${i}'>
 </label>${i}
 </c:forEach><br><br>
 <h4>시간별</h4>
 <c:forEach var="i" items="${rcpTime}">
-<input type='checkbox' id='${i.num}' name="cate3" value='${i.num}'/>
+<input type='radio' id='${i.num}' name="rtime" value='${i.num}'/>
 <label for='${i.num}'>
 </label>${i.rtime}
 </c:forEach><br>
@@ -100,7 +101,6 @@
 
 <div class="bestcontainer">
 <h3>추천 레시피</h3>
-<button onclick = "location.href = '/tae/Rcpinfowrite'">글 쓰기</button>
 <h4>${cnt}개의 검색 결과가 있습니다.</h4>
 <div class="rinfo">
 <c:forEach var="i" items="${best}">
