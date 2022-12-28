@@ -70,13 +70,21 @@
 										</tr>
 										</c:forEach>
 										</table>
-										<div class="total">
+										<!-- <div class="total">
                     						<span class="title">통계</span>
 											<ul class="btm_stats">
             									<li><img src="https://recipe1.ezmember.co.kr/img/btm_icon2.png" >총 요리사 수: <b>${cntU}</b></li>
          										<li><img src = "https://recipe1.ezmember.co.kr/img/btm_icon3.png">총 레시피 수: <b>${cntR}</b></li>
             									<li><img src = "http://image.auction.co.kr/itemimage/9c/5b/51/9c5b51bf6.jpg">등록된 커뮤니티 글 수: <b>${cntP}</b></li>
-        									</ul>
+        									</ul>        									
+										</div> -->					
+												<div class="chart-area">
+											<div id="container" style="width:100%; height:100%;">
+											<c:forEach var="i" items="${wordcloud}">
+											<input type ="hidden" value = "${i.catename }" id = "catename" >
+											<input type ="hidden" value = "${i.cnt }" id = "cnt">
+											</c:forEach>
+											</div>
 										</div>
             				</div>
         				</div>
@@ -86,18 +94,26 @@
 		</div>
 	</div>
 </div>
-<!--  
-<h1>관리자 통계 페이지 입니다.</h1>
-<c:forEach items="${cntL}" var="dto">
-<table>
-<th>글 번호</th><th> 글 제목 </th><th> 추천수</th>
-<tr><td><a href="/chan/bestRcpInfo/${dto.rno}">${dto.rno}</a></td><td>${dto.rtitle}</td><td>${dto.rlikes}</td> 
-</table>
-</c:forEach>
+<script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
+<script src="https://cdn.anychart.com/releases/v8/js/anychart-tag-cloud.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+<script>
 
-<h3>가입한 요리사 수 : <img src="https://recipe1.ezmember.co.kr/img/btm_icon2.png" >${cntU} </h3>
-<h3>등록된 레시피 개수  :<img src = "https://recipe1.ezmember.co.kr/img/btm_icon3.png"> ${cntR}</h3>
-<h3>등록된 커뮤니티 게시글 수  :<img src = "http://image.auction.co.kr/itemimage/9c/5b/51/9c5b51bf6.jpg"> ${cntP}</h3>
--->
+anychart.onDocumentReady(function () {
+	
+
+	var data=[
+	<c:forEach var="i" items="${wordcloud}">
+		{x : '${i.x}',
+		 value : '${i.value}'},
+	</c:forEach>
+	]
+    var chart = anychart.tagCloud(data);
+    chart.angles([0]);
+    chart.container("container");
+    // chart.getCredits().setEnabled(false);
+    chart.draw();
+});
+</script>
 </body>
 </html>

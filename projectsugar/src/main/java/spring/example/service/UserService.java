@@ -1,5 +1,6 @@
 package spring.example.service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -64,8 +65,11 @@ public class UserService {
 	public List<User> memsInfo(){
 		return dao.memsInfo();
 	}
-	public List<User>  alluser() {
-		return dao.alluser();
+	public List<Map<String,Object>>  alluser(int start) {
+		Map<String,Object>m=new HashMap<String,Object>();
+		m.put("start", start);
+		m.put("cntUser", 5);
+		return dao.alluser(m);
 	}
 	
 	public User findById(String id) {

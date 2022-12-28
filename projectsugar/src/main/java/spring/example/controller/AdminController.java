@@ -2,7 +2,6 @@ package spring.example.controller;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
@@ -16,8 +15,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
-
 import spring.example.domain.User;
+import spring.example.service.RecipeService;
 import spring.example.service.UserService;
 
 @Controller
@@ -25,6 +24,7 @@ public class AdminController {
 
 	@Autowired
 	UserService service;
+	
 
 	@GetMapping("/mem/info")
 	public void memsInfo(HttpServletResponse response) {
@@ -93,6 +93,5 @@ public class AdminController {
 		}
 
 	}
-
 
 }

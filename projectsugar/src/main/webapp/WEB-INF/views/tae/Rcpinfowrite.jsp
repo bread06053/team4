@@ -71,6 +71,87 @@ font-size : 10px;
         
 <form action="/tae/Rcpinfowrite1" method="post" enctype="multipart/form-data">
 <div class="container recipe_regi">
+<<<<<<< HEAD
+	<div class="regi_center">
+		<div class="regi_title">
+			<h2><span style="color:peru;">레시피</span> 등록</h2>
+		</div>
+		<div class="cont_box pad_1_60">
+			<div class="cont_pic">
+				<input type = "file" name = "img" id="main_photo">
+			</div>
+			<div class="cont_line">
+			 <div class="user">
+         		<input type="hidden" name = "userid" value="<sec:authentication property = "principal.user.userid"></sec:authentication>">
+				<p class="cont_tit4">레시피 제목</p>
+				<input type="text" name = "rtitle" id="cok_title" class="form-control" placeholder="예) 오레오롤 케이크 만들기" style="width:610px;">
+			</div>
+		</div>
+			<div class="cont_line pad_b_25">
+				<p class="con_tit4">요리소개</p>
+				<input name = "rinfo" placeholder = "간단한 요리소개를 적어주세요. 예) 오레오로 간단하게 홈베이킹해봐요" style="height:100px; width:610px; resize:none;">
+			</div>
+			<div class="cont_line">
+				<p class="cont_tit4">카테고리</p>
+				<select name = "cateno">
+    				<option value="23">육류</option>
+    				<option value="24">해물류</option>
+    				<option value="25">건어물류</option>
+    				<option value="26">곡류</option>
+  					<option value="27">콩/견과류</option>
+    				<option value="28">채소류</option>
+    				<option value="31">버섯류</option>
+    				<option value="32">밀가루</option>
+    				<option value="33">가공식품류</option>
+    				<option value="34">기타</option>
+    				<option value="47">쌀</option>
+    				<option value="48">과일류</option>
+    				<option value="50">달걀/유제품</option>
+    				<option value="70">소고기</option>
+   					<option value="71">돼지고기</option>
+    				<option value="72">닭고기</option>
+				</select>
+				<span class="guide">분류를 설정해주시면 이용자들이 쉽게 레시피를 찾을수 있어요.</span>
+			</div>
+			<div class="con_line">
+				<p class="cont_tit4">요리정보</p>
+				시간
+				<select name = "rtime">
+    				<option value="5분 이내"> 5분 이내</option>
+    				<option value="10분 이내">10분 이내</option>
+    				<option value="15분 이내">15분 이내</option>
+    				<option value="20분 이내">20분 이내</option>
+    				<option value="25분 이내">25분 이내</option>
+    				<option value="30분 이내">30분 이내</option>
+    				<option value="60분 이내">60분 이내</option>
+				</select>
+				난이도
+				<select name = "rlevel">
+    				<option value="아무나">아무나</option>
+    				<option value=" 초급"> 초급</option>
+    				<option value=" 중급"> 중급</option>
+    				<option value=" 고급"> 고급</option>
+				</select>			
+			</div>
+		</div>
+		<!-- /cont_box -->
+		<div class="cont_box pad_1_60">
+			<p class="con_tit4">재료</p>
+			<input name = "rprep" placeholder = "재료를 적어주세요. 예)오레오 1봉지, 크림치즈50g, 우유 3T" style="height:100px; width:610px; resize:none;">
+		</div>
+		<!-- /cont_box -->
+		<div class="cont_box pad_1_60">
+			<p class="con_tit4">요리순서</p>
+			<textarea name="rlogic" id="editorTxt" rows="20" cols="10" style="width: 700px"></textarea>
+		</div>
+		<div class="cont_box pad_1_60">
+			<p class="con_tit4">요리팁</p>
+			<input name="rtip" placeholder = "요리 팁을 적어주세요. 예)레드벨벳 오레오로 만들어도 이뻐요." style="height:100px; width:610px; resize:none;">
+		</div>
+		<div class="cont_box pad_1_60">
+			<a href="/chan/myRcp" type="button">커뮤니티로 이동</a><button type ="submit" id = "save">글 쓰기</button>
+		</div>
+=======
    <div class="regi_center">
       <div class="regi_title">
          <h2><span style="color:peru;">레시피</span> 등록</h2>
@@ -150,6 +231,7 @@ font-size : 10px;
       <div class="cont_box pad_1_60">
          <a href="/chan/myRcp" type="button">커뮤니티로 이동</a><button type ="submit" id = "save">글 쓰기</button>
       </div>
+>>>>>>> refs/heads/master
 
    </div>
 </div>

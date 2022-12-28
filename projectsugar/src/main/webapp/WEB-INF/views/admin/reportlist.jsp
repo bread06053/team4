@@ -10,6 +10,7 @@
  padding:10px;
 }
 </style>
+<link rel="stylesheet" href="/css/paging.css"/>
 <link rel="stylesheet" href="/css/admin.css"/>
 <title>Insert title here</title>
 </head>
@@ -59,7 +60,7 @@
         				<div class="wrapper_body">
             				<div class="header2">
             	    			<div class="header_title">
-                    				<span class="title">문의 리스트</span>
+                    				<span class="title">신고 내역</span>
                 				</div>
                 				<div class="line2"></div>
 									<table>
@@ -71,17 +72,21 @@
 										</tr>
 										</c:forEach>
 									</table>
-      								<div class="paging" align="center">
-        							 <c:if test="${begin > pageNum}">
-           							 	<a href="postlist?p=${begin-1}&sort=${sort}">[이전]</a>
-        							 </c:if>
-        							 <c:forEach begin="${begin}" end = "${end}" var='i'>
-           								 <a href="postlist?p=${i}&sort=${sort}" class="page">${i}</a>
-         							</c:forEach>
-         							<c:if test="${end < totalPages}">
-            							<a href="postlist?p=${end+1}&sort=${sort}">[다음]</a>
-        							</c:if>
-      								</div>
+      								<div class="page_wrap"style="clear:both;">
+  <div class="page_nation">
+      <div class="paging" align="center" >
+         <c:if test="${begin > pageNum}">
+            <a class="point" href="reportlist?p=${begin-1}">◀</a>
+         </c:if>
+         <c:forEach begin="${begin}" end = "${end}" var='i'>
+            <a class="point" href="reportlist?p=${i}" class="page">${i}</a>
+         </c:forEach>
+         <c:if test="${end < totalPages}">
+            <a class="point" href="reportlist?p=${end+1}">▶</a>
+         </c:if>
+      </div>
+      </div>
+      </div>
             				</div>
         				</div>
    					 </div>     

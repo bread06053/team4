@@ -12,6 +12,7 @@ import org.apache.ibatis.annotations.Update;
 import spring.example.domain.Ask;
 import spring.example.domain.User;
 
+
 @Mapper
 public interface UserDao {
 	
@@ -83,6 +84,6 @@ List<User> memsInfo();
 
 
 @Select
-("select * from user")
-List<User> alluser();
+("select * from user limit #{start} , #{cntUser}")
+List<Map<String,Object>>alluser(Map<String,Object> m);
 }
