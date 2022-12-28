@@ -20,4 +20,5 @@ public class Recipe {
 	private int rstate;
 	private String nickname;
 	private String profile;
+	
 }
