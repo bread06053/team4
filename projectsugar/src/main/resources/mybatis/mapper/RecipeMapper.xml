@@ -2,9 +2,11 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="spring.example.dao.RecipeDao">
+<mapper namespace="spring.example.domian.Recipe">
+
 
 	<select id="recipeSearch" parameterType="spring.example.domain.Recipe" resultType="spring.example.domain.Recipe">
+
 		
 		select REPLACE(REPLACE(rthumimg,'[',''),']','')as rthumimg ,rtitle,profile,nickname,rno from recipe inner join user on recipe.userid = user.userid
 		<where>
@@ -30,5 +32,5 @@
 				<otherwise>cateno = #{cateno} and rlevel = #{rlevel} and rtime = #{rtime} </otherwise>
 			</choose>
 		</where> 
-		</select>
+		</select> 
 </mapper>

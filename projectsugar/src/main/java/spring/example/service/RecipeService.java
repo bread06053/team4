@@ -69,7 +69,7 @@ public class RecipeService {
 	}
 	public int recipeSearch1(Recipe recipe) {
 		return dao.recipeSearch1(recipe);
-
+	}
 	public List<Map<String,Object>>wordcloud(){
 		return dao.wordcloud();
 

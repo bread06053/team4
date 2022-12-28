@@ -36,7 +36,7 @@
 	</div>
 	</div>
 			<div class="btn">
-				<button id = "deletepost">신고 글 삭제</button>
+				<button class="btn1"id = "deletepost">신고 글 삭제</button>
 		</div>
 	</div>
 	</div>

@@ -58,7 +58,7 @@
             <ul class="yoyoNavi">
                 <li><a href="/chan/bestRcp">Best 레시피</a>
                 </li>
-                <li><a href="https://www.10000recipe.com/recipe/list.html">나만의 레시피</a>
+                <li><a href="/chan/myRcp">나만의 레시피</a>
                 </li>
                 <li><a href="/post/postlist">커뮤니티</a>
                 </li>
@@ -90,8 +90,10 @@
 							<span class="date">${dto.ptime}</span>
 							<span class="count">${dto.pview}</span>
 							</div>
-						</div>						
+						</div>		
+						<button class='up' onclick = "location.href = '/post/postupdate/${pno}'" style="float: right;"> 글 수정</button>				
 					</div>
+											
 				</div>
 			</div>
 				<div class="article_container"><br>
@@ -105,8 +107,7 @@
 						</div>
 						<div class="box_right">
 							<div class="report_article">
-							<button class="layer_button" id = "btn_rep" type = "submit">신고</button>
-							<button onclick = "location.href = '/post/postupdate/${pno}'"> 글 수정</button>
+							<a class="layer_button" id = "btn_rep" type = "submit">신고하기</a>
 							</div>
 						</div>
 					</div>

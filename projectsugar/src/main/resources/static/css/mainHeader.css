@@ -19,8 +19,11 @@ font-family: 'Dongle', sans-serif;
     display: inline-block;
     vertical-align: top;
     margin-top: 4px;
-   padding-left: 200px;
-    margin-top: 2%;
+   padding-left: 378px;
+}
+.yoyo_top h1 img{
+	height: 100px;
+    width: 160px;
 }
 .yoyoRight a img {
     width: 70px;

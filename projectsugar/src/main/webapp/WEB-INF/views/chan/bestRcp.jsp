@@ -101,7 +101,6 @@
 
 <div class="bestcontainer">
 <h3>추천 레시피</h3>
-<button onclick = "location.href = '/tae/Rcpinfowrite'">글 쓰기</button>
 <h4>${cnt}개의 검색 결과가 있습니다.</h4>
 <div class="rinfo">
 <c:forEach var="i" items="${best}">
