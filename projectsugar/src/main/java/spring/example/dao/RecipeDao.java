@@ -62,6 +62,10 @@ List<Recipe> rlikes();
 ("update recipe set rlikes = rlikes +1 where rno = #{rno}")
 int rlikesup(int rno);
 
+
+List<Recipe> recipeSearch(Recipe recipe);
+int recipeSearch1(Recipe recipe);
+
 @Select
 ("select catename as x,count(*)as value from cate inner join recipe on cate.cateno=recipe.cateno group by cate.cateno")
 List<Map<String,Object>> wordcloud();
