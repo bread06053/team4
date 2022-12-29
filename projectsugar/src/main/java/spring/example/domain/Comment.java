@@ -10,7 +10,7 @@ public class Comment {
 	private int cno;
 	private int pno;
 	private String userid;
-	private String content;
+	private String ctext;
 	@DateTimeFormat(pattern = "yyyyMMdd")
 	private Date ctime;
 }	

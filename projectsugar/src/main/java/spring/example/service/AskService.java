@@ -8,8 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import spring.example.dao.AskDao;
+import spring.example.dao.AskcommDao;
 import spring.example.dao.UserDao;
 import spring.example.domain.Ask;
+import spring.example.domain.Askcomm;
 import spring.example.domain.Ban;
 
 @Service
@@ -20,6 +22,9 @@ public class AskService {
 	
 	@Autowired
 	AskDao dao2;
+	
+	@Autowired
+	AskcommDao dao3;
 	
 	public int asksome(Ask ask) {
 		return dao.asksome(ask);
@@ -46,5 +51,17 @@ public class AskService {
 	    m.put("cntAsk", 5);
 	    m.put("userid", id);
 		return dao2.myask(m);
+	}
+	
+	public int insertacm(Askcomm acm) {
+		return dao3.insertacm(acm);
+	}
+	
+	public List<Askcomm> info(int ano){
+		return dao3.infoacm(ano);
+	}
+	
+	public int deleteacm(int acno) {
+		return dao3.deleteacm(acno);
 	}
 }

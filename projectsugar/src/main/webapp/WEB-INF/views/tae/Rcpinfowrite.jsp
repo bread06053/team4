@@ -151,7 +151,7 @@ font-size : 10px;
 		<div class="cont_box pad_1_60">
 			<a href="/chan/myRcp" type="button">커뮤니티로 이동</a><button type ="submit" id = "save">글 쓰기</button>
 		</div>
-=======
+
    <div class="regi_center">
       <div class="regi_title">
          <h2><span style="color:peru;">레시피</span> 등록</h2>
@@ -231,7 +231,6 @@ font-size : 10px;
       <div class="cont_box pad_1_60">
          <a href="/chan/myRcp" type="button">커뮤니티로 이동</a><button type ="submit" id = "save">글 쓰기</button>
       </div>
->>>>>>> refs/heads/master
 
    </div>
 </div>

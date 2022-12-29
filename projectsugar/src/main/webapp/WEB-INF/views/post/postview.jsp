@@ -96,65 +96,36 @@
 											
 				</div>
 			</div>
-				<div class="article_container"><br>
-					<div class="aricle_viewer">
-					${dto.ptext}
-					<input type="hidden" name = "pno" id = "pno" value="${dto.pno}">
-					</div>
-					<div class="ReplyBox">
-						<div class="box_left">
-						댓글 ${i}
-						</div>
-						<div class="box_right">
-							<div class="report_article">
-							<a class="layer_button" id = "btn_rep" type = "submit">신고하기</a>
-							</div>
-						</div>
-					</div>
-					<div class="CommentBox">
-						<div class="comment_option">
-						<h3 class="comment_title">댓글</h3>
-							<div class="comment_tab">
-								<ul class="comment_tab_list">
-									<li class="comment_tab_item">등록순</li>						
-								</ul>
-							</div>
-								<ul class="comment_list">
-								<li id="${cno}" class="CommentItem">
-								<div class="comment_area">
-									<img src="/profile/${profile}">
-									<div class="comment_box">
-										<div class="comment_nick_box">
-										${userid}
-										</div>
-									</div>
-									<div class="comment_text_box">
-									<p class="comment_text_view">
-									<span class="text_comment">${content}</span>
-									</div>
-									<div class="comment_info_box">
-									<span class="comment_info_date">${ctime}</span>
-									<a href="#" role="button" class="comment_info_button">답글쓰기</a>
-									</div>
-									<ul class="layer_list">
-										<li class="layer_item">
-											
-										</li>
-									</ul>			
-									</div>
-								</li>
-								</ul>
-								   <input type="hidden" name = "pno" id = "pno" value="${dto.pno}">
-								<div class="CommentWriter">
-									<em class="comment_inbox_name">
-									${user.nickname}
-									</em>
-									<textarea placeholder="댓글을 남겨보세요" rows="" class="comment_inbox_text" style="overflow:hidden;overflow-wrap: break-word; height: 17px;"></textarea>
-								</div>
-						</div>
-					</div>				
+			<div class="article_container"><br>
+               <div class="aricle_viewer">
+               ${dto.ptext}
+               <input type="hidden" name = "pno" id = "pno" value="${dto.pno}">
+               </div>
+               <div class="ReplyBox">
+                  <div class="box_left">
+                  댓글 ${i}
+                  </div>
+                  <div class="box_right">
+                     <div class="report_article">
+                     <a class="layer_button" id = "btn_rep" type = "submit">신고하기</a>
+                     </div>
+                  </div>
+               </div>
+				댓글
+				<c:forEach var="i" items="${info}">
+				
+				작성자 :${i.userid }<br>
+				댓글 : ${i.ctext }  	<!-- 날짜값 태그 주고 화면 오른쪽으로 나오면 이쁠듯 -->	<fmt:formatDate value="${i.ctime}" pattern="MM/dd"/>  <br>
+				<button onclick = "location.href='/post/postview1/${i.cno}/${i.pno}'">댓글 삭제</button><hr>
+				</c:forEach>
+				
+				<form method = "post" action = "/post/postview">
+				<input type = "hidden" name = "userid" value= "${dto.userid }">
+				<input type = "hidden" name = "pno" value= "${dto.pno}"> 
+				<input name = "ctext">
+				<button type = "submit">댓글 등록</button>
+				</form>
 				</div>
-			</div>
 		<button type="button" onclick="location.href='/post/postlist'">목록으로</button>
 	</div>
 </div>

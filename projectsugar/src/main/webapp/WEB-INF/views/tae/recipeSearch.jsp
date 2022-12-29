@@ -101,7 +101,12 @@
 <!--  이거 체크박스 아래에 숨겨져 있습니다. -->
 <div class="bestcontainer">
 <h3>추천 레시피</h3>
+<<<<<<< HEAD
 <h4>${search1}개의 검색 결과 입니다.</h4>
+=======
+
+${search1}개의 검색 결과 입니다.
+>>>>>>> refs/heads/master
 <div class="rinfo">
 <c:forEach items="${search}" var="se">
 <div class="thumimg">

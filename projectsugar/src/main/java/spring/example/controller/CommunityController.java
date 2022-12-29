@@ -15,9 +15,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import spring.example.config.SecurityUser;
+import spring.example.domain.Comment;
 //import spring.example.domain.CommentDto;
 import spring.example.domain.Post;
 import spring.example.domain.User;
+import spring.example.service.CommentService;
 //import spring.example.service.CommentService;
 import spring.example.service.CommunityService;
 
@@ -26,6 +28,9 @@ public class CommunityController {
    
    @Autowired
    CommunityService service;
+   
+   @Autowired
+   CommentService service2;
    
 //   @Autowired
  //  CommentService c_service;
@@ -43,15 +48,27 @@ public class CommunityController {
    }
    
    @GetMapping("/post/postview/{pno}")
-   public String content(@PathVariable int pno, Model m, @AuthenticationPrincipal SecurityUser user) {
+   public String content(@PathVariable int pno, Model m, @AuthenticationPrincipal SecurityUser user,Comment comm) {
 	   Map<String,Object> dto= service.communityOne(pno);
+	   List<Comment> info = service2.infocomm(pno);
 	   int i=service.commentCnt(pno);
+	   m.addAttribute("info",info);
 	   m.addAttribute("profile", user.getUser().getProfile());
 	   m.addAttribute("dto", dto);
 	   m.addAttribute("i",i);
    //   List<CommentDto> commentList = c_service.selectComment(comm_no);
     //  m.addAttribute("commentList", commentList);
       return "post/postview";
+   }
+   @PostMapping("post/postview")
+   public String insertcomm(Comment comm) {
+	   service2.insertcomm(comm);
+	   return "redirect:/post/postview/"+comm.getPno();
+   }
+   @GetMapping("post/postview1/{cno}/{pno}")
+   public String deletecomm(@PathVariable int cno,@PathVariable int pno) {
+	   service2.deletecomm(cno);
+	   return "redirect:/post/postview/"+pno;
    }
    
    @GetMapping("/post/postupdate/{pno}")
@@ -78,6 +95,7 @@ public class CommunityController {
    public String community_list(String sort, @RequestParam(name="p", defaultValue="1") int page, Model m) {   
       
       
+	   
       int count = service.count();
       if(count > 0) {
          
@@ -138,5 +156,6 @@ public class CommunityController {
       
       return "post/postsearch";
    }
+   
    
 }
