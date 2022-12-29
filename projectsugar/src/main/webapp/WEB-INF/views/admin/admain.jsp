@@ -37,7 +37,7 @@
 						</div>
 					</div>
 					<div class="footer">
-						<button onclick = "location.href ='/admin/admain' ">회원 관리</button>
+						<button onclick = "location.href ='/admin/adstyle' ">배너 스타일</button>
 						<button onclick = "location.href ='/admin/asklist' ">문의 리스트</button>
 						<button onclick = "location.href ='/admin/reportlist' ">신고 리스트</button>
 						<button onclick = "location.href ='/admin/adtotal'">사이트 통계 보기</button>

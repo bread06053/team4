@@ -21,10 +21,10 @@ public interface AskDao {
 	@Select
 	("select count(ano) from ask")
 	int cntAsk();
-	
-	
 	@Select
-	("select * from ask where userid = #{userid}")
-	List<Ask> myask(String id);
-
+	("select * from ask where userid = #{userid} limit #{start} , #{cntAsk}")
+	List<Map<String, Object>> myask(Map<String, Object> m);
+	@Select
+	("select count(ano)from ask where userid=#{userid}")
+	int cntmyAsk(String id);
 }

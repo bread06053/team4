@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Dongle&display=swap" rel="stylesheet">
 </style>
     <link rel="stylesheet" href="/css/mypage.css"/>
+        <link rel="stylesheet" href="/css/admin.css"/>
 <head>
 <title>Insert title here</title>
 </head>

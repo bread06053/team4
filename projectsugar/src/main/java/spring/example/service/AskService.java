@@ -42,9 +42,15 @@ public class AskService {
 	public int cntAsk() {
 		return dao2.cntAsk();
 	}
-	
-	public List<Ask> myask(String id) {
-		return dao2.myask(id);
+	public int cntmyAsk(String id) {
+		return dao2.cntmyAsk(id);
+	}
+	public List<Map<String, Object>> myask(String id,int start) {
+		Map<String, Object> m = new HashMap<String, Object>();
+	    m.put("start", start);
+	    m.put("cntAsk", 5);
+	    m.put("userid", id);
+		return dao2.myask(m);
 	}
 	
 	public int insertacm(Askcomm acm) {

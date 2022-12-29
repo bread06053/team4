@@ -97,6 +97,10 @@ public class Mycontroller {
 		m.addAttribute("bestView",bestView);
 		m.addAttribute("cntUser",service.cntUser());
 		m.addAttribute("cntRecipe",service.cntRecipe());
+		
+		 String all=service6.all();
+		 m.addAttribute("all",all);
+		 
 		return "chan/main";
 	}
 	@GetMapping("/tae/join")
@@ -166,7 +170,7 @@ public class Mycontroller {
 	      int cnt = service2.bestcnt();
 	      if(cnt > 0) {
 	         
-	         int perPage = 16; 
+	         int perPage = 12; 
 	         int startRow = (page - 1) * perPage; 
 	         List<Map<String,Object>> best=service2.bestRcp(startRow);
 		m.addAttribute("best",best);
@@ -197,7 +201,7 @@ public class Mycontroller {
 	      int cnt = service2.mycnt();
 	      if(cnt > 0) {
 	         
-	         int perPage = 16; 
+	         int perPage = 12; 
 	         int startRow = (page - 1) * perPage; 
 		List<Map<String,Object>> my=service2.myRcp(startRow);
 		m.addAttribute("best",my);
@@ -320,13 +324,6 @@ public class Mycontroller {
 		return "admin/admain";
 	}
 	
-	@GetMapping("admin/adstyle")
-	public String style(Model m) {
-		List<Style> styleimg = service6.all();
-		m.addAttribute("styleimg",styleimg);
-		return "admin/adstyle";
-
-	}
 	@GetMapping("admin/adtotal")
 	public String total(Model m) {
 		List<Map<String,Object>> wordcloud=service2.wordcloud();
@@ -464,30 +461,60 @@ public class Mycontroller {
 	 }
 	 
 	 @GetMapping("tae/myask1")
-	 public String myask(String id, Model m) {
-		 List<Ask> ask = service4.myask(id);
+	 public String myask(String id,@RequestParam(name="p", defaultValue="1") int page, Model m) {
+		 int cntmyAsk = service4.cntmyAsk(id);
+	     if(cntmyAsk > 0) {
+	         
+	         int perPage = 5; 
+	         int startRow = (page - 1) * perPage;
+		 List<Map<String, Object>> ask = service4.myask(id,startRow);
 		 if (ask.size() == 0) {
 			 return "tae/nullmyask";
-		 } else {
-			 m.addAttribute("ask",ask);
-			 return "tae/myask";
+		 } 
+		 m.addAttribute("ask",ask);
+		 int pageNum = 5;
+         int totalPages = cntmyAsk / perPage + (cntmyAsk % perPage > 0 ? 1 : 0); 
+         
+         int begin = (page - 1) / pageNum * pageNum + 1;
+         int end = begin + pageNum -1;
+         if(end > totalPages) {
+            end = totalPages;
+         }
+          m.addAttribute("begin", begin);
+          m.addAttribute("end", end);
+          m.addAttribute("pageNum", pageNum);
+          m.addAttribute("totalPages", totalPages);
+         }
+	     m.addAttribute("cntmyAsk",cntmyAsk);
+		 return "tae/myask";
 		 }
-	 }
+		 		 
+
 	 @GetMapping("tae/recipeSearch")
-	 public String resultsearch(Recipe recipe , Model m) {
-		  List<Recipe> search = service2.recipeSearch(recipe);
-		  int search1 = service2.recipeSearch1(recipe);
+	 public String resultsearch(Recipe recipe,Model m) {	
+         	int search1 = service2.recipeSearch1(recipe);	
+	         List<Recipe> search = service2.recipeSearch(recipe);
+			 m.addAttribute("search",search);
+	        
 			List<Map<String,Object>> cateName=service2.cateName();
 			List<String> rcpLevel=service2.rcpLevel();
 			List<Map<String,Object>> rcpTime=service2.rcpTime();
 			m.addAttribute("cateName",cateName);
 			m.addAttribute("rcpLevel",rcpLevel);
 			m.addAttribute("rcpTime",rcpTime);
-		  m.addAttribute("search",search);
 		  m.addAttribute("search1",search1);
 		 return "tae/recipeSearch";
 	 }
-	 
+	 @GetMapping("/admin/adstyle")
+	 public String adstyle() {
+		 return"/admin/adstyle";
+	 }
+	 @PostMapping("/admin/adstyle")
+	 public String updateStyle(String styleimg,Model m){
+		 service6.updateStyle(styleimg);		
+		 return "redirect:/chan/main";
+	 }
+
 }
 
 

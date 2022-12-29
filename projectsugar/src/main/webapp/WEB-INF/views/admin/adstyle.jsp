@@ -39,7 +39,7 @@
 					<div class="footer">
 					<sec:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_MANAGER')">
 						<button onclick = "location.href ='/admin/admain' ">회원 관리</button>
-						<button onclick = "location.href ='/admin/adstyle' ">배너 스타일</button>
+						<button onclick = "location.href ='/admin/asklist' ">문의 리스트</button>
 						<button onclick = "location.href ='/admin/reportlist' ">신고 리스트</button>
 						<button onclick = "location.href ='/admin/adtotal'">사이트 통계 보기</button>
 					</sec:authorize>		
@@ -50,7 +50,7 @@
 			<div class="wrapper_right">
 				<div class="wrapper_right_header">
 					<div class="wrapper_right_title">
-						문의 내역
+						배너 스타일 변경
 					</div>
 					<div class="wrapper_right_setting">
 						<a href="/tae/userinfo">개인정보 변경</a>
@@ -61,33 +61,24 @@
         				<div class="wrapper__body">
             				<div class="header2">
             	    			<div class="header__title">
-                    				<span class="title">문의 리스트</span>
+                    				<span class="title">스타일 변경</span>
                 				</div>
                 				<div class="line2"></div>
-									<table>
-										<tr>
-											<th>글번호</th><th>제목</th><th>유저아이디</th>
-										</tr>
-										<c:forEach items="${ask}" var="i">	
-										<tr><td>${i.ano}</td><td><a href="apopup/${i.ano}"onclick="window.open(this.href, '_blank', 'width=800, height=600'); return false;">${i.atitle}</a></td><td>${i.userid}</td>
-										</tr>
-										</c:forEach>
-									</table>
-      				<div class="page_wrap"style="clear:both;">
-  <div class="page_nation">
-      <div class="paging" align="center" >
-         <c:if test="${begin > pageNum}">
-            <a class="point" href="asklist?p=${begin-1}">◀</a>
-         </c:if>
-         <c:forEach begin="${begin}" end = "${end}" var='i'>
-            <a class="point" href="asklist?p=${i}" class="page">${i}</a>
-         </c:forEach>
-         <c:if test="${end < totalPages}">
-            <a class="point" href="asklist?p=${end+1}">▶</a>
-         </c:if>
-      </div>
-      </div>
-      </div>
+								<form class="realform" method="post" action="/admin/adstyle">
+								<input type="hidden" class="form1" name="styleimg" value="">
+								<div class="showimg">
+								<img src="/style/realsugar1.png"> 
+								<button id = "btn1">오리지널 배너</button>
+								</div>
+								<div class="showimg">
+								<img src="/style/realsugar2.jpeg"> 
+								<button id = "btn2">새해 배너</button>
+								</div>
+								<div class="showimg">
+								<img src="/style/realsugar3.jpeg"> 
+								<button id = "btn3">크리스마스 배너</button>
+								</div>
+								</form>	
             				</div>
         				</div>
    					 </div>     
@@ -96,3 +87,26 @@
 		</div>
 	</div>
 </div>
+
+<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+$(function(){
+	$("#btn1").click(function(){
+		$(".form1").val("realsugar1.png");
+		alret($(".form1").val())
+		$(".realform").submit();
+	});
+	
+	$("#btn3").click(function(){
+		$(".form1").val("realsugar3.jpeg");
+		alret($(".form1").val())
+	});
+	
+	$("#btn2").click(function(){
+		$(".form1").val("realsugar2.jpeg");
+		alret($(".form1").val())
+	});
+})
+</script>
+</body>
+</html>

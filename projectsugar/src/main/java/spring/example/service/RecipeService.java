@@ -23,13 +23,13 @@ public class RecipeService {
 	public List<Map<String,Object>> bestRcp(int start){  
 		Map<String, Object> m = new HashMap<String, Object>();
 		m.put("start", start);
-	    m.put("cnt", 16);
+	    m.put("cnt", 12);
 		return dao.bestRcp(m);
 	}
 	public List<Map<String,Object>> myRcp(int start){
 		Map<String,Object>m=new HashMap<String,Object>();
 		m.put("start", start);
-		m.put("cnt", 16);
+		m.put("cnt", 12);
 		return dao.myRcp(m);
 	}
 	public int bestcnt() {
