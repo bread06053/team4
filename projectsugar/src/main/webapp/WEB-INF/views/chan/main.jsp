@@ -22,15 +22,9 @@
 <body>
 <div class="yoyo_top_wrap">
 	<div class="yoyo_top">
-	<sec:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_MANAGER')">
-	<button id = "btn1">오리지널 배너</button>
-	<button id = "btn2">새해 배너</button>
-	<button id = "btn3">크리스마스 배너</button>
-	
-	</sec:authorize>
-	<h1 style="padding-left:200px">
+	<h1 style="padding-left:400px">
 	<a href="http://localhost:8084/chan/main">
-	<img id = "sugarimg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYeFHo_i34CbGLC4ZmZyjA3V8XSK_sUHWE7A&usqp=CAU" alt="로고">
+	<img id = "sugarimg" src="/style/${all}" alt="로고">
 	</a>
 	</h1>
 	<div class="yoyo_search">
@@ -82,7 +76,7 @@
 <div class="slideshow-container">
 		<c:forEach var="i" items="${bestView}">
 		<div class="mySlides fade">
-		${i}
+		<img src="/rthumimg/${i}" style="height: 500px; width: 1141px;">
 		</div>
 		</c:forEach>
 		<a class="prev" onclick="plusSlides(-1)">❮</a>
@@ -171,23 +165,6 @@ function showSlides(n) {
   x[slideIndex-1].style.display = "block";  
   dots[slideIndex-1].className += " active";
 }
-
-
-$(function(){
-	$("#btn1").click(function(){
-		$("#sugarimg").attr("src","/style/realsugar1.png");
-	});
-})
-$(function(){
-	$("#btn3").click(function(){
-		$("#sugarimg").attr("src","/style/realsugar3.jpeg");
-	});
-})
-$(function(){
-	$("#btn2").click(function(){
-		$("#sugarimg").attr("src","/style/realsugar2.jpeg");
-	});
-})
 </script>
 </body>
 </html>

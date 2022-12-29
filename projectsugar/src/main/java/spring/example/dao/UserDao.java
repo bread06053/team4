@@ -51,7 +51,7 @@ List<Map<String,String>> recentRcp();
 List<Map<String,Object>> bestChef();
 
 @Select
-("select REPLACE(REPLACE(rthumimg,'[',''),']','')as rthumimg from recipe ORDER BY rlikes desc limit 3")
+("select REPLACE(REPLACE(rthumimg,'[',''),']','')as rthumimg from recipe where rstate=1 ORDER BY rlikes desc limit 3")
 List<String> bestView();
 
 @Select

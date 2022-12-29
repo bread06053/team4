@@ -206,3 +206,18 @@ button{
 .btm_stats{
 	margin-top:10px
 }
+.showimg {
+    height: 150px;
+    width: 150px;
+    float:left;
+}
+.showimg img{
+	height: 150px;
+    width: 150px;
+}
+.showimg button{
+	    width: 137px;
+}
+.realform{
+	padding-top: 20px;
+}

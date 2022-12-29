@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import spring.example.domain.Style;
 
@@ -11,7 +12,11 @@ import spring.example.domain.Style;
 public interface StyleDao {
 	
 	@Select
-	("select * from style")
-	List<Style> all();
-
+	("select styleimg from style")
+	String all();
+	
+	@Update
+	("update style set styleimg=#{styleimg}")
+	int updateStyle(String styleimg);
+	
 }

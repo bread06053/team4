@@ -13,5 +13,4 @@ public class Comment {
 	private String content;
 	@DateTimeFormat(pattern = "yyyyMMdd")
 	private Date ctime;
-	private int parent_cno;
 }	

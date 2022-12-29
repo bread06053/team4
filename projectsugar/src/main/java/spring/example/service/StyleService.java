@@ -14,7 +14,11 @@ public class StyleService {
 	@Autowired
 	StyleDao dao;
 	
-	public List<Style> all(){
+	public String all(){
 		return dao.all();
+	}
+
+	public int updateStyle(String styleimg) {
+			return dao.updateStyle(styleimg);
 	}
 }

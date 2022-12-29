@@ -8,11 +8,11 @@
 </style>
 <head>
 <link rel="stylesheet" href="/css/mainHeader.css"/>
+<link rel="stylesheet" href="/css/searchpage.css"/>
 <title>Insert title here</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Dongle&display=swap" rel="stylesheet">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Dongle&display=swap');
-
 </style>
 </head>
 </head>
@@ -63,8 +63,13 @@
                 </li>
             </ul>
         </div>
-${q }으로/로 검색 결과를 보여줍니다.<br>
-레시피 검색 결과 입니다..
+        <div class="wrapper_left">
+	<div class="wrapper_left_body">
+        <div class="showtitle" style="font-size:24px;">
+				레시피 검색 결과 입니다.
+			</div><br>
+			${q }으로/로 검색 결과를 보여줍니다..
+			<div class="line2"></div>
 <hr>
 <ul>
 <c:if test = "${recipe.size() == 0}">
@@ -73,21 +78,25 @@ ${q }으로/로 검색 결과를 보여줍니다.<br>
 </c:if>
 <c:if test = "${recipe.size() != 0}">
 <c:forEach items="${recipe}" var="dto">	
-	<li><a href="/chan/bestRcpInfo/${dto.rno}"> ${dto.rtitle}</a> <br>
-	
+	<li><a href="/chan/bestRcpInfo/${dto.rno}"> ${dto.rtitle}</a><br>	
 </c:forEach>
 </c:if>
 </ul>
 <hr> 
-${q }으로/로 검색 결과를 보여줍니다.<br>
-커뮤니티 검색 결과 입니다..
+</div>
+</div>
+<div class="wrapper_right">
+<div class="wrapper_right_body">
+ <div class="showtitle" style="font-size:24px;">
+	커뮤니티 검색 결과 입니다.</div><br>
+	${q }으로/로 검색 결과를 보여줍니다..
+		<div class="line2"></div>
 <ul>
-<c:forEach items="${post}" var="dto">
-	<li><a href="=${dto.pno}"> ${dto.ptitle}</a> <br>
-
-</c:forEach>
+	<c:forEach items="${post}" var="dto">
+		<li><a href="=/post/postview/${dto.pno}"> ${dto.ptitle}</a><br>
+	</c:forEach>
 </ul>
-
-
+</div>
+</div>
 </body>
 </html>

@@ -101,8 +101,7 @@
 <!--  이거 체크박스 아래에 숨겨져 있습니다. -->
 <div class="bestcontainer">
 <h3>추천 레시피</h3>
-<button onclick = "location.href = '/tae/Rcpinfowrite'">글 쓰기</button>
-${search1}개의 검색 결과 입니다.
+<h4>${search1}개의 검색 결과 입니다.</h4>
 <div class="rinfo">
 <c:forEach items="${search}" var="se">
 <div class="thumimg">
@@ -119,20 +118,5 @@ ${se.nickname}
 </c:forEach>
 </div>
 </div>
-  <div class="page_wrap"style="clear:both;">
-  <div class="page_nation">
-      <div class="paging" align="center" >
-         <c:if test="${begin > pageNum}">
-            <a class="point" href="bestRcp?p=${begin-1}">◀</a>
-         </c:if>
-         <c:forEach begin="${begin}" end = "${end}" var='i'>
-            <a class="point" href="bestRcp?p=${i}" class="page">${i}</a>
-         </c:forEach>
-         <c:if test="${end < totalPages}">
-            <a class="point" href="bestRcp?p=${end+1}">▶</a>
-         </c:if>
-      </div>
-      </div>
-      </div>
 </body>
 </html>

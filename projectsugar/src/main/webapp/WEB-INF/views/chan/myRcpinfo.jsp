@@ -142,14 +142,13 @@ btn_gotop {
 			</div>
 		</div>
 		<div class="blank_bottom"></div>
+		<button id = "like" style="background:white; border:none;"><img src="/img/like.png" name ="rlikes" class = "like" style="width: 100px; height: 100px;"></button>
 		<div class="heart">추천수: <span>${Recipeinfo.rlikes}</span></div>
 	</div>
 </div>
-<button id = "like"><img src="/img/like.png" name ="rlikes" class = "like"></button>
-
 <div style="position:fixed; bottom:35px; right:30px; z-index:99;"> 
 <a href="#doz_header" class="btn_gotop">
-  <img src="/style/goguma1.jpeg" style="width:120px"> 
+  <img src="/img/top.jpg" style="width: 70px; height: 70px; border-radius: 50%;"> 
 </a>
 </div>
 
