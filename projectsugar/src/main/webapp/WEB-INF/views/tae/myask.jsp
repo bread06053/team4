@@ -13,7 +13,7 @@
  <tr>
 <th>글 번호</th><th>글 제목</th><th>아이디</th></tr>
 <c:forEach items="${ask}" var="as">
-<tr><td>${as.ano}</td><td>${as.atitle}</td><td>${as.userid}</td></tr>
+<tr><td><a href = "/admin/apopup/${as.ano}">${as.ano}</a></td><td>${as.atitle}</td><td>${as.userid}</td></tr>
 </c:forEach>
 </table>
 </body>

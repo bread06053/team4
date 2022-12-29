@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="spring.example.domian.Recipe">
+<mapper namespace="spring.example.dao.RecipeDao">
 
 
 	<select id="recipeSearch" parameterType="spring.example.domain.Recipe" resultType="spring.example.domain.Recipe">

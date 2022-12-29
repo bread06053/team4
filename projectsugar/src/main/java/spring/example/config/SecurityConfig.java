@@ -24,7 +24,7 @@ public class SecurityConfig{
 	
 		
 		
-		security.authorizeRequests().antMatchers("/tae/login","/tae/join","/tae/find","/").permitAll();
+		security.authorizeRequests().antMatchers("/admin/apopup1/**","/admin/apopup/**","/tae/login","/tae/join","/tae/find","/").permitAll();
 		security.authorizeRequests().antMatchers("/member/**").authenticated();
 		security.authorizeRequests().antMatchers("/admin/**").hasAnyRole("ADMIN");
 

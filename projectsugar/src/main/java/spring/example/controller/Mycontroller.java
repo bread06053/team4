@@ -23,13 +23,16 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.multipart.MultipartFile;
 
 import spring.example.config.SecurityUser;
+import spring.example.dao.AskcommDao;
 import spring.example.domain.Ask;
+import spring.example.domain.Askcomm;
 import spring.example.domain.Ban;
 import spring.example.domain.Post;
 import spring.example.domain.Recipe;
 import spring.example.domain.Style;
 import spring.example.domain.User;
 import spring.example.domain.Cate;
+import spring.example.domain.Comment;
 import spring.example.service.AskService;
 import spring.example.service.BanService;
 import spring.example.service.CommunityService;
@@ -402,10 +405,24 @@ public class Mycontroller {
 	      return "admin/bpopup";
 	   }
 	   @GetMapping("/admin/apopup/{ano}")
-	   public String asktext(@PathVariable int ano, Model m) {
+	   public String asktext(@PathVariable int ano, Model m,Askcomm acm) {
+		   List<Askcomm> info = service4.info(ano);
 		  Ask asktext=service4.asktext(ano); 
 		  m.addAttribute("asktext",asktext);
+		  m.addAttribute("info",info);
 	      return "admin/apopup";
+	   }
+	   
+	   @PostMapping("admin/apopup")
+	   public String insertcomm(Askcomm acm) {
+		   service4.insertacm(acm);
+		   return "redirect:/admin/apopup/"+acm.getAno();
+	   }
+	   
+	   @GetMapping("admin/apopup1/{ano}/{acno}")
+	   public String deleteacm(@PathVariable int ano,@PathVariable int acno) {
+		   service4.deleteacm(acno);
+		   return "redirect:/admin/apopup/"+ano;
 	   }
 	   
 	 @GetMapping("chan/myRcpinfo/{rno}")
@@ -470,7 +487,7 @@ public class Mycontroller {
 		  m.addAttribute("search1",search1);
 		 return "tae/recipeSearch";
 	 }
-
+	 
 }
 
 
