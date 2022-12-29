@@ -101,7 +101,7 @@
 <!--  이거 체크박스 아래에 숨겨져 있습니다. -->
 <div class="bestcontainer">
 <h3>추천 레시피</h3>
-<button onclick = "location.href = '/tae/Rcpinfowrite'">글 쓰기</button>
+
 ${search1}개의 검색 결과 입니다.
 <div class="rinfo">
 <c:forEach items="${search}" var="se">
