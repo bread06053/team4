@@ -13,7 +13,9 @@ public class SecurityUser extends User {
     public SecurityUser(spring.example.domain.User user) {
         super(user.getUserid(), "{noop}"+user.getPasswd(),
                 AuthorityUtils.createAuthorityList(user.getRole().toString()));
+        
         this.user = user;
+      
     }
 
     public static long getSerialversionuid() {

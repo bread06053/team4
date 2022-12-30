@@ -36,15 +36,17 @@
 	</div>
 	<c:forEach var="i" items="${info}">
 				
-				작성자 :${i.userid }<br>
+				작성자 :${id }<br>
 				댓글 : ${i.actext }  	<!-- 날짜값 태그 주고 화면 오른쪽으로 나오면 이쁠듯 -->	  <br>
+				<c:if test = "${i.userid  == id}">
 				<button onclick = "location.href='/admin/apopup1/${i.ano}/${i.acno}'">댓글 삭제</button><hr>
+				</c:if>
 				<hr>
 				</c:forEach>
 	<form method = "post" action = "/admin/apopup">
 	댓글 : <input name = actext> 
 	<input type = "hidden" name = "ano" value = "${asktext.ano}">
-	<input type = "hidden" name = "userid" value = "${asktext.userid }">
+	<input type = "hidden" name = "userid" value = "${id }">
 	<button type = "submit">답변 등록</button>
 	</form>
 </div>
