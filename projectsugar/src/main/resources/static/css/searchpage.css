@@ -48,3 +48,8 @@
     margin-top: 8px;
     margin-bottom: 8px;
 }
+.search1{
+	overflow: auto;
+  	display:inline-block;
+  	padding-left:0px;
+}

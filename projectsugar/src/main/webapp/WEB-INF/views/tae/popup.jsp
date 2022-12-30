@@ -14,7 +14,7 @@
             left : 50%;
             top : 50%;
             transform: translate(-50%, -50%);
-            background-color: #EEEFF1;
+            background-color: #EEEFF;
             border-radius: 5px;
             text-align: center;
             padding: 20px;
@@ -28,6 +28,7 @@
 <p class="a"><span style="font-size: 200%;">요</span><span style="font-size:100%;">리초보들을 위한</span>
 <span style="font-size: 200%;">요</span><span style="font-size:100%;">리비책</span></p>
 </div>
+
 <c:if test = "${id != null}">
 <div id = good1>회원가입시 사용한 아이디는: ${id} 입니다.</div>
 </c:if>

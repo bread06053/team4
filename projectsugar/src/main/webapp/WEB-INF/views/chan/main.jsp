@@ -51,12 +51,7 @@
     <a href="http://localhost:8084/chan/mypage">
     <sec:authentication property = "principal.user.userid"></sec:authentication>님 안녕하세요!<br>
     <sec:authorize access = "!isAuthenticated()"/>
-    <c:if test="${profile == null }" >
-    <img src="/style/goguma3.jpeg">
-    </c:if>
-    <c:if test = "${profile != null }">
     <img src="/profile/<sec:authentication property = "principal.user.profile"/>">
-    </c:if>
     </a>
     <button class ="logout" onclick = 'location.href = "/logout"'>로그아웃</button>
 </div>
@@ -76,7 +71,8 @@
 <div class="slideshow-container">
 		<c:forEach var="i" items="${bestView}">
 		<div class="mySlides fade">
-		<img src="/rthumimg/${i}" style="height: 500px; width: 1141px;">
+		<a href="/chan/myRcpinfo/${i.rno}"><img src="/rthumimg/${i.rthumimg}" style="height: 500px; width: 1141px;">
+		</a>
 		</div>
 		</c:forEach>
 		<a class="prev" onclick="plusSlides(-1)">❮</a>
@@ -113,7 +109,7 @@
 	
 	<c:forEach var="i" items="${recent}">
 	<div class="thumimg">
-	<img src="/rthumimg/${i.rthumimg}" style="width:300px; height:200px"><br>
+	<a href="/chan/myRcpinfo/${i.rno}"><img src="/rthumimg/${i.rthumimg}" style="width:300px; height:200px"></a><br>
 <strong>${i.rtitle}</strong>
 	</div>
 	</c:forEach>

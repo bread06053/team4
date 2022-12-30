@@ -19,15 +19,17 @@
 </head>
 <body>
 <div class="yoyo_top_wrap">
-   <div class="yoyo_top">
-   <h1>
-   <a href="http://localhost:8084/chan/main">
-   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYeFHo_i34CbGLC4ZmZyjA3V8XSK_sUHWE7A&usqp=CAU" alt="로고">
-   </a>
-   </h1>
-   <div class="yoyo_search">
-   <form id="yoyoSearch" method="post" action="/tae/searchpage">
-      <div class="input-group">
+<<<<<<< HEAD
+	<div class="yoyo_top">
+	<h1>
+	<a href="http://localhost:8084/chan/main">
+	<img id = "sugarimg" src="/style/${all}" alt="로고">
+	</a>
+	</h1>
+	<div class="yoyo_search">
+	<form id="yoyoSearch" method="post" action="/tae/searchpage">
+		<div class="input-group">
+
 
       <input id="yoyoText" name="q" type="text" class="form-control ui-autocmplete-input" placeholder values="" style="ime-mode:active;" autocomplete="off">   
       <span class="input-group-btn">
@@ -46,7 +48,7 @@
          <span style="margin: 10; padding: 10; font-size: 0; display: block; text-align: center;"><img src="" width="8"></span>
          <span style="border-radius: 2px; background: #ffd200; color: #000; display: block; font-size: 11px; padding:2px 5px; text-align: center;">회원가입</span>
     </div>
-    <a href="http://localhost:8084/tae/login">
+    <a href="http://localhost:8084/chan/mypage">
     <sec:authentication property = "principal.user.userid"></sec:authentication>님 안녕하세요!<br>
     <sec:authorize access = "!isAuthenticated()"/>
     <img src="/profile/<sec:authentication property = "principal.user.profile"/>">
@@ -113,26 +115,53 @@
                      </div>
                   </div>
                </div>
-            댓글
-            <c:forEach var="i" items="${info}">
-            
-            작성자 :${i.userid }<br>
-            댓글 : ${i.ctext }     <!-- 날짜값 태그 주고 화면 오른쪽으로 나오면 이쁠듯 -->   <fmt:formatDate value="${i.ctime}" pattern="MM/dd"/>  <br>
-         
-            <c:if test = "${ i.userid == id }">
+               <div class="CommentBox">
+				<h3 class="comment_title">댓글</h3>
+				<ul class="comment_list">
+				<c:forEach var="i" items="${info}">
+				<li class="CommentItem">
+				<div class="comment_area">
+					<img src="/profile/${i.profile}">
+					<div class="comment_box">
+						<div class="comment_nick_box">
+							<div class="comment_nick_info">
+							${i.nickname}
+							</div>
+							<i class="LevelIcon icon_level" style="background-image:url(/levelimg/${i.badge})"></i></div>
+							<div class="comment_text_box">
+								<p class="comment_text_view">
+									${i.ctext } 
+								</p>
+							</div>
+							<div class="comment_info_box">
+							<span class="comment_info_date">
+								${i.ctime}
+							</span><c:if test = "${ i.userid == id }">
             <button onclick = "location.href='/post/postview1/${i.cno}/${i.pno}'">댓글 삭제</button><hr>
             </c:if>
-            </c:forEach>
-            
-            <form method = "post" action = "/post/postview">
-            <input type = "hidden" name = "userid" value= "${id }">
-            <input type = "hidden" name = "pno" value= "${dto.pno}"> 
-            <input name = "ctext">
-            <button type = "submit">댓글 등록</button>
-            </form>
-            </div>
-      <button type="button" onclick="location.href='/post/postlist'">목록으로</button>
-   </div>
+							</div>					
+					</div>
+				</div>
+				</li>
+				</c:forEach>
+				</ul>
+				<div class="CommentWriter">
+					<div class="comment_inbox">
+					<form method = "post" action = "/post/postview">
+					<em class="comment_inbox_name">${dto.userid}</em>
+					<input type = "hidden" name = "userid" value= "${id }">
+					<input type = "hidden" name = "pno" value= "${dto.pno}"> 
+					<textarea name="ctext" placeholder="댓글을 남겨보아요" class="comment_inbox_text" style="overflow:hidden; overflow-wrap:break-word;">
+					</textarea>
+					<button type = "submit">댓글 등록</button>
+				</form>
+					</div>
+				</div>
+				</div>
+				</div>
+		<button type="button" onclick="location.href='/post/postlist'"style=" margin-bottom: 10px; margin-left: 750px;">목록으로</button>
+	</div>
+</div>
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>

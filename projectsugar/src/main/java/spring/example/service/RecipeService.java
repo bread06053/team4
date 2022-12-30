@@ -67,8 +67,14 @@ public class RecipeService {
 	public List<Recipe> recipeSearch(Recipe recipe){
 		return dao.recipeSearch(recipe);
 	}
+	public List<Recipe> myrecipeSearch(Recipe recipe){
+		return dao.myrecipeSearch(recipe);
+	}
 	public int recipeSearch1(Recipe recipe) {
 		return dao.recipeSearch1(recipe);
+	}
+	public int recipeSearch2(Recipe recipe) {
+		return dao.recipeSearch2(recipe);
 	}
 	public List<Map<String,Object>>wordcloud(){
 		return dao.wordcloud();

@@ -42,7 +42,7 @@ String getProfile(User user);
 
 
 @Select
-("select REPLACE(REPLACE(rthumimg,'[',''),']','')as rthumimg,rtitle from recipe ORDER BY rno DESC limit 4")
+("select REPLACE(REPLACE(rthumimg,'[',''),']','')as rthumimg,rtitle,rno from recipe ORDER BY rno DESC limit 4")
 List<Map<String,String>> recentRcp();
 
 
@@ -51,8 +51,8 @@ List<Map<String,String>> recentRcp();
 List<Map<String,Object>> bestChef();
 
 @Select
-("select REPLACE(REPLACE(rthumimg,'[',''),']','')as rthumimg from recipe where rstate=1 ORDER BY rlikes desc limit 3")
-List<String> bestView();
+("select REPLACE(REPLACE(rthumimg,'[',''),']','')as rthumimg,rno from recipe where rstate=1 ORDER BY rlikes desc limit 3")
+List<Map<String,Object>> bestView();
 
 @Select
 ("select count(userid) from user")

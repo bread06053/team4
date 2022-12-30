@@ -16,7 +16,7 @@ public interface RecipeDao {
 
 	
 @Select
-("select rtitle,rno from recipe where rtitle like concat('%',#{search},'%')")
+("select rtitle,rno,REPLACE(REPLACE(rthumimg,'[',''),']','')as rthumimg from recipe where rtitle like concat('%',#{search},'%')")
 List<Recipe> searchti1(String search);
 
 @Select
@@ -66,6 +66,8 @@ int rlikesup(int rno);
 List<Recipe> recipeSearch(Recipe recipe);
 int recipeSearch1(Recipe recipe);
 
+List<Recipe> myrecipeSearch(Recipe recipe);
+int recipeSearch2(Recipe recipe);
 @Select
 ("select catename as x,count(*)as value from cate inner join recipe on cate.cateno=recipe.cateno group by cate.cateno")
 List<Map<String,Object>> wordcloud();

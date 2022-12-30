@@ -1,6 +1,7 @@
 package spring.example.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,7 +23,7 @@ public class CommentService {
 		return dao.deletecomm(comm);
 	}
 	
-	public List<Comment> infocomm(int pno){
+	public List<Map<String,Object>> infocomm(int pno){
 		return dao.infocomm(pno);
 	}
 }
