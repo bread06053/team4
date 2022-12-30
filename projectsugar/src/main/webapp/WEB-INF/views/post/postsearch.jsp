@@ -29,7 +29,7 @@ th{border-bottom:2px solid peru;}
 	<div class="yoyo_top">
 	<h1>
 	<a href="http://localhost:8084/chan/main">
-	<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYeFHo_i34CbGLC4ZmZyjA3V8XSK_sUHWE7A&usqp=CAU" alt="로고">
+	<img id = "sugarimg" src="/style/${all}" alt="로고">
 	</a>
 	</h1>
 	<div class="yoyo_search">
@@ -53,7 +53,7 @@ th{border-bottom:2px solid peru;}
          <span style="margin: 10; padding: 10; font-size: 0; display: block; text-align: center;"><img src="" width="8"></span>
          <span style="border-radius: 2px; background: #ffd200; color: #000; display: block; font-size: 11px; padding:2px 5px; text-align: center;">회원가입</span>
     </div>
-    <a href="http://localhost:8084/tae/login">
+    <a href="http://localhost:8084/chan/mypage">
     <sec:authentication property = "principal.user.userid"></sec:authentication>님 안녕하세요!<br>
     <sec:authorize access = "!isAuthenticated()"/>
     <img src="/profile/<sec:authentication property = "principal.user.profile"/>">
@@ -73,8 +73,7 @@ th{border-bottom:2px solid peru;}
         </div>
 <div id="center">
 <!-- 게시글 리스트 테이블 -->
-<div id = "title">
-   <a href="postlist" class="postlist">커뮤니티</a>    
+<div id = "title">   
 </div>
    <!-- 조회수/최신순 정렬 -->
    <div class = "sort" align="right">

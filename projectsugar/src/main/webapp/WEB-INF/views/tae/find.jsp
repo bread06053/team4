@@ -68,7 +68,7 @@ background-color: #1BBC9B;
 margin-bottom: 30px;
 margin-top : 10px;
 color: white;
-width: 15%;
+width: 20%;
 padding: 5px;
 }
 #btn2 {

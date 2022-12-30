@@ -88,7 +88,7 @@ public class Mycontroller {
 	public String main(@AuthenticationPrincipal SecurityUser user,Model m) {
 		List<Map<String,String>> recent=service.recentRcp();
 		List<Map<String,Object>> bestChef= service.bestChef();
-		List<String> bestView=service.bestView();
+		List<Map<String,Object>> bestView=service.bestView();
 		
 		m.addAttribute("userid",user.getUser().getUserid());
 		m.addAttribute("profile",user.getUser().getProfile());
@@ -155,6 +155,8 @@ public class Mycontroller {
 		m.addAttribute("recipe",recipe);
 		m.addAttribute("post",post);
 		m.addAttribute("q", q);
+		 String all=service6.all();
+		 m.addAttribute("all",all);
 		return "tae/searchpage";
 	}
 	
@@ -190,6 +192,8 @@ public class Mycontroller {
 		List<Map<String,Object>> cateName=service2.cateName();
 		List<String> rcpLevel=service2.rcpLevel();
 		List<Map<String,Object>> rcpTime=service2.rcpTime();
+		 String all=service6.all();
+		 m.addAttribute("all",all);
 		m.addAttribute("cnt",cnt);
 		m.addAttribute("cateName",cateName);
 		m.addAttribute("rcpLevel",rcpLevel);
@@ -221,6 +225,8 @@ public class Mycontroller {
 		List<Map<String,Object>> cateName=service2.cateName();
 		List<String> rcpLevel=service2.rcpLevel();
 		List<Map<String,Object>> rcpTime=service2.rcpTime();
+		 String all=service6.all();
+		 m.addAttribute("all",all);
 		m.addAttribute("cnt",cnt);
 		m.addAttribute("cateName",cateName);
 		m.addAttribute("rcpLevel",rcpLevel);
@@ -230,6 +236,8 @@ public class Mycontroller {
 	@GetMapping("chan/bestRcpInfo/{rno}")
 	public String bestRcpInfo(@PathVariable int rno, Model m){
 		Recipe Recipeinfo = service2.Recipeinfo(rno);
+		 String all=service6.all();
+		 m.addAttribute("all",all);
 		m.addAttribute("Recipeinfo",Recipeinfo);
 		return "chan/bestRcpInfo";
 	}
@@ -260,19 +268,23 @@ public class Mycontroller {
 	}
 	
 	@GetMapping("/tae/Rcpinfowrite")
-	public String Rcpinfowrite() {
+	public String Rcpinfowrite(Model m) {
+		 String all=service6.all();
+		 m.addAttribute("all",all);
 		return "/tae/Rcpinfowrite";
 	}
 
 	@PostMapping("tae/Rcpinfowrite1")
-	public String Rcpinfowrite(Recipe recipe, MultipartFile img,HttpServletRequest request) {
+	public String Rcpinfowrite(Recipe recipe, MultipartFile img,HttpServletRequest request,Model m) {
 		
 		String path = upload(img, request);
 		
 		recipe.setRthumimg(path);
 		
+		 String all=service6.all();
+		 m.addAttribute("all",all);
 		service2.Recipewrite(recipe);
-		return "redirect:/chan/bestRcp";
+		return "redirect:/chan/myRcp";
 	}
 	private String upload(MultipartFile rthumimg ,HttpServletRequest request) {
 		long currentTime = System.currentTimeMillis();
@@ -426,13 +438,16 @@ public class Mycontroller {
 	 @GetMapping("chan/myRcpinfo/{rno}")
 	 public String myRcpinfo(@PathVariable int rno, Model m) {
 		Recipe Recipeinfo = service2.Recipeinfo(rno);
+		 String all=service6.all();
+		 m.addAttribute("all",all);
 		m.addAttribute("Recipeinfo",Recipeinfo);
 		 return "chan/myRcpinfo";
 	 }
 	 @PostMapping("chan/myRcpinfo1")
 	 @ResponseBody
-	 public String myRcpinfo1(int rno) {
-			
+	 public String myRcpinfo1(int rno,Model m) {
+		 String all=service6.all();
+		 m.addAttribute("all",all);	
 		service2.rlikesup(rno);
 		 return "chan/myRcpinfo";
 	 }
@@ -492,7 +507,8 @@ public class Mycontroller {
 		 		 
 
 	 @GetMapping("tae/recipeSearch")
-	 public String resultsearch(Recipe recipe,Model m) {	
+	 public String resultsearch(Recipe recipe,Model m) {
+		 	System.out.println("recipe::"+recipe);
          	int search1 = service2.recipeSearch1(recipe);	
 	         List<Recipe> search = service2.recipeSearch(recipe);
 			 m.addAttribute("search",search);
@@ -500,11 +516,31 @@ public class Mycontroller {
 			List<Map<String,Object>> cateName=service2.cateName();
 			List<String> rcpLevel=service2.rcpLevel();
 			List<Map<String,Object>> rcpTime=service2.rcpTime();
+			 String all=service6.all();
+			
+			 m.addAttribute("all",all);
 			m.addAttribute("cateName",cateName);
 			m.addAttribute("rcpLevel",rcpLevel);
 			m.addAttribute("rcpTime",rcpTime);
 		  m.addAttribute("search1",search1);
 		 return "tae/recipeSearch";
+	 }
+	 @GetMapping("chan/myrecipeSearch")
+	 public String resultmysearch(Recipe recipe,Model m) {	
+         	int search2 = service2.recipeSearch2(recipe);	
+	         List<Recipe> mysearch = service2.myrecipeSearch(recipe);
+			 m.addAttribute("mysearch",mysearch);
+	        
+			List<Map<String,Object>> cateName=service2.cateName();
+			List<String> rcpLevel=service2.rcpLevel();
+			List<Map<String,Object>> rcpTime=service2.rcpTime();
+			 String all=service6.all();
+			 m.addAttribute("all",all);
+			m.addAttribute("cateName",cateName);
+			m.addAttribute("rcpLevel",rcpLevel);
+			m.addAttribute("rcpTime",rcpTime);
+		  m.addAttribute("search2",search2);
+		 return "chan/myrecipeSearch";
 	 }
 	 @GetMapping("/admin/adstyle")
 	 public String adstyle() {

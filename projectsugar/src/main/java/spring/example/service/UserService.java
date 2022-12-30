@@ -43,7 +43,7 @@ public class UserService {
 	public List<Map<String,Object>> bestChef(){
 		return dao.bestChef();
 	}
-	public List<String> bestView() {
+	public List<Map<String,Object>> bestView() {
 		return dao.bestView();
 	}
 	public int cntUser() {

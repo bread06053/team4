@@ -1,0 +1,35 @@
+@charset "UTF-8";
+html{
+	width:100%;
+	height:100%;
+}
+body{	width:100%;
+	height:100%;}
+.container{
+	width:100%;
+	height:100%;
+	text-align:center;	
+	position:relative;
+	z-index: 1;
+}
+.container::before{
+	width:100%;
+	height:100%;
+	content:"";
+	background:url("/img/images (1).jpg");
+	position:absolute;
+	top:0;
+	left:0;
+	z-index: -1;
+	opacity: 0.1;
+}
+form {
+    width: 300px;
+    background-color: #EEEFF1;
+    border-radius: 5px;
+    text-align: center;
+    padding: 20px;
+    top: 400px;
+    position: absolute;
+    left: 850px;
+}

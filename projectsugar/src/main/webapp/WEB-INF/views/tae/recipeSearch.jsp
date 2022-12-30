@@ -26,7 +26,7 @@
 	<div class="yoyo_top">
 	<h1>
 	<a href="http://localhost:8084/chan/main">
-	<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYeFHo_i34CbGLC4ZmZyjA3V8XSK_sUHWE7A&usqp=CAU" alt="로고">
+	<img id = "sugarimg" src="/style/${all}" alt="로고">
 	</a>
 	</h1>
 	<div class="yoyo_search">
@@ -90,7 +90,7 @@
 </c:forEach><br><br>
 <h4>시간별</h4>
 <c:forEach var="i" items="${rcpTime}">
-<input type='radio' id='${i.num}' name="rtime" value='${i.num}'/>
+<input type='radio' id='${i.num}' name="rtime" value='${i.rtime}'/>
 <label for='${i.num}'>
 </label>${i.rtime}
 </c:forEach><br>
@@ -101,12 +101,7 @@
 <!--  이거 체크박스 아래에 숨겨져 있습니다. -->
 <div class="bestcontainer">
 <h3>추천 레시피</h3>
-<<<<<<< HEAD
 <h4>${search1}개의 검색 결과 입니다.</h4>
-=======
-
-${search1}개의 검색 결과 입니다.
->>>>>>> refs/heads/master
 <div class="rinfo">
 <c:forEach items="${search}" var="se">
 <div class="thumimg">

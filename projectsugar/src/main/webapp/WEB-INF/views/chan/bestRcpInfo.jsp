@@ -23,7 +23,7 @@
 	<div class="yoyo_top">
 	<h1>
 	<a href="http://localhost:8084/chan/main">
-	<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYeFHo_i34CbGLC4ZmZyjA3V8XSK_sUHWE7A&usqp=CAU" alt="로고">
+	<img id = "sugarimg" src="/style/${all}" alt="로고">
 	</a>
 	</h1>
 	<div class="yoyo_search">
@@ -128,9 +128,7 @@
 			</div>
 		</div>
 		<div class="blank_bottom"></div>
-		<div class="heart">추천수: ${Recipeinfo.rlikes}</div>
 	</div>
 </div>
- <a class="gohome" href="/chan/bestRcp"><img src="/style/밤고구마.jpeg" style="margin-left:150px;"></a>
 </body>
 </html>
