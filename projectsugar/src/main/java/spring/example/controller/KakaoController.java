@@ -44,7 +44,7 @@ public class KakaoController {
         String userName = (String) result.get("nickname");
         String email = (String) result.get("email");
         String userpw = snsId;
-        System.out.println("snsId::"+snsId);
+      
         // 분기
         // 일치하는 snsId 없을 시 회원가입
         if (memberService.kakaoLogin(email) == null) {
