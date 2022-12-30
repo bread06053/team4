@@ -12,7 +12,19 @@
 <title>Insert title here</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Dongle&display=swap" rel="stylesheet">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Dongle&display=swap');
+li img{
+ width:100px;
+ height:100px
+}
+.view2{
+	width: 600px;
+	display: block;
+	border-bottom: inset;
+}
+.view1{
+
+    font-size: 30px;
+    }
 </style>
 </head>
 </head>
@@ -21,7 +33,7 @@
 	<div class="yoyo_top">
 	<h1>
 	<a href="http://localhost:8084/chan/main">
-	<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYeFHo_i34CbGLC4ZmZyjA3V8XSK_sUHWE7A&usqp=CAU" alt="로고">
+	<img id = "sugarimg" src="/style/${all}" alt="로고">
 	</a>
 	</h1>
 	<div class="yoyo_search">
@@ -71,14 +83,14 @@
 			${q }으로/로 검색 결과를 보여줍니다..
 			<div class="line2"></div>
 <hr>
-<ul>
+<ul class="search1">
 <c:if test = "${recipe.size() == 0}">
 		<div>검색결과가 없습니다..</div>
 
 </c:if>
 <c:if test = "${recipe.size() != 0}">
 <c:forEach items="${recipe}" var="dto">	
-	<li><a href="/chan/bestRcpInfo/${dto.rno}"> ${dto.rtitle}</a><br>	
+	<li class="view2"><a class="view1" href="/chan/bestRcpInfo/${dto.rno}">${dto.rthumimg}${dto.rtitle}</a><br>	
 </c:forEach>
 </c:if>
 </ul>
@@ -91,10 +103,16 @@
 	커뮤니티 검색 결과 입니다.</div><br>
 	${q }으로/로 검색 결과를 보여줍니다..
 		<div class="line2"></div>
-<ul>
+<ul class="search1">
+<c:if test = "${post.size() == 0}">
+		<div>검색결과가 없습니다..</div>
+
+</c:if>
+<c:if test = "${post.size() != 0}">
 	<c:forEach items="${post}" var="dto">
-		<li><a href="=/post/postview/${dto.pno}"> ${dto.ptitle}</a><br>
+		<li class="view2"><a class="view1" href="/post/postview/${dto.pno}"> ${dto.ptitle}</a><br>
 	</c:forEach>
+</c:if>
 </ul>
 </div>
 </div>

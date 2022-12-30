@@ -22,7 +22,7 @@
 </style>
 </head>
 <body>
-<div class="yoyo_top_wrap">
+<div class="yoyo_top_wra p">
 	<div class="yoyo_top">
 	<h1>
 	<a href="http://localhost:8084/chan/main">
@@ -74,7 +74,7 @@
 <h3>주재료 <span>카테고리</span></h3>
 </dt>
 <dd style="margin-top:-10px;">
-<form method="get" class="cate" action="/tae/recipeSearch">
+<form method="get" class="cate" action="/chan/myrecipeSearch">
 <h4>재료별</h4>
 
 <c:forEach var="i" items="${cateName}">
@@ -90,48 +90,32 @@
 </c:forEach><br><br>
 <h4>시간별</h4>
 <c:forEach var="i" items="${rcpTime}">
-<input type='radio' id='${i.num}' name="rtime" value='${i.time}'/>
+<input type='radio' id='${i.num}' name="rtime" value='${i.rtime}'/>
 <label for='${i.num}'>
 </label>${i.rtime}
 </c:forEach><br>
 <input type='submit' value='검색'>
 </form>
 </dl>
-</div><br>
-
+</div>
+<!--  이거 체크박스 아래에 숨겨져 있습니다. -->
 <div class="bestcontainer">
 <h3>추천 레시피</h3>
-<h4>${cnt}개의 검색 결과가 있습니다.</h4>
+<h4>${search2}개의 검색 결과 입니다.</h4>
 <div class="rinfo">
-<c:forEach var="i" items="${best}">
-	<div class="thumimg">
-	<a href ="/chan/bestRcpInfo/${i.rno}">${i.rthumimg}</a>
-	<div class="title">
+<c:forEach items="${mysearch}" var="i">
+<div class="thumimg">
+<a href ="/chan/myRcpInfo/${i.rno}"><img src="/rthumimg/${i.rthumimg}"style="width:430px; height:200px;"></a>
+<div class="title">
 <strong style="">${i.rtitle}</strong>
 </div>
 <div class="chefinfo">
-작성자: 
-<img src="/profile/${i.profile}">
+작성자 : <img src="/profile/${i.profile}"> 
 ${i.nickname}
-	</div>
-	</div>
-	</c:forEach>
-      </div>
-  </div>
-  <div class="page_wrap"style="clear:both;">
-  <div class="page_nation">
-      <div class="paging" align="center" >
-         <c:if test="${begin > pageNum}">
-            <a class="point" href="bestRcp?p=${begin-1}">◀</a>
-         </c:if>
-         <c:forEach begin="${begin}" end = "${end}" var='i'>
-            <a class="point" href="bestRcp?p=${i}" class="page">${i}</a>
-         </c:forEach>
-         <c:if test="${end < totalPages}">
-            <a class="point" href="bestRcp?p=${end+1}">▶</a>
-         </c:if>
-      </div>
-      </div>
-      </div>
+</div>
+</div>
+</c:forEach>
+</div>
+</div>
 </body>
 </html>

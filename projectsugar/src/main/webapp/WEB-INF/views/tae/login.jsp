@@ -2,13 +2,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+<link rel="stylesheet" href="/css/login.css"/>
 <meta name="google-signin-client_id" content="796949115397-ai1it1djvm2m96661au2tgt3e4ftk6l6.apps.googleusercontent.com">
 
 <style type="text/css">
-body{
-	background : url("/img/IMG_8048.PNG");
-}
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 
         * {
@@ -29,15 +26,7 @@ body{
           
         }
         
-        form{
-        	width: 300px;
-            margin-left : 800px;
-            margin-top : 500px;
-			background-color: #EEEFF1;
-            border-radius: 5px;
-            text-align: center;
-            padding: 20px;
-        }
+
         
         #g-signin2{
 		    margin-left : 50%;
@@ -85,7 +74,7 @@ body{
 <title>Insert title here</title>
 </head>
 <body >
-    <div>
+    <div class="container">
         <form method = "post">
             <input type="text" name="username" placeholder="아이디" class="in">
             <input type="password" name="password" placeholder="비밀번호" class="in">

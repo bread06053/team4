@@ -10,13 +10,11 @@
 		
 		select REPLACE(REPLACE(rthumimg,'[',''),']','')as rthumimg ,rtitle,profile,nickname,rno from recipe inner join user on recipe.userid = user.userid
 		<where>
-			<choose>
-				<when test="cateno == null">
-				 rlevel = #{rlevel} and rtime =#{rtime} and rstate = 1</when>
-				<when test="rlevel == null"> cateno = #{cateno} and rtime = #{rtime} and rstate = 0</when>
-				<when test="rtime == null"> cateno = #{cateno} and rlevel = #{rlevel} and rstate = 0</when>
-				<otherwise>cateno = #{cateno} and rlevel = #{rlevel} and rtime = #{rtime} and rstate = 0 </otherwise>
-			</choose>
+				<if test="cateno != 0">
+				 and cateno=#{cateno}</if>
+				<if test="rlevel != null">and rlevel=#{rlevel} </if>
+				 <if test="rtime != null">and rtime=#{rtime}</if>
+				  and rstate = 0
 		</where> 
 		</select>
 		
@@ -24,13 +22,36 @@
 		
 		select count(*) from recipe 
 		<where>
-			<choose>
-				<when test="cateno == null">
-				 rlevel = #{rlevel} and rtime =#{rtime}</when>
-				<when test="rlevel == null"> cateno = #{cateno} and rtime = #{rtime} </when>
-				<when test="rtime == null"> cateno = #{cateno} and rlevel = #{rlevel} </when>
-				<otherwise>cateno = #{cateno} and rlevel = #{rlevel} and rtime = #{rtime} </otherwise>
-			</choose>
+			<if test="cateno != 0">
+				 cateno=#{cateno}</if>
+				<if test="rlevel != null"> and rlevel=#{rlevel}</if>
+				<if test="rtime != null"> and rtime=#{rtime}</if>
+				and rstate=0
+		</where> 
+		</select> 
+		
+		<select id="myrecipeSearch" parameterType="spring.example.domain.Recipe" resultType="spring.example.domain.Recipe">
+
+		
+		select REPLACE(REPLACE(rthumimg,'[',''),']','')as rthumimg ,rtitle,profile,nickname,rno from recipe inner join user on recipe.userid = user.userid
+		<where>
+			<if test="cateno != 0">
+				 and cateno=#{cateno}</if>
+				<if test="rlevel != null">and rlevel=#{rlevel} </if>
+				 <if test="rtime != null">and rtime=#{rtime}</if>
+				  and rstate = 1
+		</where> 
+		</select>
+		
+		<select id="recipeSearch2" parameterType="spring.example.domain.Recipe" resultType="int">
+		
+		select count(*) from recipe 
+		<where>
+			<if test="cateno != 0">
+				 and cateno=#{cateno}</if>
+				<if test="rlevel != null">and rlevel=#{rlevel} </if>
+				 <if test="rtime != null">and rtime=#{rtime}</if>
+				  and rstate = 1
 		</where> 
 		</select> 
 </mapper>

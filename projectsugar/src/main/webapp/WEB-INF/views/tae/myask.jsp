@@ -73,7 +73,7 @@
  								<tr>
 									<th>글 제목</th><th>글 내용</th></tr>
 									<c:forEach items="${ask}" var="as">
-								<tr><td>${as.atitle}</td><td>${as.atext}</td></tr>
+								<tr><td><a href="/admin/apopup/${as.ano}"onclick="window.open(this.href, '_blank', 'width=800, height=600'); return false;">${as.atitle}</a></td><td>${as.atext}</td></tr>
 									</c:forEach>
 								</table>
 								<div class="page_wrap"style="clear:both;">

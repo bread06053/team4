@@ -1,6 +1,7 @@
 package spring.example.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
@@ -22,6 +23,6 @@ public interface CommentDao {
 	int deletecomm(int cno);
 	
 	@Select
-	("Select * from comment where pno = #{pno}")
-	List<Comment> infocomm(int pno);
+	("Select * from comment inner join user on comment.userid =user.userid inner join level on user.level=level.level where pno = #{pno}")
+	List<Map<String,Object>> infocomm(int pno);
 }
