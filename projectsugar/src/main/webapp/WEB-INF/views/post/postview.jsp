@@ -115,7 +115,6 @@
                      </div>
                   </div>
                </div>
-<<<<<<< HEAD
                <div class="CommentBox">
 				<h3 class="comment_title">댓글</h3>
 				<ul class="comment_list">
@@ -158,17 +157,6 @@
 				</form>
 					</div>
 				</div>
-				<!--<c:forEach var="i" items="${info}">
-				작성자 :${i.userid }<br>
-				댓글 : ${i.ctext }  ${i.ctime}<br>
-				<button onclick = "location.href='/post/postview1/${i.cno}/${i.pno}'">댓글 삭제</button><hr>
-				</c:forEach>
-				<form method = "post" action = "/post/postview">
-				<input type = "hidden" name = "userid" value= "${dto.userid }">
-				<input type = "hidden" name = "pno" value= "${dto.pno}"> 
-				<input name = "ctext">
-				<button type = "submit">댓글 등록</button>
-				</form>-->
 				</div>
 				</div>
 		<button type="button" onclick="location.href='/post/postlist'"style=" margin-bottom: 10px; margin-left: 750px;">목록으로</button>
