@@ -62,6 +62,7 @@ public class CommunityController {
 		 m.addAttribute("all",all);
 	   m.addAttribute("info",info);
 	   m.addAttribute("profile", user.getUser().getProfile());
+	   m.addAttribute("id",user.getUser().getUserid());
 	   m.addAttribute("dto", dto);
 	   m.addAttribute("i",i);
    //   List<CommentDto> commentList = c_service.selectComment(comm_no);

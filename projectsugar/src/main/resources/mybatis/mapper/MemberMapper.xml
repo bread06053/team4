@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="spring.example.dao.MemberMapper">
+
+
+<insert id="kakaoInsert" parameterType="spring.example.domain.User">
+    INSERT INTO user (userid, passwd, name, nickname, email, address, role) VALUES
+    (#{userid}, #{passwd}, #{name}, #{name}, #{userid}, 'kakao', 'ROLE_MEMBER')
+</insert>
+
+
+</mapper>

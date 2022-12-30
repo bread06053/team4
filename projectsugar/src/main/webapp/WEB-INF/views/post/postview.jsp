@@ -19,6 +19,7 @@
 </head>
 <body>
 <div class="yoyo_top_wrap">
+<<<<<<< HEAD
 	<div class="yoyo_top">
 	<h1>
 	<a href="http://localhost:8084/chan/main">
@@ -29,20 +30,21 @@
 	<form id="yoyoSearch" method="post" action="/tae/searchpage">
 		<div class="input-group">
 
-		<input id="yoyoText" name="q" type="text" class="form-control ui-autocmplete-input" placeholder values="" style="ime-mode:active;" autocomplete="off">	
-		<span class="input-group-btn">
-		<button class="btn btn-default" type="submit" style="padding-bottom: 8px;">
-			<span class="glyphicon glyphicon-search">
-			::검색
-			</span>
-		</button>	
-		</span>
-		</div>
-	</form>	
+
+      <input id="yoyoText" name="q" type="text" class="form-control ui-autocmplete-input" placeholder values="" style="ime-mode:active;" autocomplete="off">   
+      <span class="input-group-btn">
+      <button class="btn btn-default" type="submit" style="padding-bottom: 8px;">
+         <span class="glyphicon glyphicon-search">
+         ::검색
+         </span>
+      </button>   
+      </span>
+      </div>
+   </form>   
 </div> 
 <div id = goodtaehun></div>
 <div class="yoyoRight" style="position:relative">
-	<div style="position: absolute; width:100px; top: 47px; left: 0; margin-left: -25px;display:none; margin:10;">
+   <div style="position: absolute; width:100px; top: 47px; left: 0; margin-left: -25px;display:none; margin:10;">
          <span style="margin: 10; padding: 10; font-size: 0; display: block; text-align: center;"><img src="" width="8"></span>
          <span style="border-radius: 2px; background: #ffd200; color: #000; display: block; font-size: 11px; padding:2px 5px; text-align: center;">회원가입</span>
     </div>
@@ -66,37 +68,39 @@
         </div>
 
 <div class="Article layout_content">
-	<div class="article_warp">
-		<div class="ArticleContentBox">
-			<div class="article_header">
-				<div class="ArticleTitle">
-					<div class="title_area">
-					<h3 class="title_text"> ${dto.ptitle}</h3>
-					</div>
-					<div class="WriterInfo">
-					<c:if test = "${profile == null}">
-					<img src = "/style/goguma1.jpeg">
-					</c:if>
-					<c:if test = "${profile != null }">
-						<img src="/profile/${dto.profile}" width="36" height="36">
-						</c:if>
-						<div class="profile_area">
-							<div class="profile_info">
-								<div class="nick_box">
-								${dto.nickname}
-								</div>
-							</div>
-							<div class="article_info">
-							<span class="date">${dto.ptime}</span>
-							<span class="count">${dto.pview}</span>
-							</div>
-						</div>	
-						<button class='up' onclick = "location.href = '/post/postupdate/${pno}'" style="float: right;"> 글 수정</button>	
-					</div>
-											
-				</div>
-			</div>
-			<div class="article_container"><br>
+   <div class="article_warp">
+      <div class="ArticleContentBox">
+         <div class="article_header">
+            <div class="ArticleTitle">
+               <div class="title_area">
+               <h3 class="title_text"> ${dto.ptitle}</h3>
+               </div>
+               <div class="WriterInfo">
+               <c:if test = "${profile == null}">
+               <img src = "/style/goguma1.jpeg">
+               </c:if>
+               <c:if test = "${profile != null }">
+                  <img src="/profile/${dto.profile}" width="36" height="36">
+                  </c:if>
+                  <div class="profile_area">
+                     <div class="profile_info">
+                        <div class="nick_box">
+                        ${dto.userid}
+                        </div>
+                     </div>
+                     <div class="article_info">
+                     <span class="date">${dto.ptime}</span>
+                     <span class="count">${dto.pview}</span>
+                     </div>
+                  </div>      
+                  <c:if test = "${dto.userid == id }">
+                  <button class='up' onclick = "location.href = '/post/postupdate/${pno}'" style="float: right;"> 글 수정</button>            
+              		</c:if>
+               </div>
+                                 
+            </div>
+         </div>
+         <div class="article_container"><br>
                <div class="aricle_viewer">
                ${dto.ptext}
                <input type="hidden" name = "pno" id = "pno" value="${dto.pno}">
@@ -111,6 +115,7 @@
                      </div>
                   </div>
                </div>
+<<<<<<< HEAD
                <div class="CommentBox">
 				<h3 class="comment_title">댓글</h3>
 				<ul class="comment_list">
@@ -132,7 +137,9 @@
 							<div class="comment_info_box">
 							<span class="comment_info_date">
 								${i.ctime}
-							</span>
+							</span><c:if test = "${ i.userid == id }">
+            <button onclick = "location.href='/post/postview1/${i.cno}/${i.pno}'">댓글 삭제</button><hr>
+            </c:if>
 							</div>					
 					</div>
 				</div>
@@ -143,7 +150,7 @@
 					<div class="comment_inbox">
 					<form method = "post" action = "/post/postview">
 					<em class="comment_inbox_name">${dto.userid}</em>
-					<input type = "hidden" name = "userid" value= "${dto.userid }">
+					<input type = "hidden" name = "userid" value= "${id }">
 					<input type = "hidden" name = "pno" value= "${dto.pno}"> 
 					<textarea name="ctext" placeholder="댓글을 남겨보아요" class="comment_inbox_text" style="overflow:hidden; overflow-wrap:break-word;">
 					</textarea>
@@ -164,9 +171,7 @@
 				</form>-->
 				</div>
 				</div>
-		<button type="button" onclick="location.href='/post/postlist'"style="
-    margin-bottom: 10px;
-    margin-left: 750px;">목록으로</button>
+		<button type="button" onclick="location.href='/post/postlist'"style=" margin-bottom: 10px; margin-left: 750px;">목록으로</button>
 	</div>
 </div>
 </div>
@@ -174,8 +179,8 @@
 <script>
 
 $("#btn_rep").click(function(){
-				
-				window.open('/post/rpopup/${dto.pno}', 'pop01', 'top=10, left=10, width=500, height=600, status=no, menubar=no, toolbar=no, resizable=no');
+            
+            window.open('/post/rpopup/${dto.pno}', 'pop01', 'top=10, left=10, width=500, height=600, status=no, menubar=no, toolbar=no, resizable=no');
 })
 
 </script>

@@ -414,11 +414,12 @@ public class Mycontroller {
 	      return "admin/bpopup";
 	   }
 	   @GetMapping("/admin/apopup/{ano}")
-	   public String asktext(@PathVariable int ano, Model m,Askcomm acm) {
+	   public String asktext(@PathVariable int ano, Model m,Askcomm acm, @AuthenticationPrincipal SecurityUser user) {
 		   List<Askcomm> info = service4.info(ano);
 		  Ask asktext=service4.asktext(ano); 
 		  m.addAttribute("asktext",asktext);
 		  m.addAttribute("info",info);
+		  m.addAttribute("id",user.getUser().getUserid());
 	      return "admin/apopup";
 	   }
 	   
