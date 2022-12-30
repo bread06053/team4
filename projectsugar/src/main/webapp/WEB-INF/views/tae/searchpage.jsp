@@ -93,7 +93,7 @@
 		<div class="line2"></div>
 <ul>
 	<c:forEach items="${post}" var="dto">
-		<li><a href="=/post/postview/${dto.pno}"> ${dto.ptitle}</a><br>
+		<li><a href="/post/postview/${dto.pno}"> ${dto.ptitle}</a><br>
 	</c:forEach>
 </ul>
 </div>

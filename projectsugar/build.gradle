@@ -7,7 +7,11 @@ plugins {
 group = 'app.project'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
-
+configurations {
+    all {
+        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+    }
+}
 configurations {
 	compileOnly {
 		extendsFrom annotationProcessor
@@ -43,6 +47,9 @@ dependencies {
 	implementation group: 'org.apache.poi', name: 'poi', version: '5.2.3'
 	// https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml
 	implementation group: 'org.apache.poi', name: 'poi-ooxml', version: '5.2.3'
+	implementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.17.0'
+implementation group: 'org.apache.logging.log4j', name: 'log4j-to-slf4j', version: '2.17.0'
+
 
 }
 

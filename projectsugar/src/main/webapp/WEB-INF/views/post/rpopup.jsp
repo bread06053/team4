@@ -6,7 +6,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form class="fom1" action="/admin/rpopup1" method="post" id="reportlist">
+<form class="fom1" action="/post/rpopup1" method="post" id="reportlist">
  <input type = "hidden" name = "pno" value = "${pno}">
  <input type = "hidden" name = "userid" value = "${userid}">
  신고 제목 : <input name = "btitle" placeholder="제목을 입력하시오" class="title">
