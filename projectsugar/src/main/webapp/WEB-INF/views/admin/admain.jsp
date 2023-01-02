@@ -63,7 +63,7 @@
                 				<div class="line2"></div>
 									<table>
 										<tr>
-											<th>아이디</th><th>닉네임</th><th>이메일</th><th>레벨</th>
+											<th>아이디</th><th>닉네임</th><th>이메일</th><th style="padding-left: 5px;padding-right: 5px; width: 50px;">레벨</th>
 										</tr>
 										<c:forEach items="${infotable}" var="dto">	
 										<tr><td>${dto.userid}</td><td>${dto.nickname}</td><td>${dto.email}</td><td>${dto.level}</td>

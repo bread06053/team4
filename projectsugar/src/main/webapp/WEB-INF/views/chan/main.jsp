@@ -89,7 +89,7 @@
 	
 <dl class="mainview" id="chefList" style="left:18%; right:30%;">
 <dt>
-<h3>이번주 <span>짜파게티 요리사</span></h3>
+<h3>명예 <span>짜파게티 요리사</span></h3>
 </dt>
 <dd style="margin-top:-10px;">
 
