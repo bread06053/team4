@@ -242,17 +242,14 @@ public class Mycontroller {
 		return "chan/bestRcpInfo";
 	}
 
-	@GetMapping("tae/userinfo")
-	public String userinfo(User user, Model m) {
-		User info = service.Userinfo(user);
+	@GetMapping("tae/userupdate")
+	public String userinfo(@AuthenticationPrincipal SecurityUser users,Model m) {
 		
-		if(info == null) {
-			return "tae/userinfo";
-		}else{
-			m.addAttribute("info",info);
+		m.addAttribute("nickname",users.getUser().getNickname());
+		m.addAttribute("id", users.getUser().getUserid());
 			return "tae/userupdate";
 
-		}
+		
 	}
 	
 	@PostMapping("tae/userupdate")
@@ -508,7 +505,7 @@ public class Mycontroller {
 
 	 @GetMapping("tae/recipeSearch")
 	 public String resultsearch(Recipe recipe,Model m) {
-		 	System.out.println("recipe::"+recipe);
+		 	
          	int search1 = service2.recipeSearch1(recipe);	
 	         List<Recipe> search = service2.recipeSearch(recipe);
 			 m.addAttribute("search",search);

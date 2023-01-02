@@ -39,7 +39,7 @@ public class KakaoController {
         //System.out.println("kakaoToken"+kakaoToken);
         // 접속자 정보 get
         Map<String, Object> result = kakaoService.getUserInfo(kakaoToken);
-        System.out.println(result);
+     
         String snsId = (String) result.get("id");
         String userName = (String) result.get("nickname");
         String email = (String) result.get("email");

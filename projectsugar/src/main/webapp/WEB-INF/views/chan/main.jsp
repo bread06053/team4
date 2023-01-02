@@ -67,6 +67,7 @@
                 </li>
             </ul>
         </div>
+       <jsp:include page="../tae/adpopup.jsp"/>
 <div class="main">       
 <div class="slideshow-container">
 		<c:forEach var="i" items="${bestView}">
