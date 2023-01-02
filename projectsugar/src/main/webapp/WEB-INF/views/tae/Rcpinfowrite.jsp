@@ -34,7 +34,7 @@ font-size : 10px;
 
       <input id="yoyoText" name="q" type="text" class="form-control ui-autocmplete-input" placeholder values="" style="ime-mode:active;" autocomplete="off">   
       <span class="input-group-btn">
-      <button class="btn btn-default" type="submit" style="padding-bottom: 8px;">
+      <button class="btn btn-default" type="submit" style="padding-bottom: 8px;width: 64px;">
          <span class="glyphicon glyphicon-search">
          ::검색
          </span>

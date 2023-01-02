@@ -16,7 +16,7 @@ public interface PostDao {
 
 
 	@Select
-	("select pno, ptitle from post where ptitle like concat('%',#{search},'%')")
+	("select pno, ptitle from post where ptitle like concat('%',#{search},'%') limit 8")
 	List<Post> searchti2(String search);
 	@Insert
 	("insert into post (ptitle,ptext,userid) values(#{ptitle},#{ptext},#{userid})")
