@@ -81,8 +81,7 @@
             <input type="submit" id="btn" value="로그인"><br>
             
             <div class="col-lg-12 text-center mt-3">
-    		<button class="btn btn-block waves-effect waves-light btn-rounded btn-outline-info mb-3">로그인하기</button>
-			<img alt="카카오로그인" src="/img/kakao.jpeg" onclick="loginWithKakao()">
+			<img alt="카카오로그인" src="/img/kakao.jpeg" onclick="loginWithKakao()" style="width: 50px;">
 			</div>
     	
         <a href= "/tae/join">회원가입</a>

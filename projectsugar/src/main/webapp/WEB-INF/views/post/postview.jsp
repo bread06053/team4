@@ -19,7 +19,6 @@
 </head>
 <body>
 <div class="yoyo_top_wrap">
-<<<<<<< HEAD
 	<div class="yoyo_top">
 	<h1>
 	<a href="http://localhost:8084/chan/main">
@@ -90,7 +89,7 @@
                      </div>
                      <div class="article_info">
                      <span class="date">${dto.ptime}</span>
-                     <span class="count">${dto.pview}</span>
+                     <span class="count"> 조회수:${dto.pview}</span>
                      </div>
                   </div>      
                   <c:if test = "${dto.userid == id }">
@@ -137,7 +136,7 @@
 							<span class="comment_info_date">
 								${i.ctime}
 							</span><c:if test = "${ i.userid == id }">
-            <button onclick = "location.href='/post/postview1/${i.cno}/${i.pno}'">댓글 삭제</button><hr>
+            <button onclick = "location.href='/post/postview1/${i.cno}/${i.pno}'">댓글 삭제</button>
             </c:if>
 							</div>					
 					</div>
@@ -148,7 +147,7 @@
 				<div class="CommentWriter">
 					<div class="comment_inbox">
 					<form method = "post" action = "/post/postview">
-					<em class="comment_inbox_name">${dto.userid}</em>
+					<em class="comment_inbox_name">${id}</em>
 					<input type = "hidden" name = "userid" value= "${id }">
 					<input type = "hidden" name = "pno" value= "${dto.pno}"> 
 					<textarea name="ctext" placeholder="댓글을 남겨보아요" class="comment_inbox_text" style="overflow:hidden; overflow-wrap:break-word;">

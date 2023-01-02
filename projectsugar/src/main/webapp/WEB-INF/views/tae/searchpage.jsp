@@ -103,7 +103,7 @@ li img{
 	커뮤니티 검색 결과 입니다.</div><br>
 	${q }으로/로 검색 결과를 보여줍니다..
 		<div class="line2"></div>
-<ul class="search1">
+<ul class="search2">
 <c:if test = "${post.size() == 0}">
 		<div>검색결과가 없습니다..</div>
 
