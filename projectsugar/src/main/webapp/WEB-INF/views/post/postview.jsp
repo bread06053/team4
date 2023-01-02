@@ -19,15 +19,15 @@
 </head>
 <body>
 <div class="yoyo_top_wrap">
-	<div class="yoyo_top">
-	<h1>
-	<a href="http://localhost:8084/chan/main">
-	<img id = "sugarimg" src="/style/${all}" alt="로고">
-	</a>
-	</h1>
-	<div class="yoyo_search">
-	<form id="yoyoSearch" method="post" action="/tae/searchpage">
-		<div class="input-group">
+   <div class="yoyo_top">
+   <h1>
+   <a href="http://localhost:8084/chan/main">
+   <img id = "sugarimg" src="/style/${all}" alt="로고">
+   </a>
+   </h1>
+   <div class="yoyo_search">
+   <form id="yoyoSearch" method="post" action="/tae/searchpage">
+      <div class="input-group">
 
 
       <input id="yoyoText" name="q" type="text" class="form-control ui-autocmplete-input" placeholder values="" style="ime-mode:active;" autocomplete="off">   
@@ -94,7 +94,7 @@
                   </div>      
                   <c:if test = "${dto.userid == id }">
                   <button class='up' onclick = "location.href = '/post/postupdate/${pno}'" style="float: right;"> 글 수정</button>            
-              		</c:if>
+                    </c:if>
                </div>
                                  
             </div>
@@ -115,51 +115,51 @@
                   </div>
                </div>
                <div class="CommentBox">
-				<h3 class="comment_title">댓글</h3>
-				<ul class="comment_list">
-				<c:forEach var="i" items="${info}">
-				<li class="CommentItem">
-				<div class="comment_area">
-					<img src="/profile/${i.profile}">
-					<div class="comment_box">
-						<div class="comment_nick_box">
-							<div class="comment_nick_info">
-							${i.nickname}
-							</div>
-							<i class="LevelIcon icon_level" style="background-image:url(/levelimg/${i.badge})"></i></div>
-							<div class="comment_text_box">
-								<p class="comment_text_view">
-									${i.ctext } 
-								</p>
-							</div>
-							<div class="comment_info_box">
-							<span class="comment_info_date">
-								${i.ctime}
-							</span><c:if test = "${ i.userid == id }">
+            <h3 class="comment_title">댓글</h3>
+            <ul class="comment_list">
+            <c:forEach var="i" items="${info}">
+            <li class="CommentItem">
+            <div class="comment_area">
+               <img src="/profile/${i.profile}">
+               <div class="comment_box">
+                  <div class="comment_nick_box">
+                     <div class="comment_nick_info">
+                     ${i.nickname}
+                     </div>
+                     <i class="LevelIcon icon_level" style="background-image:url(/levelimg/${i.badge})"></i></div>
+                     <div class="comment_text_box">
+                        <p class="comment_text_view">
+                           ${i.ctext } 
+                        </p>
+                     </div>
+                     <div class="comment_info_box">
+                     <span class="comment_info_date">
+                        ${i.ctime}
+                     </span><c:if test = "${ i.userid == id }">
             <button onclick = "location.href='/post/postview1/${i.cno}/${i.pno}'">댓글 삭제</button>
             </c:if>
-							</div>					
-					</div>
-				</div>
-				</li>
-				</c:forEach>
-				</ul>
-				<div class="CommentWriter">
-					<div class="comment_inbox">
-					<form method = "post" action = "/post/postview">
-					<em class="comment_inbox_name">${id}</em>
-					<input type = "hidden" name = "userid" value= "${id }">
-					<input type = "hidden" name = "pno" value= "${dto.pno}"> 
-					<textarea name="ctext" placeholder="댓글을 남겨보아요" class="comment_inbox_text" style="overflow:hidden; overflow-wrap:break-word;">
-					</textarea>
-					<button type = "submit">댓글 등록</button>
-				</form>
-					</div>
-				</div>
-				</div>
-				</div>
-		<button type="button" onclick="location.href='/post/postlist'"style=" margin-bottom: 10px; margin-left: 750px;">목록으로</button>
-	</div>
+                     </div>               
+               </div>
+            </div>
+            </li>
+            </c:forEach>
+            </ul>
+            <div class="CommentWriter">
+               <div class="comment_inbox">
+               <form method = "post" action = "/post/postview">
+               <em class="comment_inbox_name">${id}</em>
+               <input type = "hidden" name = "userid" value= "${id }">
+               <input type = "hidden" name = "pno" value= "${dto.pno}"> 
+               <textarea name="ctext" placeholder="댓글을 남겨보아요" class="comment_inbox_text" style="overflow:hidden; overflow-wrap:break-word;">
+               </textarea>
+               <button type = "submit">댓글 등록</button>
+            </form>
+               </div>
+            </div>
+            </div>
+            </div>
+      <button type="button" onclick="location.href='/post/postlist'"style=" margin-bottom: 10px; margin-left: 750px;">목록으로</button>
+   </div>
 </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

@@ -37,12 +37,12 @@
     position: relative;
     float: left;
     margin-right: 10px;
-	width: 53px;
+   width: 53px;
     height: 53px;
 }
 .ArticleTitle .title_area .title_text {
     font-weight: 400;
-   	font-size: xxx-large;
+      font-size: xxx-large;
 }
 .profile_area {
     float: left;
@@ -55,11 +55,11 @@
     position: relative;
     vertical-align: top;
     margin-right: 6px;
-  	font-size: x-large;
+     font-size: x-large;
     font-weight: 700;
 }
 .WriterInfo{
-	height: 36px;
+   height: 36px;
 }
 .WriterInfo .article_info {
     font-size: large;
@@ -70,7 +70,7 @@
     margin-right: 8px;
 }
 .article_container{
-	overflow-y: hidden;
+   overflow-y: hidden;
     position: relative;
     min-height: 150px;
     font-size: 24px;
@@ -78,7 +78,7 @@
     word-wrap: break-word;
 }
 .ReplyBox {
-	margin-top: 5%;
+   margin-top: 5%;
     position: relative;
     margin-bottom: 27px;
     line-height: 19px;
@@ -191,7 +191,7 @@ textarea.comment_inbox_text {
     box-sizing: border-box;
 }
 .layer_button{
-	position: absolute;
+   position: absolute;
     top: 12px;
     right: 0;
     width: 32px;
@@ -228,7 +228,7 @@ body {
     font-family: Apple SD Gothic Neo,맑은 고딕,Malgun Gothic,돋움,dotum,sans-serif;
 }
 .up{
-	width:40px;
+   width:40px;
     height: 30px;
     font-size: 13px;
     border-radius: 6px;

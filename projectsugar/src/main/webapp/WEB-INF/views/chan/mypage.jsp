@@ -70,7 +70,7 @@
 					<sec:authorize access="hasAnyRole('ROLE_MEMBER')">
 					<button onclick = 'location.href = "/tae/myask1?id=<sec:authentication property = 'principal.user.userid'/>"'>내 문의내역</button>
 					</sec:authorize>
-						<a href="/tae/userinfo">개인정보 변경</a>
+						<a href="/tae/userupdate">개인정보 변경</a>
 					</div>
 				</div>
 				  <div class="wrapper_right_body">

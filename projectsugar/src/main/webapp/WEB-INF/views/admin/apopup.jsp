@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,12 +44,14 @@
 				</c:if>
 				<hr>
 				</c:forEach>
-	<form method = "post" action = "/admin/apopup">
-	댓글 : <input name = actext> 
-	<input type = "hidden" name = "ano" value = "${asktext.ano}">
-	<input type = "hidden" name = "userid" value = "${id }">
-	<button type = "submit">답변 등록</button>
-	</form>
+			<sec:authorize access="hasAnyRole('ROLE_ADMIN')">
+			<form method = "post" action = "/admin/apopup">
+			댓글 : <input name = actext> 
+			<input type = "hidden" name = "ano" value = "${asktext.ano}">
+			<input type = "hidden" name = "userid" value = "${id }">
+			<button type = "submit">답변 등록</button>		
+			</form>
+			</sec:authorize>
 </div>
 </body>
 </html>
