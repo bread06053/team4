@@ -82,7 +82,7 @@ public class KakaoService {
                  conn.setRequestProperty("Authorization", "Bearer " + access_token);
 
                  int responseCode = conn.getResponseCode();
-                 System.out.println("responseCode : " + responseCode);
+                 
 
                  BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
 
@@ -92,12 +92,12 @@ public class KakaoService {
                  while ((br_line = br.readLine()) != null) {
                      result += br_line;
                  }
-                System.out.println("response:" + result);
+         
 
 
                  JsonParser parser = new JsonParser();
                  JsonElement element = parser.parse(result);
-                System.out.println(element);
+            
                  JsonObject properties = element.getAsJsonObject().get("properties").getAsJsonObject();
                  JsonObject kakao_account = element.getAsJsonObject().get("kakao_account").getAsJsonObject();
                  String id = element.getAsJsonObject().get("id").getAsString();

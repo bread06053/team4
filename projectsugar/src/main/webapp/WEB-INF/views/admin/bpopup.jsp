@@ -51,6 +51,8 @@ $(function(){
 				$.ajax({url:"/tae/deletePost",
 				 	data:"pno=${reporttext.pno}",
 				 	method:'post'
+				}).done(function(data){
+					window.location.href = "/tae/bpopupclose";
 				})
 			}//if
 	})//click

@@ -253,9 +253,9 @@ public class Mycontroller {
 	}
 	
 	@PostMapping("tae/userupdate")
-	public String userupdateForm(User user,MultipartFile profile_img,HttpServletRequest request) {
+	public String userupdateForm(User user, MultipartFile profile_img,HttpServletRequest request) {
 		String path = upload1(profile_img, request);
-		System.out.println(path);
+		
 		user.setProfile(path);
 		service.userupdate(user);
 		return "redirect:/chan/mypage";
