@@ -253,7 +253,10 @@ public class Mycontroller {
 	}
 	
 	@PostMapping("tae/userupdate")
-	public String userupdateForm(User user) {
+	public String userupdateForm(User user,MultipartFile profile_img,HttpServletRequest request) {
+		String path = upload1(profile_img, request);
+		System.out.println(path);
+		user.setProfile(path);
 		service.userupdate(user);
 		return "redirect:/chan/mypage";
 		}
@@ -301,7 +304,24 @@ public class Mycontroller {
 		      }
 		      return newName;
 	}
-	
+	private String upload1(MultipartFile profile_img ,HttpServletRequest request) {
+		long currentTime = System.currentTimeMillis();
+		Random r = new Random();
+		int no = r.nextInt(50);//0~40개 랜덤 값 발생
+		int index = profile_img.getOriginalFilename().indexOf(".");
+		String ext = profile_img.getOriginalFilename().substring(index +1);//확장자
+		
+		
+		String newName = currentTime+ "_"+no+"."+ext; //중복 되지 않는 새로운 이름
+		  try {
+		         String path = request.getServletContext().getRealPath("/profile");
+		        File f = new File(path, newName);
+		        profile_img.transferTo(f);
+		      } catch (IllegalStateException | IOException e) {
+		         e.printStackTrace();
+		      }
+		      return "/profile/"+newName;
+	}
 
 	
 	@GetMapping("admin/admain")

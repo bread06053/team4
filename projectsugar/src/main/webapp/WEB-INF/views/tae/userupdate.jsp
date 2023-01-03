@@ -8,17 +8,15 @@
 </style>
 <head>
 <link rel="stylesheet" href="/css/mainHeader.css"/>
+<link rel="stylesheet" href="/css/main.css"/>
 <link rel="stylesheet" href="/css/userupdate.css"/>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Dongle&display=swap" rel="stylesheet">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Dongle&display=swap');
 .mySlides {display:none}
 .prev, .next, .dot {cursor:pointer}
 .dot {height:13px;width:13px;padding:0}
 @import url('https://fonts.googleapis.com/css2?family=Dongle&display=swap');
-<link rel="stylesheet" href="/css/mainHeader.css"/>
-<link rel="stylesheet" href="/css/main.css"/>
 <title>Insert title here</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Dongle&display=swap" rel="stylesheet">
@@ -78,7 +76,7 @@
             </ul>
         </div>
 
-<form action="userupdate" method="post" id="updateform" style = "text-align : center; font-size:32pt">
+<form action="userupdate" method="post" id="updateform" style = "text-align : center; font-size:32pt" enctype="multipart/form-data">
 	
 		${nickname}님의 정보를 수정합니다. <br>
 		현재 아이디 : ${id} <br>
@@ -87,6 +85,7 @@
 		이메일: <input name = "email" value = "${info.email}"><br>
 		이름: <input name="name" id="name" value="${info.name}"><br>
 		닉네임: <input name = "nickname" value = "${info.nickname}"><br>
+		프로필: <input type = "file" name = "profile_img" id="profile"><br>
 		<div class="pr"><span>자기소개:</span> <textarea name="pr"></textarea><br></div>
 		주소: <input name="address" id="address" value="${info.address}"> <input type="button" id="addbtn" value="우편번호 검색" onclick="addPost()"><br>
 		상세주소:<input name = "address" id = "address">

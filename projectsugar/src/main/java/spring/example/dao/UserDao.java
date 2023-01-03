@@ -72,7 +72,7 @@ int asksome(Ask ask);
 User Userinfo(User user);
 
 @Update
-("update user set nickname = #{nickname}, email = #{email} ,passwd = #{passwd}, address = #{passwd}, name = #{name}, pr = #{pr} where userid = #{userid}")
+("update user set profile=#{profile}, nickname = #{nickname}, email = #{email} ,passwd = #{passwd}, address = #{passwd}, name = #{name}, pr = #{pr} where userid = #{userid}")
 int UserUpdate(User user);
 
 @Delete

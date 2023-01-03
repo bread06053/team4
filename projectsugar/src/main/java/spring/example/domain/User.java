@@ -16,5 +16,6 @@ public class User {
 	private int level;
 	private int report;
 	private Role role;
+
 }
 

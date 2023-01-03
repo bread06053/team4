@@ -81,11 +81,14 @@
                     				<span class="title">계정 정보</span>
                 				</div>
                 				<div class="line2"></div>
-               					<div class="myaccount">
-               						<span>이름: </span><sec:authentication property = "principal.user.name"></sec:authentication><br>
+                				<form method="get" action="/tae/userupdate">               					
+                				<div class="myaccount">               					               						
+                				<span>이름: </span><sec:authentication property = "principal.user.name"></sec:authentication><br>
                					</div>
                					<div class="myaccount">
-               						<span>아이디: </span><sec:authentication property = "principal.user.userid"></sec:authentication> <br>
+               						<span>아이디: </span><sec:authentication property = "principal.user.userid"></sec:authentication> <br>               						
+               						<input type="hidden" value="<sec:authentication property = "principal.user.userid"></sec:authentication>" name="userid">
+               						<input type="hidden" value="<sec:authentication property = "principal.user.passwd"></sec:authentication>" name="passwd">
                					</div>
                					<div class="myaccount">
                						<span>이메일: </span><sec:authentication property = "principal.user.email"></sec:authentication><br>
@@ -96,7 +99,8 @@
                					<div class="myaccount">
                						<span>주소: </span><sec:authentication property = "principal.user.address"></sec:authentication><br>
                					</div>
-            				</div>
+               					</form>
+            				</div>            				
         				</div>
    					 </div>     
                   </div>

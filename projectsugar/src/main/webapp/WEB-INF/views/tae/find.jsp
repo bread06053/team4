@@ -91,7 +91,7 @@ margin-top : 10px;
 </head>
 
 <body>
-<div id = good align="center" style="width: 1910px; height: 70px;" onclick = "location.href = '/chan/main'">
+<div id = good align="center" style="width: 1910px; height: 70px;" onclick = "location.href = '/tae/login'">
 <p class="a"><span style="font-size: 200%;">요</span><span style="font-size:100%;">리초보들을 위한</span>
 <span style="font-size: 200%;">요</span><span style="font-size:100%;">리비책</span></p>
 </div>

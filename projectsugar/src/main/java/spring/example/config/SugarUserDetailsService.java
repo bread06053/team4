@@ -23,7 +23,6 @@ public class SugarUserDetailsService implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		User user = userDao.findById(username);
-		System.out.println(user);
 		if (user == null) {
 			throw new UsernameNotFoundException(username + " 사용자 없음");
 		} else {

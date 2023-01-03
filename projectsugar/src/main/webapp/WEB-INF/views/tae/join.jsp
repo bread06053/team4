@@ -99,14 +99,14 @@ td {
 <body>
 
 
-<div id = good align="center" style="width: 1910px; height: 70px;" onclick = "location.href = '/chan/mainHeader'">
+<div id = good align="center" style="width: 1910px; height: 70px;" onclick = "location.href = '/tae/login'">
 <p class="a"><span style="font-size: 200%;">요</span><span style="font-size:100%;">리초보들을 위한</span>
 <span style="font-size: 200%;">요</span><span style="font-size:100%;">리비책</span></p>
 </div>
 
 
 <form action="/tae/join" method="post" id="joinForm">
-	<table style="border:1px solid black;margin-left:800px;margin-right:auto; margin-top: 150px;width:25%;"> 
+	<table style="border:1px solid black;margin-left:auto;margin-right:auto; margin-top: 50px;width:25%;"> 
 		<tr><td colspan="2"><h3 style = "text-align: center;">요-요</h3></td></tr>
 		<tr><td>아이디</td><td><input name="userid" id="id"><input type="button" id="id_check" value="중복 확인">
 		<div id="id_msg"></div></td></tr>
