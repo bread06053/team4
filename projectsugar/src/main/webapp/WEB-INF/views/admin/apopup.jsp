@@ -28,12 +28,11 @@
 		</div>
 		<div class="line"></div>
 				</div>
-		<div class="text">
+		<div class="text"style="margin-bottom: 100px;
+">
 			${asktext.atext}
 		</div>
-	</div>
-	</div>
-	</div>
+			<hr>
 	</div>
 	<c:forEach var="i" items="${info}">
 				
@@ -42,16 +41,18 @@
 				<c:if test = "${i.userid  == id}">
 				<button onclick = "location.href='/admin/apopup1/${i.ano}/${i.acno}'">댓글 삭제</button><hr>
 				</c:if>
-				<hr>
 				</c:forEach>
 			<sec:authorize access="hasAnyRole('ROLE_ADMIN')">
 			<form method = "post" action = "/admin/apopup">
 			댓글 : <input name = actext> 
 			<input type = "hidden" name = "ano" value = "${asktext.ano}">
 			<input type = "hidden" name = "userid" value = "${id }">
-			<button type = "submit">답변 등록</button>		
+			<button type = "submit" style="background-color: orange;">답변 등록</button>		
 			</form>
 			</sec:authorize>
+	</div>
+	</div>
+	</div>
 </div>
 </body>
 </html>

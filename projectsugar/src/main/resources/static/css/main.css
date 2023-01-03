@@ -235,3 +235,10 @@ h4{
 	height: 300px;
 	float:left;
 }
+input#atitle {
+	margin-bottom: 5px;
+	width: 200px;
+    font-size: 14px;
+    background: ivory;
+    border: 1px solid #e6e7e8;
+}
