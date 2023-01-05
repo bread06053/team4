@@ -47,7 +47,10 @@
 					<div class="footer">
 					<sec:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_MANAGER')">
 						<button onclick = "location.href ='/admin/admain' ">관리자 페이지</button>
-					</sec:authorize>		
+					</sec:authorize>
+					<form method="post" action="/tae/kakaoPay" name="frmData">
+					<button type="button" id = "kakao">유료 레시피 결제</button>
+					</form>		
 						<div class="feelWrapper">
 							<div class="feel">오늘의 기분</div>
 							<select class="feelSelect">
@@ -81,14 +84,14 @@
                     				<span class="title">계정 정보</span>
                 				</div>
                 				<div class="line2"></div>
-                				<form method="get" action="/tae/userupdate">               					
+                				<form method="Post" action="tae/userupdate">               					
                 				<div class="myaccount">               					               						
                 				<span>이름: </span><sec:authentication property = "principal.user.name"></sec:authentication><br>
                					</div>
                					<div class="myaccount">
                						<span>아이디: </span><sec:authentication property = "principal.user.userid"></sec:authentication> <br>               						
                						<input type="hidden" value="<sec:authentication property = "principal.user.userid"></sec:authentication>" name="userid">
-               						<input type="hidden" value="<sec:authentication property = "principal.user.passwd"></sec:authentication>" name="passwd">
+               						
                					</div>
                					<div class="myaccount">
                						<span>이메일: </span><sec:authentication property = "principal.user.email"></sec:authentication><br>
@@ -108,5 +111,25 @@
 		</div>
 	</div>
 </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(function(){
+	$("#kakao").click(function(){
+		//window.open("/tae/kakaoPay", '_blank', 'width=800, height=600'); 
+		
+		
+	var pop_title = "popupOpener" ;
+		
+		window.open("", pop_title,'width=800, height=600') ;
+		
+		var frmData = document.frmData ;
+		frmData.target = pop_title ;
+		frmData.action = "/tae/kakaoPay" ;
+		
+		frmData.submit() ;
+		
+	})
+})
+</script>
 </body>
 </html>

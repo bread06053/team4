@@ -254,12 +254,13 @@ public class Mycontroller {
 	}
 	
 	@PostMapping("tae/userupdate")
-	public String userupdateForm(User user, MultipartFile profile_img,HttpServletRequest request,Model m,@AuthenticationPrincipal SecurityUser users) {
+	public String userupdateForm(User user, MultipartFile profile_img,HttpServletRequest request, @AuthenticationPrincipal SecurityUser users) {
 		String path = upload1(profile_img, request);
 		user.setProfile(path);
 		service.userupdate(user);
 		
 		users.setUser(service.findById(user.getUserid()));
+		
 		return "redirect:/chan/mypage";
 		}
 	@PostMapping("tae/delete")

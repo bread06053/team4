@@ -25,6 +25,7 @@ public class SecurityUser extends User {
     public spring.example.domain.User getUser() {
         return user;
     }
+
     public void setUser(spring.example.domain.User user) {
         this.user = user;
     }
