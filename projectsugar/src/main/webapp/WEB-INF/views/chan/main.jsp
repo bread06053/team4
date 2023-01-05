@@ -49,7 +49,7 @@
          <span style="border-radius: 2px; background: #ffd200; color: #000; display: block; font-size: 11px; padding:2px 5px; text-align: center;">회원가입</span>
     </div>
     <a href="http://localhost:8084/chan/mypage">
-    <sec:authentication property = "principal.user.userid"></sec:authentication>님 안녕하세요!<br>
+    <sec:authentication property = "principal.user.nickname"></sec:authentication>님 안녕하세요!<br>
     <sec:authorize access = "!isAuthenticated()"/>
     <img src="/profile/<sec:authentication property = "principal.user.profile"/>">
     </a>

@@ -244,7 +244,8 @@ public class Mycontroller {
 
 	@GetMapping("tae/userupdate")
 	public String userinfo(@AuthenticationPrincipal SecurityUser users,Model m) {
-		
+		 String all=service6.all();
+		 m.addAttribute("all",all);	
 		m.addAttribute("nickname",users.getUser().getNickname());
 		m.addAttribute("id", users.getUser().getUserid());
 			return "tae/userupdate";
@@ -255,7 +256,6 @@ public class Mycontroller {
 	@PostMapping("tae/userupdate")
 	public String userupdateForm(User user, MultipartFile profile_img,HttpServletRequest request, @AuthenticationPrincipal SecurityUser users) {
 		String path = upload1(profile_img, request);
-		
 		user.setProfile(path);
 		service.userupdate(user);
 		

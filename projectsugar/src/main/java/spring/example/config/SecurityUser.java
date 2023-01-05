@@ -29,5 +29,4 @@ public class SecurityUser extends User {
     public void setUser(spring.example.domain.User user) {
         this.user = user;
     }
-
 }

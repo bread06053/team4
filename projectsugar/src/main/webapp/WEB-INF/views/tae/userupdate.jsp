@@ -60,7 +60,7 @@
     <a href="http://localhost:8084/chan/mypage">
     <sec:authentication property = "principal.user.userid"></sec:authentication>님 안녕하세요!<br>
     <sec:authorize access = "!isAuthenticated()"/>
-    <img src="/profile/<sec:authentication property = "principal.user.profile"/>">
+    <img src="profile/<sec:authentication property = "principal.user.profile"/>">
     </a>
 </div>
 </div>
