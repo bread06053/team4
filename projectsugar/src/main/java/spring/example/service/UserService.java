@@ -75,6 +75,8 @@ public class UserService {
 	public User findById(String id) {
 		return dao.findById(id);
 	}
-	
+	public int updatekakao(String userid) {
+		return dao.updatekakao(userid);
+	}
 }
 	
