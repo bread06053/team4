@@ -37,7 +37,7 @@ public class KakaoPay {
         // 서버로 요청할 Body
         MultiValueMap<String, String> params = new LinkedMultiValueMap<String, String>();
         params.add("cid", "TC0ONETIME");
-        params.add("partner_order_id", "1001");
+        params.add("partner_order_id", "1003");
         params.add("partner_user_id", "gorany");
         params.add("item_name", "유료 레시피");
         params.add("quantity", "1");

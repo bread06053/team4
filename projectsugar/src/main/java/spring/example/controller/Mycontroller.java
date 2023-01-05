@@ -244,7 +244,8 @@ public class Mycontroller {
 
 	@GetMapping("tae/userupdate")
 	public String userinfo(@AuthenticationPrincipal SecurityUser users,Model m) {
-		
+		 String all=service6.all();
+		 m.addAttribute("all",all);	
 		m.addAttribute("nickname",users.getUser().getNickname());
 		m.addAttribute("id", users.getUser().getUserid());
 			return "tae/userupdate";
@@ -253,11 +254,12 @@ public class Mycontroller {
 	}
 	
 	@PostMapping("tae/userupdate")
-	public String userupdateForm(User user, MultipartFile profile_img,HttpServletRequest request) {
+	public String userupdateForm(User user, MultipartFile profile_img,HttpServletRequest request,Model m,@AuthenticationPrincipal SecurityUser users) {
 		String path = upload1(profile_img, request);
-		
 		user.setProfile(path);
 		service.userupdate(user);
+		
+		users.setUser(service.findById(user.getUserid()));
 		return "redirect:/chan/mypage";
 		}
 	@PostMapping("tae/delete")
@@ -320,7 +322,7 @@ public class Mycontroller {
 		      } catch (IllegalStateException | IOException e) {
 		         e.printStackTrace();
 		      }
-		      return "/profile/"+newName;
+		      return newName;
 	}
 
 	

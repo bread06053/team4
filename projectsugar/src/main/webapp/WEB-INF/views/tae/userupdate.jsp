@@ -60,7 +60,7 @@
     <a href="http://localhost:8084/chan/mypage">
     <sec:authentication property = "principal.user.userid"></sec:authentication>님 안녕하세요!<br>
     <sec:authorize access = "!isAuthenticated()"/>
-    <img src="/profile/<sec:authentication property = "principal.user.profile"/>">
+    <img src="profile/<sec:authentication property = "principal.user.profile"/>">
     </a>
 </div>
 </div>
@@ -80,7 +80,7 @@
 	
 		${nickname}님의 정보를 수정합니다. <br>
 		현재 아이디 : ${id} <br>
-		<input type="hidden" name="userid" value="${info.userid}">
+		<input type="hidden" name="userid" value="${id}">
 		비밀번호: <input name="passwd" type="password" id="password" value="${info.passwd}"><br>
 		이메일: <input name = "email" value = "${info.email}"><br>
 		이름: <input name="name" id="name" value="${info.name}"><br>

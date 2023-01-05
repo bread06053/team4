@@ -69,7 +69,7 @@
 		<h2 class="title"><span style="color:peru;">커뮤니티</span> 글쓰기</h2>
 		<div class="tool_area">
 			<button type="submit" id="save" value="완료">등록</button>
-			<button type="button" id="cancel" value="취소" onclick="location.href='postlist'">취소</button>	
+			<button type="button" id="cancel" value="취소" onclick="location.href='/post/postlist'">취소</button>	
 		</div>
 	</div>
 	<div class="WritingContent">
