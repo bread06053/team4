@@ -1,8 +1,10 @@
 package spring.example.controller;
 
 
+import spring.example.config.SecurityUser;
 import spring.example.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +17,8 @@ import lombok.extern.java.Log;
 @Log
 @Controller
 public class KakaoPayController {
+	@Autowired
+	UserService service;
     
     @Setter(onMethod_ = @Autowired)
     private KakaoPay kakaopay;
@@ -33,8 +37,14 @@ public class KakaoPayController {
  
     }
     
+    @GetMapping("tae/kakaoPayCancel")
+    public void kakaoPayCancel() {
+    	
+    }
+    
     @GetMapping("tae/kakaoPaySuccess")
-    public void kakaoPaySuccess(@RequestParam("pg_token") String pg_token, Model model) {
+    public void kakaoPaySuccess(@RequestParam("pg_token") String pg_token, Model model, @AuthenticationPrincipal SecurityUser user) {
+    	service.updatekakao(user.getUser().getUserid());
         log.info("kakaoPaySuccess get............................................");
         log.info("kakaoPaySuccess pg_token : " + pg_token);
         

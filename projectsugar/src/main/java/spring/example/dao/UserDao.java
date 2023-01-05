@@ -86,4 +86,8 @@ List<User> memsInfo();
 @Select
 ("select * from user limit #{start} , #{cntUser}")
 List<Map<String,Object>>alluser(Map<String,Object> m);
+
+@Update
+("update user set role='ROLE_RICH' where userid=#{userid}")
+int updatekakao(String userid);
 }
