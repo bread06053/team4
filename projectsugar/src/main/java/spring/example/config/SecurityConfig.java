@@ -29,7 +29,7 @@ public class SecurityConfig{
 	public SecurityFilterChain filterChain(HttpSecurity security) throws Exception {
 	
 		
-		security.authorizeRequests().antMatchers("/chan/bestRcp").hasAnyRole("RICH_MEM","ADMIN");
+		security.authorizeRequests().antMatchers("/chan/bestRcp").hasAnyRole("RICH","ADMIN");
 		security.authorizeRequests().antMatchers("/admin/apopup1/**","/admin/apopup/**","/tae/login","/tae/join","/tae/find","/").permitAll();
 		security.authorizeRequests().antMatchers("/member/**").authenticated();
 		security.authorizeRequests().antMatchers("/admin/**").hasAnyRole("ADMIN");
